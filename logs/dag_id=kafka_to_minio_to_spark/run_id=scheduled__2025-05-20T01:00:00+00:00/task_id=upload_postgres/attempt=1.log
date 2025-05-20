@@ -1,0 +1,96 @@
+[2025-05-20T05:53:32.780+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-20T05:53:32.786+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.upload_postgres scheduled__2025-05-20T01:00:00+00:00 [queued]>
+[2025-05-20T05:53:32.791+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.upload_postgres scheduled__2025-05-20T01:00:00+00:00 [queued]>
+[2025-05-20T05:53:32.792+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-05-20T05:53:32.797+0000] {taskinstance.py:2888} INFO - Executing <Task(PostgresOperator): upload_postgres> on 2025-05-20 01:00:00+00:00
+[2025-05-20T05:53:32.800+0000] {standard_task_runner.py:72} INFO - Started process 2011 to run task
+[2025-05-20T05:53:32.802+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'upload_postgres', 'scheduled__2025-05-20T01:00:00+00:00', '--job-id', '135', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmphl54wq3q']
+[2025-05-20T05:53:32.803+0000] {standard_task_runner.py:105} INFO - Job 135: Subtask upload_postgres
+[2025-05-20T05:53:32.825+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.upload_postgres scheduled__2025-05-20T01:00:00+00:00 [running]> on host 91a46f1a1993
+[2025-05-20T05:53:32.987+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='upload_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-20T01:00:00+00:00'
+[2025-05-20T05:53:32.988+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-20T05:53:32.993+0000] {sql.py:266} INFO - Executing: 
+        INSERT INTO test_db (key, value)
+        VALUES ('hello', 'world')
+        
+[2025-05-20T05:53:32.997+0000] {base.py:84} INFO - Retrieving connection 'postgres'
+[2025-05-20T05:53:33.002+0000] {base.py:84} INFO - Retrieving connection 'postgres'
+[2025-05-20T05:53:33.003+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 272, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 452, in run
+    with self._create_autocommit_connection(autocommit) as conn:
+  File "/usr/local/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 574, in _create_autocommit_connection
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/postgres/hooks/postgres.py", line 176, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "0.0.0.0", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2025-05-20T05:53:33.006+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=kafka_to_minio_to_spark, task_id=upload_postgres, run_id=scheduled__2025-05-20T01:00:00+00:00, execution_date=20250520T010000, start_date=20250520T055332, end_date=20250520T055333
+[2025-05-20T05:53:33.012+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-20T05:53:33.012+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 135 for task upload_postgres (connection to server at "0.0.0.0", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+; 2011)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/operators/sql.py", line 272, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 452, in run
+    with self._create_autocommit_connection(autocommit) as conn:
+  File "/usr/local/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 574, in _create_autocommit_connection
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/postgres/hooks/postgres.py", line 176, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "0.0.0.0", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2025-05-20T05:53:33.024+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-20T05:53:33.031+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-20T05:53:33.032+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

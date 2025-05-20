@@ -1,0 +1,177 @@
+[2025-05-20T09:47:35.129+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-20T09:47:35.137+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.spark_etl scheduled__2025-05-19T16:00:00+00:00 [queued]>
+[2025-05-20T09:47:35.140+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.spark_etl scheduled__2025-05-19T16:00:00+00:00 [queued]>
+[2025-05-20T09:47:35.140+0000] {taskinstance.py:2865} INFO - Starting attempt 5 of 7
+[2025-05-20T09:47:35.144+0000] {taskinstance.py:2888} INFO - Executing <Task(SSHOperator): spark_etl> on 2025-05-19 16:00:00+00:00
+[2025-05-20T09:47:35.146+0000] {standard_task_runner.py:72} INFO - Started process 888 to run task
+[2025-05-20T09:47:35.148+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'spark_etl', 'scheduled__2025-05-19T16:00:00+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmpjx3u2we6']
+[2025-05-20T09:47:35.149+0000] {standard_task_runner.py:105} INFO - Job 18: Subtask spark_etl
+[2025-05-20T09:47:35.256+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.spark_etl scheduled__2025-05-19T16:00:00+00:00 [running]> on host 6a89a243c286
+[2025-05-20T09:47:35.279+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='spark_etl' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-19T16:00:00+00:00'
+[2025-05-20T09:47:35.279+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-20T09:47:35.283+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-05-20T09:47:35.286+0000] {base.py:84} INFO - Retrieving connection 'local_ssh'
+[2025-05-20T09:47:35.286+0000] {ssh.py:309} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2025-05-20T09:47:35.336+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_9.8)
+[2025-05-20T09:47:35.541+0000] {transport.py:1923} INFO - Authentication (password) successful!
+[2025-05-20T09:47:35.542+0000] {ssh.py:493} INFO - Running command: sh -c "/Users/jeongmieun/.pyenv/versions/airminio/bin/python /Users/jeongmieun/test/docker_***/dags/testlog_ml_spark.py"
+[2025-05-20T09:47:36.441+0000] {ssh.py:544} WARNING - 25/05/20 18:47:36 WARN Utils: Your hostname, jeongmieun-ui-MacBookAir.local resolves to a loopback address: 127.0.0.1; using 172.16.24.224 instead (on interface en0)
+[2025-05-20T09:47:36.443+0000] {ssh.py:544} WARNING - 25/05/20 18:47:36 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2025-05-20T09:47:36.633+0000] {ssh.py:544} WARNING - 25/05/20 18:47:36 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-20T09:47:36.730+0000] {ssh.py:544} WARNING - Setting default log level to "WARN".
+[2025-05-20T09:47:36.730+0000] {ssh.py:544} WARNING - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-05-20T09:47:38.253+0000] {ssh.py:544} WARNING - 25/05/20 18:47:38 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-05-20T09:47:42.670+0000] {ssh.py:539} INFO - +-------+--------+-----------+-----------+-----------------+---------------+
+[2025-05-20T09:47:42.672+0000] {ssh.py:539} INFO - |user_id|movie_id|sum(rating)|sum(review)|total_movie_click|sum(like_score)|
+[2025-05-20T09:47:42.673+0000] {ssh.py:539} INFO - +-------+--------+-----------+-----------+-----------------+---------------+
+[2025-05-20T09:47:42.674+0000] {ssh.py:539} INFO - |    100|    M008|          1|          0|                1|              9|
+[2025-05-20T09:47:42.674+0000] {ssh.py:539} INFO - |    100|    M005|          4|          0|                1|              0|
+[2025-05-20T09:47:42.674+0000] {ssh.py:539} INFO - |    100|    M007|         10|          0|                3|              3|
+[2025-05-20T09:47:42.675+0000] {ssh.py:539} INFO - |    100|    M006|          0|          0|                1|              0|
+[2025-05-20T09:47:42.675+0000] {ssh.py:539} INFO - |    100|    M009|          3|          3|                0|              3|
+[2025-05-20T09:47:42.675+0000] {ssh.py:539} INFO - |    100|    M003|          5|          0|                1|              0|
+[2025-05-20T09:47:42.676+0000] {ssh.py:539} INFO - |    100|    M002|          5|          0|                2|              3|
+[2025-05-20T09:47:42.676+0000] {ssh.py:539} INFO - |    100|    M004|          5|          1|                4|              0|
+[2025-05-20T09:47:42.676+0000] {ssh.py:539} INFO - |    100|    M001|          4|          2|                2|              3|
+[2025-05-20T09:47:42.676+0000] {ssh.py:539} INFO - |    100|    M010|          0|          0|                2|              0|
+[2025-05-20T09:47:42.677+0000] {ssh.py:539} INFO - |    101|    M002|          5|          0|                1|              3|
+[2025-05-20T09:47:42.677+0000] {ssh.py:539} INFO - |    101|    M006|          2|          0|                2|              3|
+[2025-05-20T09:47:42.677+0000] {ssh.py:539} INFO - |    101|    M001|          7|          1|                0|              3|
+[2025-05-20T09:47:42.677+0000] {ssh.py:539} INFO - |    101|    M004|          5|          1|                1|              0|
+[2025-05-20T09:47:42.678+0000] {ssh.py:539} INFO - |    101|    M007|          2|          0|                3|              0|
+[2025-05-20T09:47:42.678+0000] {ssh.py:539} INFO - |    101|    M009|          4|          1|                4|              0|
+[2025-05-20T09:47:42.678+0000] {ssh.py:539} INFO - |    101|    M008|         10|          2|                1|              3|
+[2025-05-20T09:47:42.679+0000] {ssh.py:539} INFO - |    101|    M003|          4|          0|                1|              0|
+[2025-05-20T09:47:42.679+0000] {ssh.py:539} INFO - |    101|    M010|          0|          0|                1|              0|
+[2025-05-20T09:47:42.679+0000] {ssh.py:539} INFO - |    101|    M005|          0|          0|                2|              0|
+[2025-05-20T09:47:42.679+0000] {ssh.py:539} INFO - +-------+--------+-----------+-----------+-----------------+---------------+
+[2025-05-20T09:47:42.680+0000] {ssh.py:539} INFO - only showing top 20 rows
+[2025-05-20T09:47:42.680+0000] {ssh.py:544} WARNING - Traceback (most recent call last):
+[2025-05-20T09:47:42.680+0000] {ssh.py:544} WARNING -   File "/Users/jeongmieun/test/docker_***/dags/testlog_ml_spark.py", line 74, in <module>
+[2025-05-20T09:47:42.681+0000] {ssh.py:544} WARNING -     scores_agg_df.write.jdbc(
+[2025-05-20T09:47:42.681+0000] {ssh.py:544} WARNING -   File "/Users/jeongmieun/.pyenv/versions/airminio/lib/python3.10/site-packages/pyspark/sql/readwriter.py", line 1984, in jdbc
+[2025-05-20T09:47:42.681+0000] {ssh.py:544} WARNING -     self.mode(mode)._jwrite.jdbc(url, table, jprop)
+[2025-05-20T09:47:42.682+0000] {ssh.py:544} WARNING -   File "/Users/jeongmieun/.pyenv/versions/airminio/lib/python3.10/site-packages/py4j/java_gateway.py", line 1322, in __call__
+[2025-05-20T09:47:42.682+0000] {ssh.py:544} WARNING -     return_value = get_return_value(
+[2025-05-20T09:47:42.682+0000] {ssh.py:544} WARNING -   File "/Users/jeongmieun/.pyenv/versions/airminio/lib/python3.10/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2025-05-20T09:47:42.682+0000] {ssh.py:544} WARNING -     return f(*a, **kw)
+[2025-05-20T09:47:42.683+0000] {ssh.py:544} WARNING -   File "/Users/jeongmieun/.pyenv/versions/airminio/lib/python3.10/site-packages/py4j/protocol.py", line 326, in get_return_value
+[2025-05-20T09:47:42.683+0000] {ssh.py:544} WARNING -     raise Py4JJavaError(
+[2025-05-20T09:47:42.683+0000] {ssh.py:544} WARNING - py4j.protocol.Py4JJavaError: An error occurred while calling o95.jdbc.
+[2025-05-20T09:47:42.683+0000] {ssh.py:544} WARNING - : org.postgresql.util.PSQLException: FATAL: database "userlog_db" does not exist
+[2025-05-20T09:47:42.684+0000] {ssh.py:544} WARNING - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+[2025-05-20T09:47:42.684+0000] {ssh.py:544} WARNING - 	at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2845)
+[2025-05-20T09:47:42.684+0000] {ssh.py:544} WARNING - 	at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:176)
+[2025-05-20T09:47:42.684+0000] {ssh.py:544} WARNING - 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:323)
+[2025-05-20T09:47:42.684+0000] {ssh.py:544} WARNING - 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+[2025-05-20T09:47:42.685+0000] {ssh.py:544} WARNING - 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+[2025-05-20T09:47:42.685+0000] {ssh.py:544} WARNING - 	at org.postgresql.Driver.makeConnection(Driver.java:446)
+[2025-05-20T09:47:42.685+0000] {ssh.py:544} WARNING - 	at org.postgresql.Driver.connect(Driver.java:298)
+[2025-05-20T09:47:42.685+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.datasources.jdbc.connection.BasicConnectionProvider.getConnection(BasicConnectionProvider.scala:49)
+[2025-05-20T09:47:42.685+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.datasources.jdbc.connection.ConnectionProviderBase.create(ConnectionProvider.scala:102)
+[2025-05-20T09:47:42.686+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.jdbc.JdbcDialect.$anonfun$createConnectionFactory$1(JdbcDialects.scala:161)
+[2025-05-20T09:47:42.686+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.jdbc.JdbcDialect.$anonfun$createConnectionFactory$1$adapted(JdbcDialects.scala:157)
+[2025-05-20T09:47:42.686+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:50)
+[2025-05-20T09:47:42.686+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:48)
+[2025-05-20T09:47:42.686+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+[2025-05-20T09:47:42.686+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+[2025-05-20T09:47:42.687+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+[2025-05-20T09:47:42.687+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+[2025-05-20T09:47:42.687+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2025-05-20T09:47:42.688+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2025-05-20T09:47:42.688+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2025-05-20T09:47:42.688+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2025-05-20T09:47:42.688+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2025-05-20T09:47:42.688+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+[2025-05-20T09:47:42.688+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2025-05-20T09:47:42.689+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:869)
+[2025-05-20T09:47:42.690+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:391)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:364)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:251)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at org.apache.spark.sql.DataFrameWriter.jdbc(DataFrameWriter.scala:766)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-20T09:47:42.691+0000] {ssh.py:544} WARNING - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-20T09:47:42.692+0000] {ssh.py:544} WARNING - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-20T09:47:42.692+0000] {ssh.py:544} WARNING - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-20T09:47:42.692+0000] {ssh.py:544} WARNING - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-20T09:47:42.692+0000] {ssh.py:544} WARNING - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-20T09:47:42.704+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 190, in execute
+    result = self.run_ssh_client_command(ssh_client, self.command, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 178, in run_ssh_client_command
+    self.raise_for_status(exit_status, agg_stderr, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 172, in raise_for_status
+    raise AirflowException(f"SSH operator error: exit status = {exit_status}")
+airflow.exceptions.AirflowException: SSH operator error: exit status = 1
+[2025-05-20T09:47:42.707+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=kafka_to_minio_to_spark, task_id=spark_etl, run_id=scheduled__2025-05-19T16:00:00+00:00, execution_date=20250519T160000, start_date=20250520T094735, end_date=20250520T094742
+[2025-05-20T09:47:42.713+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-20T09:47:42.714+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 18 for task spark_etl (SSH operator error: exit status = 1; 888)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 190, in execute
+    result = self.run_ssh_client_command(ssh_client, self.command, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 178, in run_ssh_client_command
+    self.raise_for_status(exit_status, agg_stderr, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 172, in raise_for_status
+    raise AirflowException(f"SSH operator error: exit status = {exit_status}")
+airflow.exceptions.AirflowException: SSH operator error: exit status = 1
+[2025-05-20T09:47:42.731+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-20T09:47:42.834+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-20T09:47:42.835+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

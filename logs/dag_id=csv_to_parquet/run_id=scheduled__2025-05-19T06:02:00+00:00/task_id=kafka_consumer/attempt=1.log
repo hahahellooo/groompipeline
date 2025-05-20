@@ -1,0 +1,53 @@
+[2025-05-19T06:37:12.387+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-19T06:37:12.393+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_parquet.kafka_consumer scheduled__2025-05-19T06:02:00+00:00 [queued]>
+[2025-05-19T06:37:12.395+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_parquet.kafka_consumer scheduled__2025-05-19T06:02:00+00:00 [queued]>
+[2025-05-19T06:37:12.395+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-05-19T06:37:12.399+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): kafka_consumer> on 2025-05-19 06:02:00+00:00
+[2025-05-19T06:37:12.401+0000] {standard_task_runner.py:72} INFO - Started process 341 to run task
+[2025-05-19T06:37:12.403+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_parquet', 'kafka_consumer', 'scheduled__2025-05-19T06:02:00+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/csv_to_parquet.py', '--cfg-path', '/tmp/tmpcuo0qvrv']
+[2025-05-19T06:37:12.403+0000] {standard_task_runner.py:105} INFO - Job 17: Subtask kafka_consumer
+[2025-05-19T06:37:12.419+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_parquet.kafka_consumer scheduled__2025-05-19T06:02:00+00:00 [running]> on host 8b6a4ce3396b
+[2025-05-19T06:37:12.520+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_parquet' AIRFLOW_CTX_TASK_ID='kafka_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T06:02:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-19T06:02:00+00:00'
+[2025-05-19T06:37:12.520+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-19T06:37:12.526+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.65.254', 9092)]>: connecting to host.docker.internal:9092 [('192.168.65.254', 9092) IPv4]
+[2025-05-19T06:37:12.530+0000] {conn.py:618} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <checking_api_versions_recv> [IPv4 ('192.168.65.254', 9092)]>: Broker version identified as 2.6
+[2025-05-19T06:37:12.530+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Connection complete.
+[2025-05-19T06:37:12.530+0000] {subscription_state.py:177} INFO - Updating subscribed topics to: ('***test',)
+[2025-05-19T06:37:12.530+0000] {logging_mixin.py:190} INFO - ✅ Consumer started, waiting for messages...
+[2025-05-19T06:37:12.532+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connecting> [IPv4 ('172.16.24.224', 9092)]>: connecting to 172.16.24.224:9092 [('172.16.24.224', 9092) IPv4]
+[2025-05-19T06:37:12.632+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Connection complete.
+[2025-05-19T06:37:12.632+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Closing connection. 
+[2025-05-19T06:37:12.747+0000] {cluster.py:400} INFO - Coordinator for group/test is ('coordinator-1', '172.16.24.224', 9092, None)
+[2025-05-19T06:37:12.748+0000] {base.py:769} INFO - Discovered coordinator coordinator-1 for group test
+[2025-05-19T06:37:12.749+0000] {base.py:820} INFO - Starting new heartbeat thread
+[2025-05-19T06:37:12.750+0000] {consumer.py:362} INFO - Revoking previously assigned partitions () for group test
+[2025-05-19T06:37:12.751+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connecting> [IPv4 ('172.16.24.224', 9092)]>: connecting to 172.16.24.224:9092 [('172.16.24.224', 9092) IPv4]
+[2025-05-19T06:37:12.854+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Connection complete.
+[2025-05-19T06:37:12.959+0000] {base.py:524} INFO - (Re-)joining group test
+[2025-05-19T06:37:12.983+0000] {base.py:524} INFO - (Re-)joining group test
+[2025-05-19T06:37:16.014+0000] {base.py:587} INFO - Elected group leader -- performing partition assignments using range
+[2025-05-19T06:37:16.043+0000] {base.py:401} INFO - Successfully joined group test with generation 1
+[2025-05-19T06:37:16.045+0000] {subscription_state.py:246} INFO - Updated partition assignment: [('***test', 0)]
+[2025-05-19T06:37:16.046+0000] {consumer.py:249} INFO - Setting newly assigned partitions (('***test', 0),) for group test
+[2025-05-19T06:37:16.057+0000] {fetcher.py:413} INFO - Resetting offset for partition ('***test', 0) to offset 0.
+[2025-05-19T06:37:21.089+0000] {logging_mixin.py:190} INFO - No messages received (1/3). Waiting...
+[2025-05-19T06:37:28.097+0000] {logging_mixin.py:190} INFO - No messages received (2/3). Waiting...
+[2025-05-19T06:37:35.107+0000] {logging_mixin.py:190} INFO - No messages received (3/3). Waiting...
+[2025-05-19T06:37:37.113+0000] {logging_mixin.py:190} INFO - *************************************
+[2025-05-19T06:37:37.115+0000] {logging_mixin.py:190} INFO - **********************************
+[2025-05-19T06:37:37.133+0000] {base.py:84} INFO - Retrieving connection 'minio'
+[2025-05-19T06:37:37.134+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio', conn_type='aws') credentials retrieved from login and password.
+[2025-05-19T06:37:37.134+0000] {warnings.py:109} WARNING - <string>:9: AirflowProviderDeprecationWarning: extra['host'] is deprecated and will be removed in a future release. Please set extra['endpoint_url'] instead
+
+[2025-05-19T06:37:37.336+0000] {logging_mixin.py:190} INFO - ❌ Error in s3_hook: {e}
+[2025-05-19T06:37:37.337+0000] {base.py:834} INFO - Stopping heartbeat thread
+[2025-05-19T06:37:40.337+0000] {base.py:1037} WARNING - Heartbeat thread did not fully terminate during close
+[2025-05-19T06:37:40.338+0000] {base.py:865} INFO - Leaving consumer group (test).
+[2025-05-19T06:37:40.355+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Closing connection. 
+[2025-05-19T06:37:40.358+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Closing connection. 
+[2025-05-19T06:37:40.362+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-05-19T06:37:40.375+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-19T06:37:40.376+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=csv_to_parquet, task_id=kafka_consumer, run_id=scheduled__2025-05-19T06:02:00+00:00, execution_date=20250519T060200, start_date=20250519T063712, end_date=20250519T063740
+[2025-05-19T06:37:40.393+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-19T06:37:40.404+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-19T06:37:40.405+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

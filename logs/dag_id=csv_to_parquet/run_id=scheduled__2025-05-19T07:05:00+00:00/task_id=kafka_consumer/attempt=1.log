@@ -1,0 +1,146 @@
+[2025-05-19T07:17:46.596+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-19T07:17:46.662+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_parquet.kafka_consumer scheduled__2025-05-19T07:05:00+00:00 [queued]>
+[2025-05-19T07:17:46.665+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_parquet.kafka_consumer scheduled__2025-05-19T07:05:00+00:00 [queued]>
+[2025-05-19T07:17:46.666+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-05-19T07:17:46.670+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): kafka_consumer> on 2025-05-19 07:05:00+00:00
+[2025-05-19T07:17:46.672+0000] {standard_task_runner.py:72} INFO - Started process 958 to run task
+[2025-05-19T07:17:46.674+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_parquet', 'kafka_consumer', 'scheduled__2025-05-19T07:05:00+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/log_to_csv.py', '--cfg-path', '/tmp/tmpa038r2bf']
+[2025-05-19T07:17:46.674+0000] {standard_task_runner.py:105} INFO - Job 31: Subtask kafka_consumer
+[2025-05-19T07:17:46.690+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_parquet.kafka_consumer scheduled__2025-05-19T07:05:00+00:00 [running]> on host 8b6a4ce3396b
+[2025-05-19T07:17:46.714+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_parquet' AIRFLOW_CTX_TASK_ID='kafka_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T07:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-19T07:05:00+00:00'
+[2025-05-19T07:17:46.715+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-19T07:17:46.721+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.65.254', 9092)]>: connecting to host.docker.internal:9092 [('192.168.65.254', 9092) IPv4]
+[2025-05-19T07:17:46.723+0000] {conn.py:618} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <checking_api_versions_recv> [IPv4 ('192.168.65.254', 9092)]>: Broker version identified as 2.6
+[2025-05-19T07:17:46.723+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Connection complete.
+[2025-05-19T07:17:46.724+0000] {subscription_state.py:177} INFO - Updating subscribed topics to: ('***test',)
+[2025-05-19T07:17:46.724+0000] {logging_mixin.py:190} INFO - ✅ Consumer started, waiting for messages...
+[2025-05-19T07:17:46.726+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connecting> [IPv4 ('172.16.24.224', 9092)]>: connecting to 172.16.24.224:9092 [('172.16.24.224', 9092) IPv4]
+[2025-05-19T07:17:46.830+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Connection complete.
+[2025-05-19T07:17:46.831+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Closing connection. 
+[2025-05-19T07:17:46.939+0000] {cluster.py:400} INFO - Coordinator for group/spark is ('coordinator-1', '172.16.24.224', 9092, None)
+[2025-05-19T07:17:46.939+0000] {base.py:769} INFO - Discovered coordinator coordinator-1 for group spark
+[2025-05-19T07:17:46.940+0000] {base.py:820} INFO - Starting new heartbeat thread
+[2025-05-19T07:17:46.941+0000] {consumer.py:362} INFO - Revoking previously assigned partitions () for group spark
+[2025-05-19T07:17:46.941+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connecting> [IPv4 ('172.16.24.224', 9092)]>: connecting to 172.16.24.224:9092 [('172.16.24.224', 9092) IPv4]
+[2025-05-19T07:17:47.048+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Connection complete.
+[2025-05-19T07:17:47.152+0000] {base.py:524} INFO - (Re-)joining group spark
+[2025-05-19T07:17:47.159+0000] {base.py:524} INFO - (Re-)joining group spark
+[2025-05-19T07:17:50.167+0000] {base.py:587} INFO - Elected group leader -- performing partition assignments using range
+[2025-05-19T07:17:50.175+0000] {base.py:401} INFO - Successfully joined group spark with generation 3
+[2025-05-19T07:17:50.176+0000] {subscription_state.py:246} INFO - Updated partition assignment: [('***test', 0)]
+[2025-05-19T07:17:50.177+0000] {consumer.py:249} INFO - Setting newly assigned partitions (('***test', 0),) for group spark
+[2025-05-19T07:17:50.199+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:39.760544
+[2025-05-19T07:17:50.200+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:39.927116
+[2025-05-19T07:17:50.200+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from instagram at 2025-05-19T07:17:39.980045
+[2025-05-19T07:17:50.201+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from naver at 2025-05-19T07:17:40.034359
+[2025-05-19T07:17:50.201+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:40.091419
+[2025-05-19T07:17:50.201+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:40.148046
+[2025-05-19T07:17:50.202+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:40.203915
+[2025-05-19T07:17:50.202+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:40.258260
+[2025-05-19T07:17:50.202+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:40.314225
+[2025-05-19T07:17:50.202+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:40.369422
+[2025-05-19T07:17:50.203+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:40.425160
+[2025-05-19T07:17:50.203+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:40.482336
+[2025-05-19T07:17:50.203+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from naver at 2025-05-19T07:17:40.539755
+[2025-05-19T07:17:50.203+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:40.594308
+[2025-05-19T07:17:50.204+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from instagram at 2025-05-19T07:17:40.650853
+[2025-05-19T07:17:50.204+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from instagram at 2025-05-19T07:17:40.705196
+[2025-05-19T07:17:50.204+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from naver at 2025-05-19T07:17:40.758346
+[2025-05-19T07:17:50.204+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from naver at 2025-05-19T07:17:40.810167
+[2025-05-19T07:17:50.205+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:40.863680
+[2025-05-19T07:17:50.205+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:40.920029
+[2025-05-19T07:17:50.205+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:40.976867
+[2025-05-19T07:17:50.205+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:41.034507
+[2025-05-19T07:17:50.205+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:41.088678
+[2025-05-19T07:17:50.206+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:41.144599
+[2025-05-19T07:17:50.206+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:41.200176
+[2025-05-19T07:17:50.206+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:41.257382
+[2025-05-19T07:17:50.206+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:41.313149
+[2025-05-19T07:17:50.207+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:41.370298
+[2025-05-19T07:17:50.207+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from instagram at 2025-05-19T07:17:41.425241
+[2025-05-19T07:17:50.207+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:41.479891
+[2025-05-19T07:17:50.207+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:41.534291
+[2025-05-19T07:17:50.207+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:41.588970
+[2025-05-19T07:17:50.208+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from naver at 2025-05-19T07:17:41.643754
+[2025-05-19T07:17:50.208+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:41.700191
+[2025-05-19T07:17:50.208+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:41.756386
+[2025-05-19T07:17:50.208+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:41.810889
+[2025-05-19T07:17:50.209+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:41.863372
+[2025-05-19T07:17:50.209+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:41.915289
+[2025-05-19T07:17:50.209+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:41.967130
+[2025-05-19T07:17:50.209+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:42.019057
+[2025-05-19T07:17:50.209+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:42.071610
+[2025-05-19T07:17:50.210+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from instagram at 2025-05-19T07:17:42.123826
+[2025-05-19T07:17:50.210+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:42.175931
+[2025-05-19T07:17:50.210+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:42.230047
+[2025-05-19T07:17:50.210+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:42.286339
+[2025-05-19T07:17:50.210+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:42.341642
+[2025-05-19T07:17:50.211+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:42.396893
+[2025-05-19T07:17:50.211+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:42.451299
+[2025-05-19T07:17:50.211+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:42.509328
+[2025-05-19T07:17:50.211+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:42.564806
+[2025-05-19T07:17:50.211+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from naver at 2025-05-19T07:17:42.621455
+[2025-05-19T07:17:50.212+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:42.678060
+[2025-05-19T07:17:50.212+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:42.735252
+[2025-05-19T07:17:50.212+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from naver at 2025-05-19T07:17:42.791241
+[2025-05-19T07:17:50.212+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:42.847630
+[2025-05-19T07:17:50.212+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:42.899555
+[2025-05-19T07:17:50.212+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from instagram at 2025-05-19T07:17:42.952855
+[2025-05-19T07:17:50.213+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:43.007626
+[2025-05-19T07:17:50.213+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:43.061315
+[2025-05-19T07:17:50.213+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:43.117155
+[2025-05-19T07:17:50.213+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:43.172886
+[2025-05-19T07:17:50.213+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:43.231566
+[2025-05-19T07:17:50.214+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:43.285558
+[2025-05-19T07:17:50.214+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:43.339969
+[2025-05-19T07:17:50.214+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from naver at 2025-05-19T07:17:43.397316
+[2025-05-19T07:17:50.214+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:43.452176
+[2025-05-19T07:17:50.214+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:43.506566
+[2025-05-19T07:17:50.215+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from instagram at 2025-05-19T07:17:43.563486
+[2025-05-19T07:17:50.215+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:43.618611
+[2025-05-19T07:17:50.215+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from naver at 2025-05-19T07:17:43.673486
+[2025-05-19T07:17:50.215+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:43.728160
+[2025-05-19T07:17:50.215+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:43.784629
+[2025-05-19T07:17:50.215+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:43.840815
+[2025-05-19T07:17:50.216+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:43.895532
+[2025-05-19T07:17:50.216+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from naver at 2025-05-19T07:17:43.947881
+[2025-05-19T07:17:50.216+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:43.999320
+[2025-05-19T07:17:50.216+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:44.056524
+[2025-05-19T07:17:50.216+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:44.108193
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:44.160125
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:44.211807
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from naver at 2025-05-19T07:17:44.263279
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:44.316511
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from youtube at 2025-05-19T07:17:44.369916
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:44.427113
+[2025-05-19T07:17:50.217+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:44.481780
+[2025-05-19T07:17:50.218+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from youtube at 2025-05-19T07:17:44.536363
+[2025-05-19T07:17:50.218+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:44.593611
+[2025-05-19T07:17:50.218+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:44.646895
+[2025-05-19T07:17:50.218+0000] {logging_mixin.py:190} INFO - 📥 Received: movie_click from naver at 2025-05-19T07:17:44.701507
+[2025-05-19T07:17:50.218+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from naver at 2025-05-19T07:17:44.753591
+[2025-05-19T07:17:50.219+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from instagram at 2025-05-19T07:17:44.810151
+[2025-05-19T07:17:50.219+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:44.863667
+[2025-05-19T07:17:50.219+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:44.919550
+[2025-05-19T07:17:50.219+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from youtube at 2025-05-19T07:17:44.971821
+[2025-05-19T07:17:50.219+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from instagram at 2025-05-19T07:17:45.023294
+[2025-05-19T07:17:50.219+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from instagram at 2025-05-19T07:17:45.078937
+[2025-05-19T07:17:50.220+0000] {logging_mixin.py:190} INFO - 📥 Received: like_click from naver at 2025-05-19T07:17:45.132741
+[2025-05-19T07:17:50.220+0000] {logging_mixin.py:190} INFO - 📥 Received: ad_click from instagram at 2025-05-19T07:17:45.188987
+[2025-05-19T07:17:50.220+0000] {logging_mixin.py:190} INFO - 📥 Received: play_complete from youtube at 2025-05-19T07:17:45.244120
+[2025-05-19T07:17:50.220+0000] {logging_mixin.py:190} INFO - 📥 Received: play_start from youtube at 2025-05-19T07:17:45.299879
+[2025-05-19T07:17:50.224+0000] {logging_mixin.py:190} INFO - ✅ Committed 100 messages.
+[2025-05-19T07:17:50.230+0000] {base.py:84} INFO - Retrieving connection 'minio'
+[2025-05-19T07:17:50.231+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio', conn_type='aws') credentials retrieved from login and password.
+[2025-05-19T07:17:50.346+0000] {logging_mixin.py:190} INFO - ✅ File uploaded to MinIO: 2025-05-19_16-17-46.csv
+[2025-05-19T07:17:50.347+0000] {base.py:834} INFO - Stopping heartbeat thread
+[2025-05-19T07:17:53.348+0000] {base.py:1037} WARNING - Heartbeat thread did not fully terminate during close
+[2025-05-19T07:17:53.349+0000] {base.py:865} INFO - Leaving consumer group (spark).
+[2025-05-19T07:17:53.354+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Closing connection. 
+[2025-05-19T07:17:53.354+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Closing connection. 
+[2025-05-19T07:17:53.355+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-05-19T07:17:53.362+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-19T07:17:53.362+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=csv_to_parquet, task_id=kafka_consumer, run_id=scheduled__2025-05-19T07:05:00+00:00, execution_date=20250519T070500, start_date=20250519T071746, end_date=20250519T071753
+[2025-05-19T07:17:53.376+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-19T07:17:53.386+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-05-19T07:17:53.386+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,35 @@
+[2025-05-20T04:05:14.944+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-20T04:05:15.010+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_parquet.csv_to_parquet scheduled__2025-05-20T04:05:00+00:00 [queued]>
+[2025-05-20T04:05:15.014+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_parquet.csv_to_parquet scheduled__2025-05-20T04:05:00+00:00 [queued]>
+[2025-05-20T04:05:15.014+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-05-20T04:05:15.019+0000] {taskinstance.py:2888} INFO - Executing <Task(SSHOperator): csv_to_parquet> on 2025-05-20 04:05:00+00:00
+[2025-05-20T04:05:15.021+0000] {standard_task_runner.py:72} INFO - Started process 513 to run task
+[2025-05-20T04:05:15.022+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_parquet', 'csv_to_parquet', 'scheduled__2025-05-20T04:05:00+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/log_to_csv.py', '--cfg-path', '/tmp/tmpusqddwmh']
+[2025-05-20T04:05:15.023+0000] {standard_task_runner.py:105} INFO - Job 124: Subtask csv_to_parquet
+[2025-05-20T04:05:15.039+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_parquet.csv_to_parquet scheduled__2025-05-20T04:05:00+00:00 [running]> on host 91a46f1a1993
+[2025-05-20T04:05:15.064+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_parquet' AIRFLOW_CTX_TASK_ID='csv_to_parquet' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T04:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-20T04:05:00+00:00'
+[2025-05-20T04:05:15.065+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-20T04:05:15.069+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-05-20T04:05:15.072+0000] {base.py:84} INFO - Retrieving connection 'local_ssh'
+[2025-05-20T04:05:15.072+0000] {ssh.py:309} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2025-05-20T04:05:15.121+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_9.8)
+[2025-05-20T04:05:15.321+0000] {transport.py:1923} INFO - Authentication (password) successful!
+[2025-05-20T04:05:15.321+0000] {ssh.py:493} INFO - Running command: sh -c "/Users/jeongmieun/.pyenv/versions/airminio/bin/python /Users/jeongmieun/test/docker_***/dags/spark_to_parquet.py"
+[2025-05-20T04:05:16.196+0000] {ssh.py:544} WARNING - 25/05/20 13:05:16 WARN Utils: Your hostname, jeongmieun-ui-MacBookAir.local resolves to a loopback address: 127.0.0.1; using 172.16.24.224 instead (on interface en0)
+[2025-05-20T04:05:16.198+0000] {ssh.py:544} WARNING - 25/05/20 13:05:16 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2025-05-20T04:05:16.339+0000] {ssh.py:544} WARNING - 25/05/20 13:05:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-20T04:05:16.414+0000] {ssh.py:544} WARNING - Setting default log level to "
+[2025-05-20T04:05:16.415+0000] {ssh.py:544} WARNING - WARN".
+[2025-05-20T04:05:16.415+0000] {ssh.py:544} WARNING - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-05-20T04:05:16.796+0000] {ssh.py:544} WARNING - 25/05/20 13:05:16 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2025-05-20T04:05:17.490+0000] {ssh.py:544} WARNING - 25/05/20 13:05:17 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-05-20T04:05:21.788+0000] {ssh.py:539} INFO - +-------+--------+---------+----------+----+--------------+----------+----------+------------+-----------+
+[2025-05-20T04:05:21.788+0000] {ssh.py:539} INFO - |user_id|movie_id|timestamp|event_type|page|movie_category|utm_source|utm_medium|utm_campaign|utm_content|
+[2025-05-20T04:05:21.789+0000] {ssh.py:539} INFO - +-------+--------+---------+----------+----+--------------+----------+----------+------------+-----------+
+[2025-05-20T04:05:21.789+0000] {ssh.py:539} INFO - |      0|       0|        0|         0|   0|             0|         0|         0|           0|          0|
+[2025-05-20T04:05:21.789+0000] {ssh.py:539} INFO - +-------+--------+---------+----------+----+--------------+----------+----------+------------+-----------+
+[2025-05-20T04:05:22.321+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-20T04:05:22.321+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=csv_to_parquet, task_id=csv_to_parquet, run_id=scheduled__2025-05-20T04:05:00+00:00, execution_date=20250520T040500, start_date=20250520T040515, end_date=20250520T040522
+[2025-05-20T04:05:22.368+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-20T04:05:22.378+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-20T04:05:22.379+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

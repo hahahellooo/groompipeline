@@ -1,0 +1,665 @@
+[2025-05-20T09:23:01.305+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-20T09:23:01.313+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.kafka_consumer scheduled__2025-05-19T16:00:00+00:00 [queued]>
+[2025-05-20T09:23:01.316+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.kafka_consumer scheduled__2025-05-19T16:00:00+00:00 [queued]>
+[2025-05-20T09:23:01.316+0000] {taskinstance.py:2865} INFO - Starting attempt 3 of 5
+[2025-05-20T09:23:01.321+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): kafka_consumer> on 2025-05-19 16:00:00+00:00
+[2025-05-20T09:23:01.324+0000] {standard_task_runner.py:72} INFO - Started process 508 to run task
+[2025-05-20T09:23:01.327+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'kafka_consumer', 'scheduled__2025-05-19T16:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmperv2y8_1']
+[2025-05-20T09:23:01.328+0000] {standard_task_runner.py:105} INFO - Job 7: Subtask kafka_consumer
+[2025-05-20T09:23:01.352+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.kafka_consumer scheduled__2025-05-19T16:00:00+00:00 [running]> on host 6a89a243c286
+[2025-05-20T09:23:01.504+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='kafka_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-19T16:00:00+00:00'
+[2025-05-20T09:23:01.504+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-20T09:23:01.511+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.65.254', 9092)]>: connecting to host.docker.internal:9092 [('192.168.65.254', 9092) IPv4]
+[2025-05-20T09:23:01.513+0000] {conn.py:618} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <checking_api_versions_recv> [IPv4 ('192.168.65.254', 9092)]>: Broker version identified as 2.6
+[2025-05-20T09:23:01.514+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Connection complete.
+[2025-05-20T09:23:01.514+0000] {subscription_state.py:177} INFO - Updating subscribed topics to: ('userlog',)
+[2025-05-20T09:23:01.514+0000] {logging_mixin.py:190} INFO - ✅ consumer started, waiting for messages....
+[2025-05-20T09:23:01.516+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connecting> [IPv4 ('172.16.24.224', 9092)]>: connecting to 172.16.24.224:9092 [('172.16.24.224', 9092) IPv4]
+[2025-05-20T09:23:01.617+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Connection complete.
+[2025-05-20T09:23:01.617+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Closing connection. 
+[2025-05-20T09:23:01.720+0000] {cluster.py:400} INFO - Coordinator for group/tospark is ('coordinator-1', '172.16.24.224', 9092, None)
+[2025-05-20T09:23:01.721+0000] {base.py:769} INFO - Discovered coordinator coordinator-1 for group tospark
+[2025-05-20T09:23:01.721+0000] {base.py:820} INFO - Starting new heartbeat thread
+[2025-05-20T09:23:01.721+0000] {consumer.py:362} INFO - Revoking previously assigned partitions () for group tospark
+[2025-05-20T09:23:01.722+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connecting> [IPv4 ('172.16.24.224', 9092)]>: connecting to 172.16.24.224:9092 [('172.16.24.224', 9092) IPv4]
+[2025-05-20T09:23:01.826+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Connection complete.
+[2025-05-20T09:23:01.929+0000] {base.py:524} INFO - (Re-)joining group tospark
+[2025-05-20T09:23:01.933+0000] {base.py:524} INFO - (Re-)joining group tospark
+[2025-05-20T09:23:04.943+0000] {base.py:587} INFO - Elected group leader -- performing partition assignments using range
+[2025-05-20T09:23:04.945+0000] {base.py:401} INFO - Successfully joined group tospark with generation 13
+[2025-05-20T09:23:04.945+0000] {subscription_state.py:246} INFO - Updated partition assignment: [('userlog', 0)]
+[2025-05-20T09:23:04.946+0000] {consumer.py:249} INFO - Setting newly assigned partitions (('userlog', 0),) for group tospark
+[2025-05-20T09:23:04.979+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.984+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.986+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.988+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.989+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.991+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.992+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.994+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.994+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:04.996+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:04.997+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:04.998+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:04.998+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:04.999+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.002+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.004+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.006+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.007+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.008+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.012+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.017+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.021+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.024+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.027+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.030+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.036+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.040+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.042+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.045+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.046+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.047+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.049+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.051+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.054+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.057+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.061+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.065+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.066+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.068+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.072+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.075+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.078+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.085+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.087+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.090+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.091+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.093+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.095+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.096+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.099+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.102+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.104+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.105+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.105+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.106+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.106+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.107+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.107+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.108+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.108+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.109+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.110+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.110+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.111+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.112+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.114+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.115+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.116+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.116+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.117+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.117+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.118+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.118+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.119+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.119+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.120+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.121+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.122+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.122+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.123+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.123+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.124+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.124+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.125+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.125+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.127+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.129+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.130+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.131+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.131+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.132+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.132+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.133+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.133+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.134+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.134+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.135+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.135+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.136+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.136+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.137+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.137+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.138+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.138+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.139+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.139+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.140+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.140+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.141+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.141+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.142+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.142+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.143+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.144+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.145+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.147+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.150+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.150+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.151+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.152+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.152+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.153+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.153+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.154+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.154+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.155+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.155+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.156+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.157+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.158+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.158+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.159+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.160+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.160+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.161+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.161+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.162+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.162+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.163+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.163+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.164+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.164+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.165+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.165+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.166+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.167+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.167+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.168+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.168+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.169+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.170+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.170+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.171+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.171+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.172+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.172+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.173+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.174+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.174+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.175+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.175+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.176+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.176+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.177+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.178+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.178+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.179+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.179+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.180+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.180+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.181+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.181+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.182+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.182+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.183+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.184+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.184+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.185+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.186+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.186+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.187+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.187+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.188+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.188+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.189+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.190+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.190+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.191+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.191+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.192+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.192+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.193+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.193+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.194+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.195+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.195+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.196+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.196+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.197+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.197+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.198+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.198+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.199+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.200+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.200+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.201+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.202+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.203+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.204+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.204+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.205+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.205+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.206+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.206+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.207+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.208+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.208+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.209+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.209+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.210+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.211+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.211+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.212+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.212+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.213+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.213+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.214+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.214+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.215+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.215+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.216+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.217+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.217+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.218+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.218+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.219+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.220+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.220+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.221+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.221+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.222+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.223+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.223+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.224+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.225+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.225+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.226+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.226+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.227+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.228+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.228+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.229+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.229+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.230+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.230+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.231+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.231+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.232+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.233+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.233+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.234+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.234+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.235+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.236+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.236+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.237+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.237+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.238+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.238+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.239+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.239+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.240+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.240+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.241+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.241+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.242+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.242+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.243+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.243+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.244+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.245+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.245+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.246+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.246+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.247+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.247+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.248+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.249+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.250+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.250+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.251+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.252+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.253+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.254+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.255+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.256+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.257+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.257+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.258+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.258+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.259+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.259+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.260+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.260+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.261+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.261+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.262+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.262+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.263+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.263+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.263+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.264+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.264+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.265+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.265+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.266+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.266+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.267+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.267+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.268+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.268+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.268+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.269+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.269+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.270+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.270+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.271+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.271+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.272+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.272+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.272+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.273+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.273+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.274+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.274+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.275+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.275+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.276+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.276+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.277+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.277+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.278+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.278+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.279+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.279+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.279+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.280+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.280+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.281+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.281+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.282+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.282+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.283+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.283+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.283+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.284+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.284+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.285+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.285+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.286+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.286+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.287+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.287+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.288+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.288+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.289+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.289+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.290+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.290+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.291+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.291+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.291+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.292+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.292+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.293+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.293+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.294+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.294+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.294+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.295+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.295+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.296+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.296+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.297+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.297+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.297+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.298+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.298+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.299+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.299+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.300+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.300+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.300+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.301+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.301+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.302+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.302+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.303+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.303+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.303+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.304+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.304+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.305+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.305+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.306+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.306+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.306+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.307+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.307+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.308+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.308+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.308+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.309+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.309+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.310+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.311+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.311+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.312+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.313+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.313+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.314+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.314+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.315+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.315+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.316+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.316+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.317+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.317+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.318+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.318+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.319+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.320+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.320+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.321+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.321+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.322+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.322+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.323+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.323+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.324+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.324+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.324+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.325+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.326+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.326+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.327+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.327+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.328+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.328+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.329+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.329+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.330+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.330+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.331+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.331+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.331+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.332+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.332+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.333+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.333+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.334+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.334+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.335+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.335+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.336+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.336+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.337+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.337+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.337+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.338+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.338+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.339+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.339+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.340+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.340+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.340+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.341+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.341+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.342+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.342+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.343+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.343+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.343+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.344+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.344+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.345+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.345+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.346+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.346+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.346+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.347+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.347+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.348+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.348+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.349+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.349+0000] {logging_mixin.py:190} INFO - 📥 Received: page:main
+[2025-05-20T09:23:05.350+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.350+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.351+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.351+0000] {logging_mixin.py:190} INFO - 📥 Received: page:movie_detail
+[2025-05-20T09:23:05.352+0000] {logging_mixin.py:190} INFO - ✅Minio connected
+[2025-05-20T09:23:05.355+0000] {base_aws.py:606} WARNING - Unable to find AWS Connection ID 'minio', switching to empty.
+[2025-05-20T09:23:05.355+0000] {base_aws.py:180} INFO - No connection ID provided. Fallback on boto3 credential strategy (region_name='us-east-1'). See: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
+[2025-05-20T09:23:05.531+0000] {logging_mixin.py:190} INFO - ❌ DAG failed due to : Unable to locate credentials
+[2025-05-20T09:23:05.531+0000] {base.py:834} INFO - Stopping heartbeat thread
+[2025-05-20T09:23:08.534+0000] {base.py:1037} WARNING - Heartbeat thread did not fully terminate during close
+[2025-05-20T09:23:08.535+0000] {base.py:865} INFO - Leaving consumer group (tospark).
+[2025-05-20T09:23:08.541+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Closing connection. 
+[2025-05-20T09:23:08.542+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.7, node_id=coordinator-1 host=172.16.24.224:9092 <connected> [IPv4 ('172.16.24.224', 9092)]>: Closing connection. 
+[2025-05-20T09:23:08.543+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/airflow/dags/testlog_ml.py", line 144, in kafka_consumer
+    raise e
+  File "/opt/airflow/dags/testlog_ml.py", line 127, in kafka_consumer
+    if not s3_hook.check_for_bucket(bucket_name):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 132, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 311, in check_for_bucket
+    self.get_conn().head_bucket(Bucket=bucket_name)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 569, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 1005, in _make_api_call
+    http, parsed_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 1029, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 196, in _send_request
+    request = self.create_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 132, in create_request
+    self._event_emitter.emit(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/signers.py", line 105, in handler
+    return self.sign(operation_name, request)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/signers.py", line 197, in sign
+    auth.add_auth(request)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/auth.py", line 423, in add_auth
+    raise NoCredentialsError()
+botocore.exceptions.NoCredentialsError: Unable to locate credentials
+[2025-05-20T09:23:08.559+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=kafka_to_minio_to_spark, task_id=kafka_consumer, run_id=scheduled__2025-05-19T16:00:00+00:00, execution_date=20250519T160000, start_date=20250520T092301, end_date=20250520T092308
+[2025-05-20T09:23:08.570+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-20T09:23:08.571+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 7 for task kafka_consumer (Unable to locate credentials; 508)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/opt/airflow/dags/testlog_ml.py", line 144, in kafka_consumer
+    raise e
+  File "/opt/airflow/dags/testlog_ml.py", line 127, in kafka_consumer
+    if not s3_hook.check_for_bucket(bucket_name):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 132, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 311, in check_for_bucket
+    self.get_conn().head_bucket(Bucket=bucket_name)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 569, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 1005, in _make_api_call
+    http, parsed_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 1029, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 196, in _send_request
+    request = self.create_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 132, in create_request
+    self._event_emitter.emit(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/signers.py", line 105, in handler
+    return self.sign(operation_name, request)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/signers.py", line 197, in sign
+    auth.add_auth(request)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/auth.py", line 423, in add_auth
+    raise NoCredentialsError()
+botocore.exceptions.NoCredentialsError: Unable to locate credentials
+[2025-05-20T09:23:08.604+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-20T09:23:08.709+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-20T09:23:08.710+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
