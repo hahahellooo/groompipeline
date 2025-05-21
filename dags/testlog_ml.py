@@ -2,12 +2,10 @@ from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from airflow.operators.python import PythonOperator
-from airflow.providers.ssh.operators.ssh import SSHOperator
 from kafka import KafkaProducer, KafkaConsumer
 ##############
 from airflow.providers.amazon.aws.sensors.s3 import S3KeySensor
-from airflow.providers.postgres.operators.postgres import PostgresOperator
-from airflow.providers.postgres.hooks.postgres import PostgresHook
+from airflow.providers.spark.operators.spark_submit import SparkSubmitOperator
 ##############
 import json
 import csv
@@ -16,6 +14,7 @@ import time
 from io import StringIO, BytesIO
 from datetime import datetime, timezone, timedelta
 from kafka.structs import OffsetAndMetadata
+
 
 
 def generate_log():
@@ -42,6 +41,7 @@ def generate_log():
         base["page"] = "main"
     elif event_type == "like_click":
         base["page"] = "movie_detail"
+        base["liked"] = random.randint(0, 1)
     elif event_type == "rating_submit":
         base["page"] = "movie_detail"
         base["rating"] = random.randint(0, 5)
@@ -54,7 +54,8 @@ def generate_log():
 def kafka_producer():
     producer = KafkaProducer(
         bootstrap_servers='host.docker.internal:9092',
-        value_serializer=lambda v: json.dumps(v).encode('utf-8')
+        value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+        acks=all
     )
 
     for i in range(1000):
@@ -161,6 +162,8 @@ with DAG(
     tags=['user-activity-log', 'ml']
 ) as dag:
     
+    today = "{{ ds }}"
+    
     kafka_producer = PythonOperator(
         task_id='kafka_producer',
         python_callable=kafka_producer
@@ -176,15 +179,26 @@ with DAG(
     check_minio_file = S3KeySensor(
         task_id='check_minio_file',
         bucket_name='user-log-ml',
-        bucket_key='2025-05-20_01-00-00.csv',
-        aws_conn_id='minio'
+        bucket_key=f'{today}_*.csv',
+        wildcard_match=True,
+        aws_conn_id='minio',
+        poke_interval=5
     )
     ##############################################
 
-    spark_etl = SSHOperator(
+    spark_etl = SparkSubmitOperator(
         task_id='spark_etl',
-        ssh_conn_id='local_ssh',
-        command='sh -c "/Users/jeongmieun/.pyenv/versions/airminio/bin/python /Users/jeongmieun/test/docker_airflow/dags/testlog_ml_spark.py"',
+        application="/opt/spark/testlog_ml_spark.py",
+        conn_id="spark",
+        conf={
+            "spark.hadoop.fs.s3a.endpoint": "http://172.16.24.224:9000",
+            "spark.hadoop.fs.s3a.access.key": "minioadmin",
+            "spark.hadoop.fs.s3a.secret.key": "minioadmin",
+            "spark.hadoop.fs.s3a.path.style.access": "true",
+            "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+            "spark.hadoop.fs.s3a.aws.credentials.provider": ""
+        },
+        jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar"
     )
 
 
@@ -202,6 +216,5 @@ with DAG(
 
 
     kafka_producer >> kafka_consumer >> check_minio_file >> spark_etl 
-    # upload_postgres
     
 

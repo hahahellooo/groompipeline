@@ -6,8 +6,8 @@ x-airflow-common:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
-    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres-airflow/airflow
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
@@ -15,8 +15,6 @@ x-airflow-common:
     AIRFLOW__SCHEDULER__STANDALONE_DAG_PROCESSOR: "True"
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
     AIRFLOW__CORE__DEFAULT_TIMEZONE: Asia/Seoul
-    # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
-    # for other purpose (development, test and especially production usage) build/extend Airflow image.
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     # The following line can be used to set a custom config file, stored in the local config folder
     AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
@@ -25,20 +23,23 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - /Users/jeongmieun/app/spark:/opt/spark
   user: "${AIRFLOW_UID:-50000}:0"
+  extra_hosts:
+    - "kafka-broker:172.16.24.224"
+    - "my-postgres:172.16.24.224"
   depends_on:
     &airflow-common-depends-on
     redis:
       condition: service_healthy
-    postgres-airflow:
+    postgres:
       condition: service_healthy
   networks:
       - pipeline
 
 services:
-  postgres-airflow:
+  postgres:
     image: postgres:13
-    container_name: postgres-airflow
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
@@ -303,42 +304,8 @@ services:
     networks:
       - pipeline
 
-
-  # 사용자 DB
-  postgres-logdb:
-    image: postgres:13
-    container_name: postgres-logdb
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: log_db
-    volumes:
-      - postgres-logdb-data:/var/lib/postgresql/data
-    ports:
-      - "5434:5432"  # 또 다른 포트로 노출
-    networks:
-      - pipeline
-
-  minio:
-    image: quay.io/minio/minio
-    container_name: minio
-    command: server /data --console-address ":9001"
-    environment:
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    volumes:
-      - minio-data:/data
-    networks:
-      - pipeline
-
 volumes:
   postgres-db-volume:
-  minio-data:
-  postgres-logdb-data:
-
 
 networks:
   pipeline:
