@@ -6132,3 +6132,66 @@ ModuleNotFoundError: No module named 'airflow.providers.spark'
 [2025-05-21T23:43:29.716+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:43:29.716+0000] {dag.py:3229} INFO - Sync 1 DAGs
 [2025-05-21T23:43:29.726+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:43:29.725+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
 [2025-05-21T23:43:29.732+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.066 seconds
+[2025-05-21T23:44:00.308+0000] {processor.py:186} INFO - Started process (PID=1954) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:44:00.309+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:44:00.310+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:44:00.310+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:44:00.337+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:44:00.351+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:44:00.351+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:44:00.361+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:44:00.361+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:44:00.367+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.066 seconds
+[2025-05-21T23:44:42.234+0000] {processor.py:186} INFO - Started process (PID=26) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:44:42.235+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:44:42.236+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:44:42.236+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:44:42.284+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:44:42.313+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:44:42.313+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:44:42.338+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:44:42.338+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:44:42.365+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.139 seconds
+[2025-05-21T23:45:13.125+0000] {processor.py:186} INFO - Started process (PID=36) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:45:13.126+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:45:13.126+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:45:13.126+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:45:13.146+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:45:13.162+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:45:13.162+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:45:13.176+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:45:13.176+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:45:13.191+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.070 seconds
+[2025-05-21T23:45:43.794+0000] {processor.py:186} INFO - Started process (PID=39) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:45:43.795+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:45:43.796+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:45:43.796+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:45:43.823+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:45:43.835+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:45:43.835+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:45:43.845+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:45:43.845+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:45:43.852+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.065 seconds
+[2025-05-21T23:46:14.408+0000] {processor.py:186} INFO - Started process (PID=49) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:46:14.409+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:46:14.411+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:46:14.411+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:46:14.440+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:46:14.451+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:46:14.451+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:46:14.460+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:46:14.460+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:46:14.467+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.065 seconds
+[2025-05-21T23:46:45.145+0000] {processor.py:186} INFO - Started process (PID=59) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:46:45.146+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:46:45.148+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:46:45.148+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:46:45.178+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:46:45.197+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:46:45.197+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:46:45.208+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:46:45.208+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:46:45.216+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.078 seconds
+[2025-05-21T23:47:15.802+0000] {processor.py:186} INFO - Started process (PID=69) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:47:15.803+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:47:15.805+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:47:15.805+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:47:15.830+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:47:15.844+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:47:15.844+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:47:15.859+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:47:15.858+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:47:15.869+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.072 seconds
+[2025-05-21T23:47:46.553+0000] {processor.py:186} INFO - Started process (PID=78) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:47:46.555+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:47:46.555+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:47:46.555+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:47:46.582+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:47:46.597+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:47:46.596+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:47:46.610+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:47:46.610+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:47:46.622+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.074 seconds
+[2025-05-21T23:48:17.207+0000] {processor.py:186} INFO - Started process (PID=88) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:48:17.208+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T23:48:17.210+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:48:17.209+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:48:17.238+0000] {processor.py:925} INFO - DAG(s) 'kafka_to_minio_to_spark' retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T23:48:17.251+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:48:17.250+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T23:48:17.261+0000] {logging_mixin.py:190} INFO - [2025-05-21T23:48:17.261+0000] {dag.py:4156} INFO - Setting next_dagrun for kafka_to_minio_to_spark to 2025-05-22 16:00:00+00:00, run_after=2025-05-22 16:00:00+00:00
+[2025-05-21T23:48:17.271+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.071 seconds
