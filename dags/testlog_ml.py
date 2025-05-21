@@ -5,7 +5,8 @@ from airflow.operators.python import PythonOperator
 from kafka import KafkaProducer, KafkaConsumer
 ##############
 from airflow.providers.amazon.aws.sensors.s3 import S3KeySensor
-from airflow.providers.spark.operators.spark_submit import SparkSubmitOperator
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+
 ##############
 import json
 import csv
@@ -55,7 +56,7 @@ def kafka_producer():
     producer = KafkaProducer(
         bootstrap_servers='host.docker.internal:9092',
         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-        acks=all
+        acks='all'
     )
 
     for i in range(1000):
