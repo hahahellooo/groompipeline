@@ -1,0 +1,57 @@
+[2025-05-21T08:03:29.920+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-21T08:03:29.927+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.spark_etl scheduled__2025-05-19T16:00:00+00:00 [queued]>
+[2025-05-21T08:03:29.932+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.spark_etl scheduled__2025-05-19T16:00:00+00:00 [queued]>
+[2025-05-21T08:03:29.932+0000] {taskinstance.py:2865} INFO - Starting attempt 33 of 35
+[2025-05-21T08:03:29.936+0000] {taskinstance.py:2888} INFO - Executing <Task(SSHOperator): spark_etl> on 2025-05-19 16:00:00+00:00
+[2025-05-21T08:03:29.938+0000] {standard_task_runner.py:72} INFO - Started process 134 to run task
+[2025-05-21T08:03:29.940+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'spark_etl', 'scheduled__2025-05-19T16:00:00+00:00', '--job-id', '134', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmpmaqw2tjw']
+[2025-05-21T08:03:29.940+0000] {standard_task_runner.py:105} INFO - Job 134: Subtask spark_etl
+[2025-05-21T08:03:29.958+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.spark_etl scheduled__2025-05-19T16:00:00+00:00 [running]> on host d87492bd4bb1
+[2025-05-21T08:03:29.984+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='spark_etl' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='33' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-19T16:00:00+00:00'
+[2025-05-21T08:03:29.984+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-21T08:03:30.103+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-05-21T08:03:30.108+0000] {base.py:84} INFO - Retrieving connection 'local_ssh'
+[2025-05-21T08:03:30.109+0000] {ssh.py:309} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2025-05-21T08:03:30.161+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_9.8)
+[2025-05-21T08:03:30.363+0000] {transport.py:1923} INFO - Authentication (password) successful!
+[2025-05-21T08:03:30.364+0000] {ssh.py:493} INFO - Running command: sh -c "/Users/jeongmieun/.pyenv/versions/airminio/bin/python /Users/jeongmieun/test/docker_***/dags/testlog_ml_spark.py"
+[2025-05-21T08:03:31.473+0000] {ssh.py:544} WARNING - 25/05/21 17:03:31 WARN Utils: Your hostname, jeongmieun-ui-MacBookAir.local resolves to a loopback address: 127.0.0.1; using 172.16.24.224 instead (on interface en0)
+[2025-05-21T08:03:31.474+0000] {ssh.py:544} WARNING - 25/05/21 17:03:31 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+[2025-05-21T08:03:31.665+0000] {ssh.py:544} WARNING - 25/05/21 17:03:31 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-21T08:03:31.746+0000] {ssh.py:544} WARNING - Setting default log level to "WARN".
+[2025-05-21T08:03:31.747+0000] {ssh.py:544} WARNING - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-05-21T08:03:33.286+0000] {ssh.py:544} WARNING - 25/05/21 17:03:33 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-05-21T08:03:37.118+0000] {ssh.py:544} WARNING - 
+[2025-05-21T08:03:37.119+0000] {ssh.py:544} WARNING - [Stage 12:>                                                         (0 + 1) / 1]
+[2025-05-21T08:03:37.200+0000] {ssh.py:544} WARNING - 
+[2025-05-21T08:03:37.200+0000] {ssh.py:544} WARNING -                                                                                 
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - +-------+--------+-----------+-----------+-----------------+---------------+
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - |user_id|movie_id|sum(rating)|sum(review)|total_movie_click|sum(like_score)|
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - +-------+--------+-----------+-----------+-----------------+---------------+
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - |    100|    M008|          1|          0|                1|              9|
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - |    100|    M005|          4|          0|                1|              0|
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - |    100|    M007|         10|          0|                3|              3|
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - |    100|    M006|          0|          0|                1|              0|
+[2025-05-21T08:03:37.568+0000] {ssh.py:539} INFO - |    100|    M009|          3|          3|                0|              3|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    100|    M003|          5|          0|                1|              0|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    100|    M002|          5|          0|                2|              3|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    100|    M004|          5|          1|                4|              0|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    100|    M001|          4|          2|                2|              3|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    100|    M010|          0|          0|                2|              0|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    101|    M002|          5|          0|                1|              3|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    101|    M006|          2|          0|                2|              3|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    101|    M001|          7|          1|                0|              3|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    101|    M004|          5|          1|                1|              0|
+[2025-05-21T08:03:37.569+0000] {ssh.py:539} INFO - |    101|    M007|          2|          0|                3|              0|
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - |    101|    M009|          4|          1|                4|              0|
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - |    101|    M008|         10|          2|                1|              3|
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - |    101|    M003|          4|          0|                1|              0|
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - |    101|    M010|          0|          0|                1|              0|
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - |    101|    M005|          0|          0|                2|              0|
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - +-------+--------+-----------+-----------+-----------------+---------------+
+[2025-05-21T08:03:37.570+0000] {ssh.py:539} INFO - only showing top 20 rows
+[2025-05-21T08:03:38.096+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-21T08:03:38.096+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=kafka_to_minio_to_spark, task_id=spark_etl, run_id=scheduled__2025-05-19T16:00:00+00:00, execution_date=20250519T160000, start_date=20250521T080329, end_date=20250521T080338
+[2025-05-21T08:03:38.120+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-21T08:03:38.129+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-21T08:03:38.130+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
