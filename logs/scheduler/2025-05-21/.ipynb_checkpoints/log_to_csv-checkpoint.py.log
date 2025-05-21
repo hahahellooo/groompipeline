@@ -3946,3 +3946,17 @@
 [2025-05-21T07:54:13.944+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:54:13.943+0000] {dag.py:3229} INFO - Sync 1 DAGs
 [2025-05-21T07:54:13.953+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:54:13.953+0000] {dag.py:4156} INFO - Setting next_dagrun for csv_to_parquet to 2025-05-21 07:05:00+00:00, run_after=2025-05-21 07:05:00+00:00
 [2025-05-21T07:54:13.960+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py took 0.092 seconds
+[2025-05-21T07:54:44.492+0000] {processor.py:186} INFO - Started process (PID=200) to work on /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py
+[2025-05-21T07:54:44.492+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py for tasks to queue
+[2025-05-21T07:54:44.493+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:54:44.493+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py
+[2025-05-21T07:54:44.549+0000] {processor.py:925} INFO - DAG(s) 'csv_to_parquet' retrieved from /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py
+[2025-05-21T07:54:44.586+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:54:44.586+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T07:54:44.650+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:54:44.650+0000] {dag.py:4156} INFO - Setting next_dagrun for csv_to_parquet to 2025-05-21 07:05:00+00:00, run_after=2025-05-21 07:05:00+00:00
+[2025-05-21T07:54:44.656+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py took 0.167 seconds
+[2025-05-21T07:55:15.106+0000] {processor.py:186} INFO - Started process (PID=210) to work on /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py
+[2025-05-21T07:55:15.106+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py for tasks to queue
+[2025-05-21T07:55:15.107+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:55:15.107+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py
+[2025-05-21T07:55:15.160+0000] {processor.py:925} INFO - DAG(s) 'csv_to_parquet' retrieved from /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py
+[2025-05-21T07:55:15.172+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:55:15.171+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-21T07:55:15.180+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:55:15.180+0000] {dag.py:4156} INFO - Setting next_dagrun for csv_to_parquet to 2025-05-21 07:05:00+00:00, run_after=2025-05-21 07:05:00+00:00
+[2025-05-21T07:55:15.187+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py took 0.084 seconds
