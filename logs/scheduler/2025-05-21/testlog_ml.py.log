@@ -4543,3 +4543,31 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'airflow.providers.spark'
 [2025-05-21T07:55:15.075+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/testlog_ml.py
 [2025-05-21T07:55:15.092+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.049 seconds
+[2025-05-21T07:55:45.733+0000] {processor.py:186} INFO - Started process (PID=218) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T07:55:45.734+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T07:55:45.735+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:55:45.735+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T07:55:45.763+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:55:45.758+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/testlog_ml.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/testlog_ml.py", line 8, in <module>
+    from airflow.providers.spark.operators.spark_submit import SparkSubmitOperator
+ModuleNotFoundError: No module named 'airflow.providers.spark'
+[2025-05-21T07:55:45.765+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T07:55:45.774+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.048 seconds
+[2025-05-21T07:56:16.295+0000] {processor.py:186} INFO - Started process (PID=228) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-21T07:56:16.297+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-21T07:56:16.298+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:56:16.298+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T07:56:16.321+0000] {logging_mixin.py:190} INFO - [2025-05-21T07:56:16.320+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/testlog_ml.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/testlog_ml.py", line 8, in <module>
+    from airflow.providers.spark.operators.spark_submit import SparkSubmitOperator
+ModuleNotFoundError: No module named 'airflow.providers.spark'
+[2025-05-21T07:56:16.321+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-21T07:56:16.331+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.044 seconds
