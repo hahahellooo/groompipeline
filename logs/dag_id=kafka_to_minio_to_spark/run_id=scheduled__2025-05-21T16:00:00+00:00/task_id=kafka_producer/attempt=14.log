@@ -1,0 +1,1252 @@
+[2025-05-22T06:59:13.596+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-22T06:59:13.601+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.kafka_producer scheduled__2025-05-21T16:00:00+00:00 [queued]>
+[2025-05-22T06:59:13.603+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.kafka_producer scheduled__2025-05-21T16:00:00+00:00 [queued]>
+[2025-05-22T06:59:13.604+0000] {taskinstance.py:2865} INFO - Starting attempt 14 of 16
+[2025-05-22T06:59:13.608+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): kafka_producer> on 2025-05-21 16:00:00+00:00
+[2025-05-22T06:59:13.610+0000] {standard_task_runner.py:72} INFO - Started process 1016 to run task
+[2025-05-22T06:59:13.611+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'kafka_producer', 'scheduled__2025-05-21T16:00:00+00:00', '--job-id', '214', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmpnwrdj1ck']
+[2025-05-22T06:59:13.612+0000] {standard_task_runner.py:105} INFO - Job 214: Subtask kafka_producer
+[2025-05-22T06:59:13.629+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.kafka_producer scheduled__2025-05-21T16:00:00+00:00 [running]> on host d1f65538eb5f
+[2025-05-22T06:59:13.653+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='kafka_producer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-21T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='14' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-21T16:00:00+00:00'
+[2025-05-22T06:59:13.653+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-22T06:59:13.659+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.65.254', 9092)]>: connecting to host.docker.internal:9092 [('192.168.65.254', 9092) IPv4]
+[2025-05-22T06:59:13.660+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2025-05-22T06:59:13.661+0000] {conn.py:410} INFO - <BrokerConnection node_id=bootstrap-0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.65.254', 9092)]>: Connection complete.
+[2025-05-22T06:59:13.768+0000] {conn.py:1267} INFO - Broker version identified as 2.5.0
+[2025-05-22T06:59:13.768+0000] {conn.py:1268} INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+[2025-05-22T06:59:13.772+0000] {logging_mixin.py:190} INFO - 💌message 1 sent: user_id=128
+[2025-05-22T06:59:13.772+0000] {conn.py:380} INFO - <BrokerConnection node_id=3 host=172.16.24.224:39092 <connecting> [IPv4 ('172.16.24.224', 39092)]>: connecting to 172.16.24.224:39092 [('172.16.24.224', 39092) IPv4]
+[2025-05-22T06:59:13.773+0000] {conn.py:410} INFO - <BrokerConnection node_id=3 host=172.16.24.224:39092 <connecting> [IPv4 ('172.16.24.224', 39092)]>: Connection complete.
+[2025-05-22T06:59:13.773+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=host.docker.internal:9092 <connected> [IPv4 ('192.168.65.254', 9092)]>: Closing connection. 
+[2025-05-22T06:59:13.780+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:13.825+0000] {logging_mixin.py:190} INFO - 💌message 2 sent: user_id=123
+[2025-05-22T06:59:13.829+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:13.881+0000] {logging_mixin.py:190} INFO - 💌message 3 sent: user_id=142
+[2025-05-22T06:59:13.888+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:13.937+0000] {logging_mixin.py:190} INFO - 💌message 4 sent: user_id=113
+[2025-05-22T06:59:13.945+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:13.993+0000] {logging_mixin.py:190} INFO - 💌message 5 sent: user_id=144
+[2025-05-22T06:59:14.001+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.048+0000] {logging_mixin.py:190} INFO - 💌message 6 sent: user_id=111
+[2025-05-22T06:59:14.058+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.106+0000] {logging_mixin.py:190} INFO - 💌message 7 sent: user_id=142
+[2025-05-22T06:59:14.112+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.161+0000] {logging_mixin.py:190} INFO - 💌message 8 sent: user_id=142
+[2025-05-22T06:59:14.164+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.217+0000] {logging_mixin.py:190} INFO - 💌message 9 sent: user_id=142
+[2025-05-22T06:59:14.227+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.274+0000] {logging_mixin.py:190} INFO - 💌message 10 sent: user_id=117
+[2025-05-22T06:59:14.279+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.326+0000] {logging_mixin.py:190} INFO - 💌message 11 sent: user_id=134
+[2025-05-22T06:59:14.329+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.379+0000] {logging_mixin.py:190} INFO - 💌message 12 sent: user_id=134
+[2025-05-22T06:59:14.382+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.430+0000] {logging_mixin.py:190} INFO - 💌message 13 sent: user_id=104
+[2025-05-22T06:59:14.432+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.483+0000] {logging_mixin.py:190} INFO - 💌message 14 sent: user_id=117
+[2025-05-22T06:59:14.487+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.535+0000] {logging_mixin.py:190} INFO - 💌message 15 sent: user_id=103
+[2025-05-22T06:59:14.539+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.588+0000] {logging_mixin.py:190} INFO - 💌message 16 sent: user_id=104
+[2025-05-22T06:59:14.592+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.641+0000] {logging_mixin.py:190} INFO - 💌message 17 sent: user_id=147
+[2025-05-22T06:59:14.647+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.695+0000] {logging_mixin.py:190} INFO - 💌message 18 sent: user_id=138
+[2025-05-22T06:59:14.704+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.750+0000] {logging_mixin.py:190} INFO - 💌message 19 sent: user_id=116
+[2025-05-22T06:59:14.755+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.804+0000] {logging_mixin.py:190} INFO - 💌message 20 sent: user_id=136
+[2025-05-22T06:59:14.811+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.860+0000] {logging_mixin.py:190} INFO - 💌message 21 sent: user_id=141
+[2025-05-22T06:59:14.867+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.920+0000] {logging_mixin.py:190} INFO - 💌message 22 sent: user_id=112
+[2025-05-22T06:59:14.928+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:14.977+0000] {logging_mixin.py:190} INFO - 💌message 23 sent: user_id=146
+[2025-05-22T06:59:14.989+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.043+0000] {logging_mixin.py:190} INFO - 💌message 24 sent: user_id=143
+[2025-05-22T06:59:15.046+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.096+0000] {logging_mixin.py:190} INFO - 💌message 25 sent: user_id=130
+[2025-05-22T06:59:15.101+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.149+0000] {logging_mixin.py:190} INFO - 💌message 26 sent: user_id=144
+[2025-05-22T06:59:15.153+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.201+0000] {logging_mixin.py:190} INFO - 💌message 27 sent: user_id=125
+[2025-05-22T06:59:15.205+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.253+0000] {logging_mixin.py:190} INFO - 💌message 28 sent: user_id=101
+[2025-05-22T06:59:15.255+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.307+0000] {logging_mixin.py:190} INFO - 💌message 29 sent: user_id=148
+[2025-05-22T06:59:15.310+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.358+0000] {logging_mixin.py:190} INFO - 💌message 30 sent: user_id=104
+[2025-05-22T06:59:15.363+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.411+0000] {logging_mixin.py:190} INFO - 💌message 31 sent: user_id=136
+[2025-05-22T06:59:15.418+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.467+0000] {logging_mixin.py:190} INFO - 💌message 32 sent: user_id=142
+[2025-05-22T06:59:15.475+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.524+0000] {logging_mixin.py:190} INFO - 💌message 33 sent: user_id=140
+[2025-05-22T06:59:15.532+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.582+0000] {logging_mixin.py:190} INFO - 💌message 34 sent: user_id=117
+[2025-05-22T06:59:15.590+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.638+0000] {logging_mixin.py:190} INFO - 💌message 35 sent: user_id=150
+[2025-05-22T06:59:15.645+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.694+0000] {logging_mixin.py:190} INFO - 💌message 36 sent: user_id=132
+[2025-05-22T06:59:15.701+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.749+0000] {logging_mixin.py:190} INFO - 💌message 37 sent: user_id=119
+[2025-05-22T06:59:15.755+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.804+0000] {logging_mixin.py:190} INFO - 💌message 38 sent: user_id=126
+[2025-05-22T06:59:15.808+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.857+0000] {logging_mixin.py:190} INFO - 💌message 39 sent: user_id=131
+[2025-05-22T06:59:15.864+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.914+0000] {logging_mixin.py:190} INFO - 💌message 40 sent: user_id=101
+[2025-05-22T06:59:15.923+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:15.971+0000] {logging_mixin.py:190} INFO - 💌message 41 sent: user_id=144
+[2025-05-22T06:59:15.979+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.027+0000] {logging_mixin.py:190} INFO - 💌message 42 sent: user_id=102
+[2025-05-22T06:59:16.035+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.083+0000] {logging_mixin.py:190} INFO - 💌message 43 sent: user_id=102
+[2025-05-22T06:59:16.090+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.139+0000] {logging_mixin.py:190} INFO - 💌message 44 sent: user_id=140
+[2025-05-22T06:59:16.148+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.194+0000] {logging_mixin.py:190} INFO - 💌message 45 sent: user_id=120
+[2025-05-22T06:59:16.198+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.252+0000] {logging_mixin.py:190} INFO - 💌message 46 sent: user_id=115
+[2025-05-22T06:59:16.259+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.309+0000] {logging_mixin.py:190} INFO - 💌message 47 sent: user_id=109
+[2025-05-22T06:59:16.314+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.361+0000] {logging_mixin.py:190} INFO - 💌message 48 sent: user_id=118
+[2025-05-22T06:59:16.365+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.415+0000] {logging_mixin.py:190} INFO - 💌message 49 sent: user_id=127
+[2025-05-22T06:59:16.419+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.468+0000] {logging_mixin.py:190} INFO - 💌message 50 sent: user_id=131
+[2025-05-22T06:59:16.476+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.526+0000] {logging_mixin.py:190} INFO - 💌message 51 sent: user_id=104
+[2025-05-22T06:59:16.534+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.584+0000] {logging_mixin.py:190} INFO - 💌message 52 sent: user_id=126
+[2025-05-22T06:59:16.592+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.641+0000] {logging_mixin.py:190} INFO - 💌message 53 sent: user_id=123
+[2025-05-22T06:59:16.648+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.703+0000] {logging_mixin.py:190} INFO - 💌message 54 sent: user_id=137
+[2025-05-22T06:59:16.708+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.759+0000] {logging_mixin.py:190} INFO - 💌message 55 sent: user_id=126
+[2025-05-22T06:59:16.766+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.813+0000] {logging_mixin.py:190} INFO - 💌message 56 sent: user_id=117
+[2025-05-22T06:59:16.818+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.866+0000] {logging_mixin.py:190} INFO - 💌message 57 sent: user_id=148
+[2025-05-22T06:59:16.870+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.920+0000] {logging_mixin.py:190} INFO - 💌message 58 sent: user_id=100
+[2025-05-22T06:59:16.927+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:16.977+0000] {logging_mixin.py:190} INFO - 💌message 59 sent: user_id=130
+[2025-05-22T06:59:16.985+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.031+0000] {logging_mixin.py:190} INFO - 💌message 60 sent: user_id=120
+[2025-05-22T06:59:17.039+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.088+0000] {logging_mixin.py:190} INFO - 💌message 61 sent: user_id=109
+[2025-05-22T06:59:17.096+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.143+0000] {logging_mixin.py:190} INFO - 💌message 62 sent: user_id=135
+[2025-05-22T06:59:17.151+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.200+0000] {logging_mixin.py:190} INFO - 💌message 63 sent: user_id=141
+[2025-05-22T06:59:17.207+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.261+0000] {logging_mixin.py:190} INFO - 💌message 64 sent: user_id=108
+[2025-05-22T06:59:17.269+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.316+0000] {logging_mixin.py:190} INFO - 💌message 65 sent: user_id=132
+[2025-05-22T06:59:17.324+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.377+0000] {logging_mixin.py:190} INFO - 💌message 66 sent: user_id=118
+[2025-05-22T06:59:17.384+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.433+0000] {logging_mixin.py:190} INFO - 💌message 67 sent: user_id=116
+[2025-05-22T06:59:17.439+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.487+0000] {logging_mixin.py:190} INFO - 💌message 68 sent: user_id=102
+[2025-05-22T06:59:17.495+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.544+0000] {logging_mixin.py:190} INFO - 💌message 69 sent: user_id=113
+[2025-05-22T06:59:17.551+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.603+0000] {logging_mixin.py:190} INFO - 💌message 70 sent: user_id=147
+[2025-05-22T06:59:17.610+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.660+0000] {logging_mixin.py:190} INFO - 💌message 71 sent: user_id=120
+[2025-05-22T06:59:17.667+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.717+0000] {logging_mixin.py:190} INFO - 💌message 72 sent: user_id=106
+[2025-05-22T06:59:17.724+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.773+0000] {logging_mixin.py:190} INFO - 💌message 73 sent: user_id=115
+[2025-05-22T06:59:17.781+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.830+0000] {logging_mixin.py:190} INFO - 💌message 74 sent: user_id=138
+[2025-05-22T06:59:17.837+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.885+0000] {logging_mixin.py:190} INFO - 💌message 75 sent: user_id=117
+[2025-05-22T06:59:17.889+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.939+0000] {logging_mixin.py:190} INFO - 💌message 76 sent: user_id=137
+[2025-05-22T06:59:17.945+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:17.994+0000] {logging_mixin.py:190} INFO - 💌message 77 sent: user_id=150
+[2025-05-22T06:59:18.002+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.051+0000] {logging_mixin.py:190} INFO - 💌message 78 sent: user_id=147
+[2025-05-22T06:59:18.062+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.109+0000] {logging_mixin.py:190} INFO - 💌message 79 sent: user_id=127
+[2025-05-22T06:59:18.117+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.164+0000] {logging_mixin.py:190} INFO - 💌message 80 sent: user_id=123
+[2025-05-22T06:59:18.168+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.218+0000] {logging_mixin.py:190} INFO - 💌message 81 sent: user_id=110
+[2025-05-22T06:59:18.221+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.274+0000] {logging_mixin.py:190} INFO - 💌message 82 sent: user_id=121
+[2025-05-22T06:59:18.277+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.326+0000] {logging_mixin.py:190} INFO - 💌message 83 sent: user_id=112
+[2025-05-22T06:59:18.331+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.383+0000] {logging_mixin.py:190} INFO - 💌message 84 sent: user_id=121
+[2025-05-22T06:59:18.391+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.442+0000] {logging_mixin.py:190} INFO - 💌message 85 sent: user_id=113
+[2025-05-22T06:59:18.449+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.497+0000] {logging_mixin.py:190} INFO - 💌message 86 sent: user_id=109
+[2025-05-22T06:59:18.505+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.555+0000] {logging_mixin.py:190} INFO - 💌message 87 sent: user_id=120
+[2025-05-22T06:59:18.564+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.612+0000] {logging_mixin.py:190} INFO - 💌message 88 sent: user_id=102
+[2025-05-22T06:59:18.616+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.664+0000] {logging_mixin.py:190} INFO - 💌message 89 sent: user_id=103
+[2025-05-22T06:59:18.666+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.716+0000] {logging_mixin.py:190} INFO - 💌message 90 sent: user_id=118
+[2025-05-22T06:59:18.719+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.769+0000] {logging_mixin.py:190} INFO - 💌message 91 sent: user_id=100
+[2025-05-22T06:59:18.774+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.823+0000] {logging_mixin.py:190} INFO - 💌message 92 sent: user_id=141
+[2025-05-22T06:59:18.830+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.881+0000] {logging_mixin.py:190} INFO - 💌message 93 sent: user_id=132
+[2025-05-22T06:59:18.888+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.936+0000] {logging_mixin.py:190} INFO - 💌message 94 sent: user_id=128
+[2025-05-22T06:59:18.940+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:18.990+0000] {logging_mixin.py:190} INFO - 💌message 95 sent: user_id=131
+[2025-05-22T06:59:18.995+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.046+0000] {logging_mixin.py:190} INFO - 💌message 96 sent: user_id=121
+[2025-05-22T06:59:19.056+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.101+0000] {logging_mixin.py:190} INFO - 💌message 97 sent: user_id=147
+[2025-05-22T06:59:19.108+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.157+0000] {logging_mixin.py:190} INFO - 💌message 98 sent: user_id=123
+[2025-05-22T06:59:19.163+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.213+0000] {logging_mixin.py:190} INFO - 💌message 99 sent: user_id=136
+[2025-05-22T06:59:19.219+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.268+0000] {logging_mixin.py:190} INFO - 💌message 100 sent: user_id=147
+[2025-05-22T06:59:19.274+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.322+0000] {logging_mixin.py:190} INFO - 💌message 101 sent: user_id=127
+[2025-05-22T06:59:19.327+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.376+0000] {logging_mixin.py:190} INFO - 💌message 102 sent: user_id=139
+[2025-05-22T06:59:19.380+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.430+0000] {logging_mixin.py:190} INFO - 💌message 103 sent: user_id=104
+[2025-05-22T06:59:19.436+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.486+0000] {logging_mixin.py:190} INFO - 💌message 104 sent: user_id=133
+[2025-05-22T06:59:19.495+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.544+0000] {logging_mixin.py:190} INFO - 💌message 105 sent: user_id=121
+[2025-05-22T06:59:19.551+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.601+0000] {logging_mixin.py:190} INFO - 💌message 106 sent: user_id=125
+[2025-05-22T06:59:19.607+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.656+0000] {logging_mixin.py:190} INFO - 💌message 107 sent: user_id=106
+[2025-05-22T06:59:19.664+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.714+0000] {logging_mixin.py:190} INFO - 💌message 108 sent: user_id=141
+[2025-05-22T06:59:19.721+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.770+0000] {logging_mixin.py:190} INFO - 💌message 109 sent: user_id=139
+[2025-05-22T06:59:19.778+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.824+0000] {logging_mixin.py:190} INFO - 💌message 110 sent: user_id=106
+[2025-05-22T06:59:19.830+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.879+0000] {logging_mixin.py:190} INFO - 💌message 111 sent: user_id=114
+[2025-05-22T06:59:19.885+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.933+0000] {logging_mixin.py:190} INFO - 💌message 112 sent: user_id=135
+[2025-05-22T06:59:19.937+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:19.987+0000] {logging_mixin.py:190} INFO - 💌message 113 sent: user_id=127
+[2025-05-22T06:59:19.992+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.042+0000] {logging_mixin.py:190} INFO - 💌message 114 sent: user_id=137
+[2025-05-22T06:59:20.049+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.098+0000] {logging_mixin.py:190} INFO - 💌message 115 sent: user_id=149
+[2025-05-22T06:59:20.105+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.155+0000] {logging_mixin.py:190} INFO - 💌message 116 sent: user_id=137
+[2025-05-22T06:59:20.163+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.212+0000] {logging_mixin.py:190} INFO - 💌message 117 sent: user_id=145
+[2025-05-22T06:59:20.220+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.268+0000] {logging_mixin.py:190} INFO - 💌message 118 sent: user_id=108
+[2025-05-22T06:59:20.275+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.327+0000] {logging_mixin.py:190} INFO - 💌message 119 sent: user_id=113
+[2025-05-22T06:59:20.332+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.382+0000] {logging_mixin.py:190} INFO - 💌message 120 sent: user_id=137
+[2025-05-22T06:59:20.390+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.438+0000] {logging_mixin.py:190} INFO - 💌message 121 sent: user_id=119
+[2025-05-22T06:59:20.448+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.497+0000] {logging_mixin.py:190} INFO - 💌message 122 sent: user_id=119
+[2025-05-22T06:59:20.505+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.557+0000] {logging_mixin.py:190} INFO - 💌message 123 sent: user_id=112
+[2025-05-22T06:59:20.566+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.615+0000] {logging_mixin.py:190} INFO - 💌message 124 sent: user_id=117
+[2025-05-22T06:59:20.621+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.672+0000] {logging_mixin.py:190} INFO - 💌message 125 sent: user_id=103
+[2025-05-22T06:59:20.680+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.731+0000] {logging_mixin.py:190} INFO - 💌message 126 sent: user_id=104
+[2025-05-22T06:59:20.741+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.787+0000] {logging_mixin.py:190} INFO - 💌message 127 sent: user_id=126
+[2025-05-22T06:59:20.795+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.844+0000] {logging_mixin.py:190} INFO - 💌message 128 sent: user_id=136
+[2025-05-22T06:59:20.855+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.900+0000] {logging_mixin.py:190} INFO - 💌message 129 sent: user_id=147
+[2025-05-22T06:59:20.906+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:20.955+0000] {logging_mixin.py:190} INFO - 💌message 130 sent: user_id=123
+[2025-05-22T06:59:20.958+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.009+0000] {logging_mixin.py:190} INFO - 💌message 131 sent: user_id=125
+[2025-05-22T06:59:21.011+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.064+0000] {logging_mixin.py:190} INFO - 💌message 132 sent: user_id=149
+[2025-05-22T06:59:21.069+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.122+0000] {logging_mixin.py:190} INFO - 💌message 133 sent: user_id=113
+[2025-05-22T06:59:21.128+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.178+0000] {logging_mixin.py:190} INFO - 💌message 134 sent: user_id=137
+[2025-05-22T06:59:21.187+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.237+0000] {logging_mixin.py:190} INFO - 💌message 135 sent: user_id=101
+[2025-05-22T06:59:21.239+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.289+0000] {logging_mixin.py:190} INFO - 💌message 136 sent: user_id=127
+[2025-05-22T06:59:21.292+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.341+0000] {logging_mixin.py:190} INFO - 💌message 137 sent: user_id=146
+[2025-05-22T06:59:21.344+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.394+0000] {logging_mixin.py:190} INFO - 💌message 138 sent: user_id=130
+[2025-05-22T06:59:21.400+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.451+0000] {logging_mixin.py:190} INFO - 💌message 139 sent: user_id=139
+[2025-05-22T06:59:21.458+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.508+0000] {logging_mixin.py:190} INFO - 💌message 140 sent: user_id=146
+[2025-05-22T06:59:21.512+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.564+0000] {logging_mixin.py:190} INFO - 💌message 141 sent: user_id=127
+[2025-05-22T06:59:21.568+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.618+0000] {logging_mixin.py:190} INFO - 💌message 142 sent: user_id=145
+[2025-05-22T06:59:21.623+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.674+0000] {logging_mixin.py:190} INFO - 💌message 143 sent: user_id=113
+[2025-05-22T06:59:21.680+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.729+0000] {logging_mixin.py:190} INFO - 💌message 144 sent: user_id=148
+[2025-05-22T06:59:21.734+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.786+0000] {logging_mixin.py:190} INFO - 💌message 145 sent: user_id=125
+[2025-05-22T06:59:21.791+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.842+0000] {logging_mixin.py:190} INFO - 💌message 146 sent: user_id=109
+[2025-05-22T06:59:21.849+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.897+0000] {logging_mixin.py:190} INFO - 💌message 147 sent: user_id=130
+[2025-05-22T06:59:21.905+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:21.953+0000] {logging_mixin.py:190} INFO - 💌message 148 sent: user_id=112
+[2025-05-22T06:59:21.960+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.008+0000] {logging_mixin.py:190} INFO - 💌message 149 sent: user_id=126
+[2025-05-22T06:59:22.010+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.061+0000] {logging_mixin.py:190} INFO - 💌message 150 sent: user_id=120
+[2025-05-22T06:59:22.063+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.114+0000] {logging_mixin.py:190} INFO - 💌message 151 sent: user_id=145
+[2025-05-22T06:59:22.117+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.169+0000] {logging_mixin.py:190} INFO - 💌message 152 sent: user_id=127
+[2025-05-22T06:59:22.174+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.224+0000] {logging_mixin.py:190} INFO - 💌message 153 sent: user_id=144
+[2025-05-22T06:59:22.230+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.280+0000] {logging_mixin.py:190} INFO - 💌message 154 sent: user_id=109
+[2025-05-22T06:59:22.285+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.334+0000] {logging_mixin.py:190} INFO - 💌message 155 sent: user_id=127
+[2025-05-22T06:59:22.340+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.391+0000] {logging_mixin.py:190} INFO - 💌message 156 sent: user_id=143
+[2025-05-22T06:59:22.396+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.446+0000] {logging_mixin.py:190} INFO - 💌message 157 sent: user_id=138
+[2025-05-22T06:59:22.453+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.503+0000] {logging_mixin.py:190} INFO - 💌message 158 sent: user_id=106
+[2025-05-22T06:59:22.509+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.561+0000] {logging_mixin.py:190} INFO - 💌message 159 sent: user_id=145
+[2025-05-22T06:59:22.565+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.619+0000] {logging_mixin.py:190} INFO - 💌message 160 sent: user_id=112
+[2025-05-22T06:59:22.624+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.673+0000] {logging_mixin.py:190} INFO - 💌message 161 sent: user_id=131
+[2025-05-22T06:59:22.679+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.730+0000] {logging_mixin.py:190} INFO - 💌message 162 sent: user_id=143
+[2025-05-22T06:59:22.735+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.787+0000] {logging_mixin.py:190} INFO - 💌message 163 sent: user_id=100
+[2025-05-22T06:59:22.793+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.842+0000] {logging_mixin.py:190} INFO - 💌message 164 sent: user_id=131
+[2025-05-22T06:59:22.847+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.898+0000] {logging_mixin.py:190} INFO - 💌message 165 sent: user_id=131
+[2025-05-22T06:59:22.903+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:22.954+0000] {logging_mixin.py:190} INFO - 💌message 166 sent: user_id=134
+[2025-05-22T06:59:22.958+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.009+0000] {logging_mixin.py:190} INFO - 💌message 167 sent: user_id=142
+[2025-05-22T06:59:23.013+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.064+0000] {logging_mixin.py:190} INFO - 💌message 168 sent: user_id=142
+[2025-05-22T06:59:23.066+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.118+0000] {logging_mixin.py:190} INFO - 💌message 169 sent: user_id=120
+[2025-05-22T06:59:23.121+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.171+0000] {logging_mixin.py:190} INFO - 💌message 170 sent: user_id=129
+[2025-05-22T06:59:23.178+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.227+0000] {logging_mixin.py:190} INFO - 💌message 171 sent: user_id=118
+[2025-05-22T06:59:23.231+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.282+0000] {logging_mixin.py:190} INFO - 💌message 172 sent: user_id=103
+[2025-05-22T06:59:23.289+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.339+0000] {logging_mixin.py:190} INFO - 💌message 173 sent: user_id=134
+[2025-05-22T06:59:23.346+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.397+0000] {logging_mixin.py:190} INFO - 💌message 174 sent: user_id=143
+[2025-05-22T06:59:23.404+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.453+0000] {logging_mixin.py:190} INFO - 💌message 175 sent: user_id=120
+[2025-05-22T06:59:23.460+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.510+0000] {logging_mixin.py:190} INFO - 💌message 176 sent: user_id=140
+[2025-05-22T06:59:23.516+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.566+0000] {logging_mixin.py:190} INFO - 💌message 177 sent: user_id=129
+[2025-05-22T06:59:23.571+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.623+0000] {logging_mixin.py:190} INFO - 💌message 178 sent: user_id=110
+[2025-05-22T06:59:23.628+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.678+0000] {logging_mixin.py:190} INFO - 💌message 179 sent: user_id=130
+[2025-05-22T06:59:23.691+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.739+0000] {logging_mixin.py:190} INFO - 💌message 180 sent: user_id=147
+[2025-05-22T06:59:23.744+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.791+0000] {logging_mixin.py:190} INFO - 💌message 181 sent: user_id=136
+[2025-05-22T06:59:23.795+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.844+0000] {logging_mixin.py:190} INFO - 💌message 182 sent: user_id=107
+[2025-05-22T06:59:23.846+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.896+0000] {logging_mixin.py:190} INFO - 💌message 183 sent: user_id=133
+[2025-05-22T06:59:23.898+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:23.948+0000] {logging_mixin.py:190} INFO - 💌message 184 sent: user_id=128
+[2025-05-22T06:59:23.951+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:24.001+0000] {logging_mixin.py:190} INFO - 💌message 185 sent: user_id=129
+[2025-05-22T06:59:24.003+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:24.054+0000] {logging_mixin.py:190} INFO - 💌message 186 sent: user_id=145
+[2025-05-22T06:59:24.056+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:24.105+0000] {logging_mixin.py:190} INFO - 💌message 187 sent: user_id=128
+[2025-05-22T06:59:24.107+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:24.157+0000] {logging_mixin.py:190} INFO - 💌message 188 sent: user_id=113
+[2025-05-22T06:59:24.159+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:24.208+0000] {logging_mixin.py:190} INFO - 💌message 189 sent: user_id=102
+[2025-05-22T06:59:24.210+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset 0 and error None.
+[2025-05-22T06:59:24.261+0000] {logging_mixin.py:190} INFO - 💌message 190 sent: user_id=128
+[2025-05-22T06:59:24.263+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset -1 and error None.
+[2025-05-22T06:59:24.313+0000] {logging_mixin.py:190} INFO - 💌message 191 sent: user_id=136
+[2025-05-22T06:59:24.363+0000] {logging_mixin.py:190} INFO - 💌message 192 sent: user_id=103
+[2025-05-22T06:59:24.414+0000] {logging_mixin.py:190} INFO - 💌message 193 sent: user_id=150
+[2025-05-22T06:59:24.465+0000] {logging_mixin.py:190} INFO - 💌message 194 sent: user_id=136
+[2025-05-22T06:59:24.516+0000] {logging_mixin.py:190} INFO - 💌message 195 sent: user_id=123
+[2025-05-22T06:59:24.568+0000] {logging_mixin.py:190} INFO - 💌message 196 sent: user_id=150
+[2025-05-22T06:59:24.620+0000] {logging_mixin.py:190} INFO - 💌message 197 sent: user_id=109
+[2025-05-22T06:59:24.670+0000] {logging_mixin.py:190} INFO - 💌message 198 sent: user_id=140
+[2025-05-22T06:59:24.722+0000] {logging_mixin.py:190} INFO - 💌message 199 sent: user_id=119
+[2025-05-22T06:59:24.773+0000] {logging_mixin.py:190} INFO - 💌message 200 sent: user_id=119
+[2025-05-22T06:59:24.825+0000] {logging_mixin.py:190} INFO - 💌message 201 sent: user_id=102
+[2025-05-22T06:59:24.877+0000] {logging_mixin.py:190} INFO - 💌message 202 sent: user_id=138
+[2025-05-22T06:59:24.928+0000] {logging_mixin.py:190} INFO - 💌message 203 sent: user_id=121
+[2025-05-22T06:59:24.980+0000] {logging_mixin.py:190} INFO - 💌message 204 sent: user_id=149
+[2025-05-22T06:59:25.031+0000] {logging_mixin.py:190} INFO - 💌message 205 sent: user_id=120
+[2025-05-22T06:59:25.085+0000] {logging_mixin.py:190} INFO - 💌message 206 sent: user_id=106
+[2025-05-22T06:59:25.140+0000] {logging_mixin.py:190} INFO - 💌message 207 sent: user_id=130
+[2025-05-22T06:59:25.192+0000] {logging_mixin.py:190} INFO - 💌message 208 sent: user_id=132
+[2025-05-22T06:59:25.249+0000] {logging_mixin.py:190} INFO - 💌message 209 sent: user_id=140
+[2025-05-22T06:59:25.303+0000] {logging_mixin.py:190} INFO - 💌message 210 sent: user_id=136
+[2025-05-22T06:59:25.356+0000] {logging_mixin.py:190} INFO - 💌message 211 sent: user_id=115
+[2025-05-22T06:59:25.409+0000] {logging_mixin.py:190} INFO - 💌message 212 sent: user_id=139
+[2025-05-22T06:59:25.465+0000] {logging_mixin.py:190} INFO - 💌message 213 sent: user_id=134
+[2025-05-22T06:59:25.520+0000] {logging_mixin.py:190} INFO - 💌message 214 sent: user_id=142
+[2025-05-22T06:59:25.573+0000] {logging_mixin.py:190} INFO - 💌message 215 sent: user_id=117
+[2025-05-22T06:59:25.627+0000] {logging_mixin.py:190} INFO - 💌message 216 sent: user_id=103
+[2025-05-22T06:59:25.680+0000] {logging_mixin.py:190} INFO - 💌message 217 sent: user_id=100
+[2025-05-22T06:59:25.733+0000] {logging_mixin.py:190} INFO - 💌message 218 sent: user_id=119
+[2025-05-22T06:59:25.787+0000] {logging_mixin.py:190} INFO - 💌message 219 sent: user_id=116
+[2025-05-22T06:59:25.840+0000] {logging_mixin.py:190} INFO - 💌message 220 sent: user_id=136
+[2025-05-22T06:59:25.893+0000] {logging_mixin.py:190} INFO - 💌message 221 sent: user_id=115
+[2025-05-22T06:59:25.946+0000] {logging_mixin.py:190} INFO - 💌message 222 sent: user_id=118
+[2025-05-22T06:59:26.001+0000] {logging_mixin.py:190} INFO - 💌message 223 sent: user_id=107
+[2025-05-22T06:59:26.056+0000] {logging_mixin.py:190} INFO - 💌message 224 sent: user_id=131
+[2025-05-22T06:59:26.073+0000] {conn.py:919} INFO - <BrokerConnection node_id=3 host=172.16.24.224:39092 <connected> [IPv4 ('172.16.24.224', 39092)]>: Closing connection. KafkaConnectionError: Socket EVENT_READ without in-flight-requests
+[2025-05-22T06:59:26.074+0000] {client_async.py:331} WARNING - Node 3 connection failed -- refreshing metadata
+[2025-05-22T06:59:26.114+0000] {logging_mixin.py:190} INFO - 💌message 225 sent: user_id=114
+[2025-05-22T06:59:26.169+0000] {logging_mixin.py:190} INFO - 💌message 226 sent: user_id=139
+[2025-05-22T06:59:26.224+0000] {conn.py:380} INFO - <BrokerConnection node_id=3 host=172.16.24.224:39092 <connecting> [IPv4 ('172.16.24.224', 39092)]>: connecting to 172.16.24.224:39092 [('172.16.24.224', 39092) IPv4]
+[2025-05-22T06:59:26.225+0000] {logging_mixin.py:190} INFO - 💌message 227 sent: user_id=124
+[2025-05-22T06:59:26.228+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=3 host=172.16.24.224:39092 <connecting> [IPv4 ('172.16.24.224', 39092)]> returned error 111. Disconnecting.
+[2025-05-22T06:59:26.229+0000] {conn.py:919} INFO - <BrokerConnection node_id=3 host=172.16.24.224:39092 <connecting> [IPv4 ('172.16.24.224', 39092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2025-05-22T06:59:26.230+0000] {client_async.py:331} WARNING - Node 3 connection failed -- refreshing metadata
+[2025-05-22T06:59:26.282+0000] {logging_mixin.py:190} INFO - 💌message 228 sent: user_id=123
+[2025-05-22T06:59:26.284+0000] {conn.py:380} INFO - <BrokerConnection node_id=2 host=172.16.24.224:29092 <connecting> [IPv4 ('172.16.24.224', 29092)]>: connecting to 172.16.24.224:29092 [('172.16.24.224', 29092) IPv4]
+[2025-05-22T06:59:26.290+0000] {conn.py:410} INFO - <BrokerConnection node_id=2 host=172.16.24.224:29092 <connecting> [IPv4 ('172.16.24.224', 29092)]>: Connection complete.
+[2025-05-22T06:59:26.340+0000] {logging_mixin.py:190} INFO - 💌message 229 sent: user_id=117
+[2025-05-22T06:59:26.394+0000] {logging_mixin.py:190} INFO - 💌message 230 sent: user_id=131
+[2025-05-22T06:59:26.446+0000] {logging_mixin.py:190} INFO - 💌message 231 sent: user_id=100
+[2025-05-22T06:59:26.499+0000] {logging_mixin.py:190} INFO - 💌message 232 sent: user_id=117
+[2025-05-22T06:59:26.554+0000] {logging_mixin.py:190} INFO - 💌message 233 sent: user_id=114
+[2025-05-22T06:59:26.607+0000] {logging_mixin.py:190} INFO - 💌message 234 sent: user_id=138
+[2025-05-22T06:59:26.661+0000] {logging_mixin.py:190} INFO - 💌message 235 sent: user_id=133
+[2025-05-22T06:59:26.715+0000] {logging_mixin.py:190} INFO - 💌message 236 sent: user_id=140
+[2025-05-22T06:59:26.769+0000] {logging_mixin.py:190} INFO - 💌message 237 sent: user_id=124
+[2025-05-22T06:59:26.822+0000] {logging_mixin.py:190} INFO - 💌message 238 sent: user_id=142
+[2025-05-22T06:59:26.876+0000] {logging_mixin.py:190} INFO - 💌message 239 sent: user_id=146
+[2025-05-22T06:59:26.929+0000] {logging_mixin.py:190} INFO - 💌message 240 sent: user_id=106
+[2025-05-22T06:59:26.984+0000] {logging_mixin.py:190} INFO - 💌message 241 sent: user_id=101
+[2025-05-22T06:59:27.039+0000] {logging_mixin.py:190} INFO - 💌message 242 sent: user_id=146
+[2025-05-22T06:59:27.094+0000] {logging_mixin.py:190} INFO - 💌message 243 sent: user_id=118
+[2025-05-22T06:59:27.147+0000] {logging_mixin.py:190} INFO - 💌message 244 sent: user_id=121
+[2025-05-22T06:59:27.203+0000] {logging_mixin.py:190} INFO - 💌message 245 sent: user_id=129
+[2025-05-22T06:59:27.256+0000] {logging_mixin.py:190} INFO - 💌message 246 sent: user_id=117
+[2025-05-22T06:59:27.312+0000] {logging_mixin.py:190} INFO - 💌message 247 sent: user_id=121
+[2025-05-22T06:59:27.363+0000] {logging_mixin.py:190} INFO - 💌message 248 sent: user_id=115
+[2025-05-22T06:59:27.414+0000] {logging_mixin.py:190} INFO - 💌message 249 sent: user_id=126
+[2025-05-22T06:59:27.468+0000] {logging_mixin.py:190} INFO - 💌message 250 sent: user_id=115
+[2025-05-22T06:59:27.521+0000] {logging_mixin.py:190} INFO - 💌message 251 sent: user_id=115
+[2025-05-22T06:59:27.577+0000] {logging_mixin.py:190} INFO - 💌message 252 sent: user_id=122
+[2025-05-22T06:59:27.633+0000] {logging_mixin.py:190} INFO - 💌message 253 sent: user_id=133
+[2025-05-22T06:59:27.686+0000] {logging_mixin.py:190} INFO - 💌message 254 sent: user_id=120
+[2025-05-22T06:59:27.745+0000] {logging_mixin.py:190} INFO - 💌message 255 sent: user_id=130
+[2025-05-22T06:59:27.798+0000] {logging_mixin.py:190} INFO - 💌message 256 sent: user_id=118
+[2025-05-22T06:59:27.854+0000] {logging_mixin.py:190} INFO - 💌message 257 sent: user_id=146
+[2025-05-22T06:59:27.906+0000] {logging_mixin.py:190} INFO - 💌message 258 sent: user_id=116
+[2025-05-22T06:59:27.963+0000] {logging_mixin.py:190} INFO - 💌message 259 sent: user_id=143
+[2025-05-22T06:59:28.019+0000] {logging_mixin.py:190} INFO - 💌message 260 sent: user_id=146
+[2025-05-22T06:59:28.074+0000] {logging_mixin.py:190} INFO - 💌message 261 sent: user_id=106
+[2025-05-22T06:59:28.131+0000] {logging_mixin.py:190} INFO - 💌message 262 sent: user_id=149
+[2025-05-22T06:59:28.189+0000] {logging_mixin.py:190} INFO - 💌message 263 sent: user_id=145
+[2025-05-22T06:59:28.244+0000] {logging_mixin.py:190} INFO - 💌message 264 sent: user_id=112
+[2025-05-22T06:59:28.302+0000] {logging_mixin.py:190} INFO - 💌message 265 sent: user_id=137
+[2025-05-22T06:59:28.357+0000] {logging_mixin.py:190} INFO - 💌message 266 sent: user_id=140
+[2025-05-22T06:59:28.412+0000] {logging_mixin.py:190} INFO - 💌message 267 sent: user_id=134
+[2025-05-22T06:59:28.471+0000] {logging_mixin.py:190} INFO - 💌message 268 sent: user_id=143
+[2025-05-22T06:59:28.524+0000] {logging_mixin.py:190} INFO - 💌message 269 sent: user_id=113
+[2025-05-22T06:59:28.578+0000] {logging_mixin.py:190} INFO - 💌message 270 sent: user_id=141
+[2025-05-22T06:59:28.631+0000] {logging_mixin.py:190} INFO - 💌message 271 sent: user_id=107
+[2025-05-22T06:59:28.687+0000] {logging_mixin.py:190} INFO - 💌message 272 sent: user_id=132
+[2025-05-22T06:59:28.742+0000] {logging_mixin.py:190} INFO - 💌message 273 sent: user_id=126
+[2025-05-22T06:59:28.796+0000] {logging_mixin.py:190} INFO - 💌message 274 sent: user_id=146
+[2025-05-22T06:59:28.849+0000] {logging_mixin.py:190} INFO - 💌message 275 sent: user_id=104
+[2025-05-22T06:59:28.903+0000] {logging_mixin.py:190} INFO - 💌message 276 sent: user_id=108
+[2025-05-22T06:59:28.957+0000] {logging_mixin.py:190} INFO - 💌message 277 sent: user_id=106
+[2025-05-22T06:59:29.013+0000] {logging_mixin.py:190} INFO - 💌message 278 sent: user_id=108
+[2025-05-22T06:59:29.067+0000] {logging_mixin.py:190} INFO - 💌message 279 sent: user_id=107
+[2025-05-22T06:59:29.121+0000] {logging_mixin.py:190} INFO - 💌message 280 sent: user_id=138
+[2025-05-22T06:59:29.175+0000] {logging_mixin.py:190} INFO - 💌message 281 sent: user_id=123
+[2025-05-22T06:59:29.227+0000] {logging_mixin.py:190} INFO - 💌message 282 sent: user_id=123
+[2025-05-22T06:59:29.282+0000] {logging_mixin.py:190} INFO - 💌message 283 sent: user_id=106
+[2025-05-22T06:59:29.339+0000] {logging_mixin.py:190} INFO - 💌message 284 sent: user_id=126
+[2025-05-22T06:59:29.392+0000] {logging_mixin.py:190} INFO - 💌message 285 sent: user_id=122
+[2025-05-22T06:59:29.444+0000] {logging_mixin.py:190} INFO - 💌message 286 sent: user_id=146
+[2025-05-22T06:59:29.499+0000] {logging_mixin.py:190} INFO - 💌message 287 sent: user_id=144
+[2025-05-22T06:59:29.552+0000] {logging_mixin.py:190} INFO - 💌message 288 sent: user_id=111
+[2025-05-22T06:59:29.607+0000] {logging_mixin.py:190} INFO - 💌message 289 sent: user_id=137
+[2025-05-22T06:59:29.661+0000] {logging_mixin.py:190} INFO - 💌message 290 sent: user_id=139
+[2025-05-22T06:59:29.717+0000] {logging_mixin.py:190} INFO - 💌message 291 sent: user_id=100
+[2025-05-22T06:59:29.774+0000] {logging_mixin.py:190} INFO - 💌message 292 sent: user_id=140
+[2025-05-22T06:59:29.832+0000] {logging_mixin.py:190} INFO - 💌message 293 sent: user_id=114
+[2025-05-22T06:59:29.885+0000] {logging_mixin.py:190} INFO - 💌message 294 sent: user_id=120
+[2025-05-22T06:59:29.941+0000] {logging_mixin.py:190} INFO - 💌message 295 sent: user_id=118
+[2025-05-22T06:59:29.993+0000] {logging_mixin.py:190} INFO - 💌message 296 sent: user_id=122
+[2025-05-22T06:59:30.048+0000] {logging_mixin.py:190} INFO - 💌message 297 sent: user_id=143
+[2025-05-22T06:59:30.099+0000] {logging_mixin.py:190} INFO - 💌message 298 sent: user_id=141
+[2025-05-22T06:59:30.151+0000] {logging_mixin.py:190} INFO - 💌message 299 sent: user_id=150
+[2025-05-22T06:59:30.203+0000] {logging_mixin.py:190} INFO - 💌message 300 sent: user_id=142
+[2025-05-22T06:59:30.257+0000] {logging_mixin.py:190} INFO - 💌message 301 sent: user_id=143
+[2025-05-22T06:59:30.308+0000] {logging_mixin.py:190} INFO - 💌message 302 sent: user_id=132
+[2025-05-22T06:59:30.359+0000] {logging_mixin.py:190} INFO - 💌message 303 sent: user_id=139
+[2025-05-22T06:59:30.411+0000] {logging_mixin.py:190} INFO - 💌message 304 sent: user_id=149
+[2025-05-22T06:59:30.462+0000] {logging_mixin.py:190} INFO - 💌message 305 sent: user_id=116
+[2025-05-22T06:59:30.513+0000] {logging_mixin.py:190} INFO - 💌message 306 sent: user_id=141
+[2025-05-22T06:59:30.564+0000] {logging_mixin.py:190} INFO - 💌message 307 sent: user_id=101
+[2025-05-22T06:59:30.616+0000] {logging_mixin.py:190} INFO - 💌message 308 sent: user_id=108
+[2025-05-22T06:59:30.666+0000] {logging_mixin.py:190} INFO - 💌message 309 sent: user_id=111
+[2025-05-22T06:59:30.718+0000] {logging_mixin.py:190} INFO - 💌message 310 sent: user_id=113
+[2025-05-22T06:59:30.769+0000] {logging_mixin.py:190} INFO - 💌message 311 sent: user_id=123
+[2025-05-22T06:59:30.824+0000] {logging_mixin.py:190} INFO - 💌message 312 sent: user_id=141
+[2025-05-22T06:59:30.875+0000] {logging_mixin.py:190} INFO - 💌message 313 sent: user_id=106
+[2025-05-22T06:59:30.931+0000] {logging_mixin.py:190} INFO - 💌message 314 sent: user_id=109
+[2025-05-22T06:59:30.983+0000] {logging_mixin.py:190} INFO - 💌message 315 sent: user_id=100
+[2025-05-22T06:59:31.036+0000] {logging_mixin.py:190} INFO - 💌message 316 sent: user_id=120
+[2025-05-22T06:59:31.088+0000] {logging_mixin.py:190} INFO - 💌message 317 sent: user_id=110
+[2025-05-22T06:59:31.144+0000] {logging_mixin.py:190} INFO - 💌message 318 sent: user_id=143
+[2025-05-22T06:59:31.199+0000] {logging_mixin.py:190} INFO - 💌message 319 sent: user_id=135
+[2025-05-22T06:59:31.253+0000] {logging_mixin.py:190} INFO - 💌message 320 sent: user_id=120
+[2025-05-22T06:59:31.312+0000] {logging_mixin.py:190} INFO - 💌message 321 sent: user_id=139
+[2025-05-22T06:59:31.366+0000] {logging_mixin.py:190} INFO - 💌message 322 sent: user_id=132
+[2025-05-22T06:59:31.422+0000] {logging_mixin.py:190} INFO - 💌message 323 sent: user_id=100
+[2025-05-22T06:59:31.475+0000] {logging_mixin.py:190} INFO - 💌message 324 sent: user_id=140
+[2025-05-22T06:59:31.527+0000] {logging_mixin.py:190} INFO - 💌message 325 sent: user_id=147
+[2025-05-22T06:59:31.579+0000] {logging_mixin.py:190} INFO - 💌message 326 sent: user_id=114
+[2025-05-22T06:59:31.635+0000] {logging_mixin.py:190} INFO - 💌message 327 sent: user_id=124
+[2025-05-22T06:59:31.689+0000] {logging_mixin.py:190} INFO - 💌message 328 sent: user_id=148
+[2025-05-22T06:59:31.743+0000] {logging_mixin.py:190} INFO - 💌message 329 sent: user_id=134
+[2025-05-22T06:59:31.797+0000] {logging_mixin.py:190} INFO - 💌message 330 sent: user_id=133
+[2025-05-22T06:59:31.854+0000] {logging_mixin.py:190} INFO - 💌message 331 sent: user_id=149
+[2025-05-22T06:59:31.907+0000] {logging_mixin.py:190} INFO - 💌message 332 sent: user_id=120
+[2025-05-22T06:59:31.962+0000] {logging_mixin.py:190} INFO - 💌message 333 sent: user_id=142
+[2025-05-22T06:59:32.017+0000] {logging_mixin.py:190} INFO - 💌message 334 sent: user_id=145
+[2025-05-22T06:59:32.073+0000] {logging_mixin.py:190} INFO - 💌message 335 sent: user_id=114
+[2025-05-22T06:59:32.128+0000] {logging_mixin.py:190} INFO - 💌message 336 sent: user_id=128
+[2025-05-22T06:59:32.184+0000] {logging_mixin.py:190} INFO - 💌message 337 sent: user_id=120
+[2025-05-22T06:59:32.238+0000] {logging_mixin.py:190} INFO - 💌message 338 sent: user_id=128
+[2025-05-22T06:59:32.291+0000] {logging_mixin.py:190} INFO - 💌message 339 sent: user_id=117
+[2025-05-22T06:59:32.345+0000] {logging_mixin.py:190} INFO - 💌message 340 sent: user_id=122
+[2025-05-22T06:59:32.403+0000] {logging_mixin.py:190} INFO - 💌message 341 sent: user_id=103
+[2025-05-22T06:59:32.460+0000] {logging_mixin.py:190} INFO - 💌message 342 sent: user_id=135
+[2025-05-22T06:59:32.512+0000] {logging_mixin.py:190} INFO - 💌message 343 sent: user_id=112
+[2025-05-22T06:59:32.563+0000] {logging_mixin.py:190} INFO - 💌message 344 sent: user_id=129
+[2025-05-22T06:59:32.615+0000] {logging_mixin.py:190} INFO - 💌message 345 sent: user_id=125
+[2025-05-22T06:59:32.668+0000] {logging_mixin.py:190} INFO - 💌message 346 sent: user_id=101
+[2025-05-22T06:59:32.720+0000] {logging_mixin.py:190} INFO - 💌message 347 sent: user_id=100
+[2025-05-22T06:59:32.773+0000] {logging_mixin.py:190} INFO - 💌message 348 sent: user_id=133
+[2025-05-22T06:59:32.827+0000] {logging_mixin.py:190} INFO - 💌message 349 sent: user_id=134
+[2025-05-22T06:59:32.881+0000] {logging_mixin.py:190} INFO - 💌message 350 sent: user_id=134
+[2025-05-22T06:59:32.934+0000] {logging_mixin.py:190} INFO - 💌message 351 sent: user_id=121
+[2025-05-22T06:59:32.993+0000] {logging_mixin.py:190} INFO - 💌message 352 sent: user_id=100
+[2025-05-22T06:59:33.049+0000] {logging_mixin.py:190} INFO - 💌message 353 sent: user_id=104
+[2025-05-22T06:59:33.204+0000] {logging_mixin.py:190} INFO - 💌message 354 sent: user_id=129
+[2025-05-22T06:59:33.256+0000] {logging_mixin.py:190} INFO - 💌message 355 sent: user_id=110
+[2025-05-22T06:59:33.311+0000] {logging_mixin.py:190} INFO - 💌message 356 sent: user_id=109
+[2025-05-22T06:59:33.366+0000] {logging_mixin.py:190} INFO - 💌message 357 sent: user_id=130
+[2025-05-22T06:59:33.421+0000] {logging_mixin.py:190} INFO - 💌message 358 sent: user_id=134
+[2025-05-22T06:59:33.477+0000] {logging_mixin.py:190} INFO - 💌message 359 sent: user_id=136
+[2025-05-22T06:59:33.527+0000] {logging_mixin.py:190} INFO - 💌message 360 sent: user_id=126
+[2025-05-22T06:59:33.579+0000] {logging_mixin.py:190} INFO - 💌message 361 sent: user_id=111
+[2025-05-22T06:59:33.630+0000] {logging_mixin.py:190} INFO - 💌message 362 sent: user_id=140
+[2025-05-22T06:59:33.684+0000] {logging_mixin.py:190} INFO - 💌message 363 sent: user_id=123
+[2025-05-22T06:59:33.738+0000] {logging_mixin.py:190} INFO - 💌message 364 sent: user_id=147
+[2025-05-22T06:59:33.791+0000] {logging_mixin.py:190} INFO - 💌message 365 sent: user_id=107
+[2025-05-22T06:59:33.846+0000] {logging_mixin.py:190} INFO - 💌message 366 sent: user_id=106
+[2025-05-22T06:59:33.900+0000] {logging_mixin.py:190} INFO - 💌message 367 sent: user_id=131
+[2025-05-22T06:59:33.957+0000] {logging_mixin.py:190} INFO - 💌message 368 sent: user_id=131
+[2025-05-22T06:59:34.011+0000] {logging_mixin.py:190} INFO - 💌message 369 sent: user_id=106
+[2025-05-22T06:59:34.065+0000] {logging_mixin.py:190} INFO - 💌message 370 sent: user_id=118
+[2025-05-22T06:59:34.121+0000] {logging_mixin.py:190} INFO - 💌message 371 sent: user_id=148
+[2025-05-22T06:59:34.176+0000] {logging_mixin.py:190} INFO - 💌message 372 sent: user_id=128
+[2025-05-22T06:59:34.231+0000] {logging_mixin.py:190} INFO - 💌message 373 sent: user_id=113
+[2025-05-22T06:59:34.285+0000] {logging_mixin.py:190} INFO - 💌message 374 sent: user_id=138
+[2025-05-22T06:59:34.339+0000] {logging_mixin.py:190} INFO - 💌message 375 sent: user_id=146
+[2025-05-22T06:59:34.394+0000] {logging_mixin.py:190} INFO - 💌message 376 sent: user_id=137
+[2025-05-22T06:59:34.447+0000] {logging_mixin.py:190} INFO - 💌message 377 sent: user_id=150
+[2025-05-22T06:59:34.499+0000] {logging_mixin.py:190} INFO - 💌message 378 sent: user_id=139
+[2025-05-22T06:59:34.551+0000] {logging_mixin.py:190} INFO - 💌message 379 sent: user_id=127
+[2025-05-22T06:59:34.602+0000] {logging_mixin.py:190} INFO - 💌message 380 sent: user_id=136
+[2025-05-22T06:59:34.654+0000] {logging_mixin.py:190} INFO - 💌message 381 sent: user_id=113
+[2025-05-22T06:59:34.706+0000] {logging_mixin.py:190} INFO - 💌message 382 sent: user_id=142
+[2025-05-22T06:59:34.757+0000] {logging_mixin.py:190} INFO - 💌message 383 sent: user_id=139
+[2025-05-22T06:59:34.811+0000] {logging_mixin.py:190} INFO - 💌message 384 sent: user_id=138
+[2025-05-22T06:59:34.864+0000] {logging_mixin.py:190} INFO - 💌message 385 sent: user_id=110
+[2025-05-22T06:59:34.917+0000] {logging_mixin.py:190} INFO - 💌message 386 sent: user_id=115
+[2025-05-22T06:59:34.969+0000] {logging_mixin.py:190} INFO - 💌message 387 sent: user_id=136
+[2025-05-22T06:59:35.022+0000] {logging_mixin.py:190} INFO - 💌message 388 sent: user_id=129
+[2025-05-22T06:59:35.079+0000] {logging_mixin.py:190} INFO - 💌message 389 sent: user_id=120
+[2025-05-22T06:59:35.136+0000] {logging_mixin.py:190} INFO - 💌message 390 sent: user_id=113
+[2025-05-22T06:59:35.192+0000] {logging_mixin.py:190} INFO - 💌message 391 sent: user_id=147
+[2025-05-22T06:59:35.245+0000] {logging_mixin.py:190} INFO - 💌message 392 sent: user_id=112
+[2025-05-22T06:59:35.302+0000] {logging_mixin.py:190} INFO - 💌message 393 sent: user_id=150
+[2025-05-22T06:59:35.355+0000] {logging_mixin.py:190} INFO - 💌message 394 sent: user_id=144
+[2025-05-22T06:59:35.410+0000] {logging_mixin.py:190} INFO - 💌message 395 sent: user_id=109
+[2025-05-22T06:59:35.465+0000] {logging_mixin.py:190} INFO - 💌message 396 sent: user_id=105
+[2025-05-22T06:59:35.522+0000] {logging_mixin.py:190} INFO - 💌message 397 sent: user_id=131
+[2025-05-22T06:59:35.577+0000] {logging_mixin.py:190} INFO - 💌message 398 sent: user_id=126
+[2025-05-22T06:59:35.632+0000] {logging_mixin.py:190} INFO - 💌message 399 sent: user_id=133
+[2025-05-22T06:59:35.686+0000] {logging_mixin.py:190} INFO - 💌message 400 sent: user_id=101
+[2025-05-22T06:59:35.739+0000] {logging_mixin.py:190} INFO - 💌message 401 sent: user_id=106
+[2025-05-22T06:59:35.795+0000] {logging_mixin.py:190} INFO - 💌message 402 sent: user_id=113
+[2025-05-22T06:59:35.852+0000] {logging_mixin.py:190} INFO - 💌message 403 sent: user_id=137
+[2025-05-22T06:59:35.906+0000] {logging_mixin.py:190} INFO - 💌message 404 sent: user_id=150
+[2025-05-22T06:59:35.959+0000] {logging_mixin.py:190} INFO - 💌message 405 sent: user_id=112
+[2025-05-22T06:59:36.013+0000] {logging_mixin.py:190} INFO - 💌message 406 sent: user_id=141
+[2025-05-22T06:59:36.070+0000] {logging_mixin.py:190} INFO - 💌message 407 sent: user_id=129
+[2025-05-22T06:59:36.124+0000] {logging_mixin.py:190} INFO - 💌message 408 sent: user_id=123
+[2025-05-22T06:59:36.179+0000] {logging_mixin.py:190} INFO - 💌message 409 sent: user_id=116
+[2025-05-22T06:59:36.235+0000] {logging_mixin.py:190} INFO - 💌message 410 sent: user_id=115
+[2025-05-22T06:59:36.288+0000] {logging_mixin.py:190} INFO - 💌message 411 sent: user_id=110
+[2025-05-22T06:59:36.345+0000] {logging_mixin.py:190} INFO - 💌message 412 sent: user_id=130
+[2025-05-22T06:59:36.399+0000] {logging_mixin.py:190} INFO - 💌message 413 sent: user_id=148
+[2025-05-22T06:59:36.451+0000] {logging_mixin.py:190} INFO - 💌message 414 sent: user_id=114
+[2025-05-22T06:59:36.504+0000] {logging_mixin.py:190} INFO - 💌message 415 sent: user_id=112
+[2025-05-22T06:59:36.556+0000] {logging_mixin.py:190} INFO - 💌message 416 sent: user_id=109
+[2025-05-22T06:59:36.608+0000] {logging_mixin.py:190} INFO - 💌message 417 sent: user_id=102
+[2025-05-22T06:59:36.664+0000] {logging_mixin.py:190} INFO - 💌message 418 sent: user_id=121
+[2025-05-22T06:59:36.719+0000] {logging_mixin.py:190} INFO - 💌message 419 sent: user_id=146
+[2025-05-22T06:59:36.774+0000] {logging_mixin.py:190} INFO - 💌message 420 sent: user_id=150
+[2025-05-22T06:59:36.830+0000] {logging_mixin.py:190} INFO - 💌message 421 sent: user_id=130
+[2025-05-22T06:59:36.884+0000] {logging_mixin.py:190} INFO - 💌message 422 sent: user_id=140
+[2025-05-22T06:59:36.939+0000] {logging_mixin.py:190} INFO - 💌message 423 sent: user_id=106
+[2025-05-22T06:59:36.995+0000] {logging_mixin.py:190} INFO - 💌message 424 sent: user_id=133
+[2025-05-22T06:59:37.050+0000] {logging_mixin.py:190} INFO - 💌message 425 sent: user_id=132
+[2025-05-22T06:59:37.101+0000] {logging_mixin.py:190} INFO - 💌message 426 sent: user_id=129
+[2025-05-22T06:59:37.154+0000] {logging_mixin.py:190} INFO - 💌message 427 sent: user_id=129
+[2025-05-22T06:59:37.207+0000] {logging_mixin.py:190} INFO - 💌message 428 sent: user_id=144
+[2025-05-22T06:59:37.260+0000] {logging_mixin.py:190} INFO - 💌message 429 sent: user_id=110
+[2025-05-22T06:59:37.314+0000] {logging_mixin.py:190} INFO - 💌message 430 sent: user_id=127
+[2025-05-22T06:59:37.367+0000] {logging_mixin.py:190} INFO - 💌message 431 sent: user_id=129
+[2025-05-22T06:59:37.423+0000] {logging_mixin.py:190} INFO - 💌message 432 sent: user_id=125
+[2025-05-22T06:59:37.478+0000] {logging_mixin.py:190} INFO - 💌message 433 sent: user_id=102
+[2025-05-22T06:59:37.532+0000] {logging_mixin.py:190} INFO - 💌message 434 sent: user_id=103
+[2025-05-22T06:59:37.585+0000] {logging_mixin.py:190} INFO - 💌message 435 sent: user_id=142
+[2025-05-22T06:59:37.640+0000] {logging_mixin.py:190} INFO - 💌message 436 sent: user_id=126
+[2025-05-22T06:59:37.695+0000] {logging_mixin.py:190} INFO - 💌message 437 sent: user_id=146
+[2025-05-22T06:59:37.751+0000] {logging_mixin.py:190} INFO - 💌message 438 sent: user_id=137
+[2025-05-22T06:59:37.807+0000] {logging_mixin.py:190} INFO - 💌message 439 sent: user_id=113
+[2025-05-22T06:59:37.861+0000] {logging_mixin.py:190} INFO - 💌message 440 sent: user_id=136
+[2025-05-22T06:59:37.914+0000] {logging_mixin.py:190} INFO - 💌message 441 sent: user_id=131
+[2025-05-22T06:59:37.972+0000] {logging_mixin.py:190} INFO - 💌message 442 sent: user_id=146
+[2025-05-22T06:59:38.029+0000] {logging_mixin.py:190} INFO - 💌message 443 sent: user_id=128
+[2025-05-22T06:59:38.081+0000] {logging_mixin.py:190} INFO - 💌message 444 sent: user_id=112
+[2025-05-22T06:59:38.135+0000] {logging_mixin.py:190} INFO - 💌message 445 sent: user_id=133
+[2025-05-22T06:59:38.191+0000] {logging_mixin.py:190} INFO - 💌message 446 sent: user_id=103
+[2025-05-22T06:59:38.246+0000] {logging_mixin.py:190} INFO - 💌message 447 sent: user_id=100
+[2025-05-22T06:59:38.298+0000] {logging_mixin.py:190} INFO - 💌message 448 sent: user_id=121
+[2025-05-22T06:59:38.354+0000] {logging_mixin.py:190} INFO - 💌message 449 sent: user_id=108
+[2025-05-22T06:59:38.410+0000] {logging_mixin.py:190} INFO - 💌message 450 sent: user_id=147
+[2025-05-22T06:59:38.464+0000] {logging_mixin.py:190} INFO - 💌message 451 sent: user_id=132
+[2025-05-22T06:59:38.519+0000] {logging_mixin.py:190} INFO - 💌message 452 sent: user_id=110
+[2025-05-22T06:59:38.574+0000] {logging_mixin.py:190} INFO - 💌message 453 sent: user_id=105
+[2025-05-22T06:59:38.628+0000] {logging_mixin.py:190} INFO - 💌message 454 sent: user_id=146
+[2025-05-22T06:59:38.684+0000] {logging_mixin.py:190} INFO - 💌message 455 sent: user_id=134
+[2025-05-22T06:59:38.739+0000] {logging_mixin.py:190} INFO - 💌message 456 sent: user_id=123
+[2025-05-22T06:59:38.793+0000] {logging_mixin.py:190} INFO - 💌message 457 sent: user_id=110
+[2025-05-22T06:59:38.847+0000] {logging_mixin.py:190} INFO - 💌message 458 sent: user_id=129
+[2025-05-22T06:59:38.904+0000] {logging_mixin.py:190} INFO - 💌message 459 sent: user_id=149
+[2025-05-22T06:59:38.957+0000] {logging_mixin.py:190} INFO - 💌message 460 sent: user_id=104
+[2025-05-22T06:59:39.012+0000] {logging_mixin.py:190} INFO - 💌message 461 sent: user_id=122
+[2025-05-22T06:59:39.066+0000] {logging_mixin.py:190} INFO - 💌message 462 sent: user_id=112
+[2025-05-22T06:59:39.121+0000] {logging_mixin.py:190} INFO - 💌message 463 sent: user_id=112
+[2025-05-22T06:59:39.174+0000] {logging_mixin.py:190} INFO - 💌message 464 sent: user_id=135
+[2025-05-22T06:59:39.225+0000] {logging_mixin.py:190} INFO - 💌message 465 sent: user_id=130
+[2025-05-22T06:59:39.279+0000] {logging_mixin.py:190} INFO - 💌message 466 sent: user_id=120
+[2025-05-22T06:59:39.331+0000] {logging_mixin.py:190} INFO - 💌message 467 sent: user_id=137
+[2025-05-22T06:59:39.386+0000] {logging_mixin.py:190} INFO - 💌message 468 sent: user_id=141
+[2025-05-22T06:59:39.439+0000] {logging_mixin.py:190} INFO - 💌message 469 sent: user_id=126
+[2025-05-22T06:59:39.491+0000] {logging_mixin.py:190} INFO - 💌message 470 sent: user_id=140
+[2025-05-22T06:59:39.543+0000] {logging_mixin.py:190} INFO - 💌message 471 sent: user_id=105
+[2025-05-22T06:59:39.599+0000] {logging_mixin.py:190} INFO - 💌message 472 sent: user_id=135
+[2025-05-22T06:59:39.651+0000] {logging_mixin.py:190} INFO - 💌message 473 sent: user_id=142
+[2025-05-22T06:59:39.703+0000] {logging_mixin.py:190} INFO - 💌message 474 sent: user_id=104
+[2025-05-22T06:59:39.756+0000] {logging_mixin.py:190} INFO - 💌message 475 sent: user_id=117
+[2025-05-22T06:59:39.811+0000] {logging_mixin.py:190} INFO - 💌message 476 sent: user_id=109
+[2025-05-22T06:59:39.865+0000] {logging_mixin.py:190} INFO - 💌message 477 sent: user_id=149
+[2025-05-22T06:59:39.921+0000] {logging_mixin.py:190} INFO - 💌message 478 sent: user_id=108
+[2025-05-22T06:59:39.976+0000] {logging_mixin.py:190} INFO - 💌message 479 sent: user_id=101
+[2025-05-22T06:59:40.030+0000] {logging_mixin.py:190} INFO - 💌message 480 sent: user_id=130
+[2025-05-22T06:59:40.086+0000] {logging_mixin.py:190} INFO - 💌message 481 sent: user_id=111
+[2025-05-22T06:59:40.139+0000] {logging_mixin.py:190} INFO - 💌message 482 sent: user_id=117
+[2025-05-22T06:59:40.195+0000] {logging_mixin.py:190} INFO - 💌message 483 sent: user_id=143
+[2025-05-22T06:59:40.248+0000] {logging_mixin.py:190} INFO - 💌message 484 sent: user_id=110
+[2025-05-22T06:59:40.304+0000] {logging_mixin.py:190} INFO - 💌message 485 sent: user_id=145
+[2025-05-22T06:59:40.358+0000] {logging_mixin.py:190} INFO - 💌message 486 sent: user_id=122
+[2025-05-22T06:59:40.414+0000] {logging_mixin.py:190} INFO - 💌message 487 sent: user_id=106
+[2025-05-22T06:59:40.468+0000] {logging_mixin.py:190} INFO - 💌message 488 sent: user_id=144
+[2025-05-22T06:59:40.522+0000] {logging_mixin.py:190} INFO - 💌message 489 sent: user_id=150
+[2025-05-22T06:59:40.575+0000] {logging_mixin.py:190} INFO - 💌message 490 sent: user_id=108
+[2025-05-22T06:59:40.627+0000] {logging_mixin.py:190} INFO - 💌message 491 sent: user_id=104
+[2025-05-22T06:59:40.680+0000] {logging_mixin.py:190} INFO - 💌message 492 sent: user_id=130
+[2025-05-22T06:59:40.733+0000] {logging_mixin.py:190} INFO - 💌message 493 sent: user_id=144
+[2025-05-22T06:59:40.788+0000] {logging_mixin.py:190} INFO - 💌message 494 sent: user_id=119
+[2025-05-22T06:59:40.846+0000] {logging_mixin.py:190} INFO - 💌message 495 sent: user_id=112
+[2025-05-22T06:59:40.903+0000] {logging_mixin.py:190} INFO - 💌message 496 sent: user_id=146
+[2025-05-22T06:59:40.961+0000] {logging_mixin.py:190} INFO - 💌message 497 sent: user_id=146
+[2025-05-22T06:59:41.014+0000] {logging_mixin.py:190} INFO - 💌message 498 sent: user_id=105
+[2025-05-22T06:59:41.068+0000] {logging_mixin.py:190} INFO - 💌message 499 sent: user_id=112
+[2025-05-22T06:59:41.122+0000] {logging_mixin.py:190} INFO - 💌message 500 sent: user_id=118
+[2025-05-22T06:59:41.177+0000] {logging_mixin.py:190} INFO - 💌message 501 sent: user_id=132
+[2025-05-22T06:59:41.232+0000] {logging_mixin.py:190} INFO - 💌message 502 sent: user_id=110
+[2025-05-22T06:59:41.289+0000] {logging_mixin.py:190} INFO - 💌message 503 sent: user_id=143
+[2025-05-22T06:59:41.344+0000] {logging_mixin.py:190} INFO - 💌message 504 sent: user_id=119
+[2025-05-22T06:59:41.401+0000] {logging_mixin.py:190} INFO - 💌message 505 sent: user_id=133
+[2025-05-22T06:59:41.458+0000] {logging_mixin.py:190} INFO - 💌message 506 sent: user_id=136
+[2025-05-22T06:59:41.514+0000] {logging_mixin.py:190} INFO - 💌message 507 sent: user_id=123
+[2025-05-22T06:59:41.569+0000] {logging_mixin.py:190} INFO - 💌message 508 sent: user_id=106
+[2025-05-22T06:59:41.622+0000] {logging_mixin.py:190} INFO - 💌message 509 sent: user_id=147
+[2025-05-22T06:59:41.679+0000] {logging_mixin.py:190} INFO - 💌message 510 sent: user_id=127
+[2025-05-22T06:59:41.731+0000] {logging_mixin.py:190} INFO - 💌message 511 sent: user_id=126
+[2025-05-22T06:59:41.788+0000] {logging_mixin.py:190} INFO - 💌message 512 sent: user_id=129
+[2025-05-22T06:59:41.842+0000] {logging_mixin.py:190} INFO - 💌message 513 sent: user_id=109
+[2025-05-22T06:59:41.900+0000] {logging_mixin.py:190} INFO - 💌message 514 sent: user_id=139
+[2025-05-22T06:59:41.954+0000] {logging_mixin.py:190} INFO - 💌message 515 sent: user_id=121
+[2025-05-22T06:59:42.008+0000] {logging_mixin.py:190} INFO - 💌message 516 sent: user_id=143
+[2025-05-22T06:59:42.064+0000] {logging_mixin.py:190} INFO - 💌message 517 sent: user_id=111
+[2025-05-22T06:59:42.118+0000] {logging_mixin.py:190} INFO - 💌message 518 sent: user_id=104
+[2025-05-22T06:59:42.173+0000] {logging_mixin.py:190} INFO - 💌message 519 sent: user_id=103
+[2025-05-22T06:59:42.228+0000] {logging_mixin.py:190} INFO - 💌message 520 sent: user_id=127
+[2025-05-22T06:59:42.284+0000] {logging_mixin.py:190} INFO - 💌message 521 sent: user_id=140
+[2025-05-22T06:59:42.341+0000] {logging_mixin.py:190} INFO - 💌message 522 sent: user_id=133
+[2025-05-22T06:59:42.395+0000] {logging_mixin.py:190} INFO - 💌message 523 sent: user_id=131
+[2025-05-22T06:59:42.454+0000] {logging_mixin.py:190} INFO - 💌message 524 sent: user_id=122
+[2025-05-22T06:59:42.508+0000] {logging_mixin.py:190} INFO - 💌message 525 sent: user_id=140
+[2025-05-22T06:59:42.560+0000] {logging_mixin.py:190} INFO - 💌message 526 sent: user_id=147
+[2025-05-22T06:59:42.611+0000] {logging_mixin.py:190} INFO - 💌message 527 sent: user_id=114
+[2025-05-22T06:59:42.664+0000] {logging_mixin.py:190} INFO - 💌message 528 sent: user_id=118
+[2025-05-22T06:59:42.716+0000] {logging_mixin.py:190} INFO - 💌message 529 sent: user_id=140
+[2025-05-22T06:59:42.769+0000] {logging_mixin.py:190} INFO - 💌message 530 sent: user_id=123
+[2025-05-22T06:59:42.820+0000] {logging_mixin.py:190} INFO - 💌message 531 sent: user_id=124
+[2025-05-22T06:59:42.871+0000] {logging_mixin.py:190} INFO - 💌message 532 sent: user_id=122
+[2025-05-22T06:59:42.925+0000] {logging_mixin.py:190} INFO - 💌message 533 sent: user_id=130
+[2025-05-22T06:59:42.980+0000] {logging_mixin.py:190} INFO - 💌message 534 sent: user_id=113
+[2025-05-22T06:59:43.033+0000] {logging_mixin.py:190} INFO - 💌message 535 sent: user_id=117
+[2025-05-22T06:59:43.087+0000] {logging_mixin.py:190} INFO - 💌message 536 sent: user_id=116
+[2025-05-22T06:59:43.142+0000] {logging_mixin.py:190} INFO - 💌message 537 sent: user_id=112
+[2025-05-22T06:59:43.198+0000] {logging_mixin.py:190} INFO - 💌message 538 sent: user_id=112
+[2025-05-22T06:59:43.252+0000] {logging_mixin.py:190} INFO - 💌message 539 sent: user_id=119
+[2025-05-22T06:59:43.307+0000] {logging_mixin.py:190} INFO - 💌message 540 sent: user_id=100
+[2025-05-22T06:59:43.362+0000] {logging_mixin.py:190} INFO - 💌message 541 sent: user_id=146
+[2025-05-22T06:59:43.419+0000] {logging_mixin.py:190} INFO - 💌message 542 sent: user_id=129
+[2025-05-22T06:59:43.473+0000] {logging_mixin.py:190} INFO - 💌message 543 sent: user_id=133
+[2025-05-22T06:59:43.528+0000] {logging_mixin.py:190} INFO - 💌message 544 sent: user_id=134
+[2025-05-22T06:59:43.581+0000] {logging_mixin.py:190} INFO - 💌message 545 sent: user_id=132
+[2025-05-22T06:59:43.637+0000] {logging_mixin.py:190} INFO - 💌message 546 sent: user_id=140
+[2025-05-22T06:59:43.690+0000] {logging_mixin.py:190} INFO - 💌message 547 sent: user_id=114
+[2025-05-22T06:59:43.745+0000] {logging_mixin.py:190} INFO - 💌message 548 sent: user_id=114
+[2025-05-22T06:59:43.798+0000] {logging_mixin.py:190} INFO - 💌message 549 sent: user_id=132
+[2025-05-22T06:59:43.851+0000] {logging_mixin.py:190} INFO - 💌message 550 sent: user_id=109
+[2025-05-22T06:59:43.903+0000] {logging_mixin.py:190} INFO - 💌message 551 sent: user_id=116
+[2025-05-22T06:59:43.959+0000] {logging_mixin.py:190} INFO - 💌message 552 sent: user_id=119
+[2025-05-22T06:59:44.013+0000] {logging_mixin.py:190} INFO - 💌message 553 sent: user_id=137
+[2025-05-22T06:59:44.066+0000] {logging_mixin.py:190} INFO - 💌message 554 sent: user_id=102
+[2025-05-22T06:59:44.120+0000] {logging_mixin.py:190} INFO - 💌message 555 sent: user_id=105
+[2025-05-22T06:59:44.177+0000] {logging_mixin.py:190} INFO - 💌message 556 sent: user_id=119
+[2025-05-22T06:59:44.230+0000] {logging_mixin.py:190} INFO - 💌message 557 sent: user_id=134
+[2025-05-22T06:59:44.285+0000] {logging_mixin.py:190} INFO - 💌message 558 sent: user_id=148
+[2025-05-22T06:59:44.339+0000] {logging_mixin.py:190} INFO - 💌message 559 sent: user_id=144
+[2025-05-22T06:59:44.395+0000] {logging_mixin.py:190} INFO - 💌message 560 sent: user_id=105
+[2025-05-22T06:59:44.449+0000] {logging_mixin.py:190} INFO - 💌message 561 sent: user_id=101
+[2025-05-22T06:59:44.502+0000] {logging_mixin.py:190} INFO - 💌message 562 sent: user_id=108
+[2025-05-22T06:59:44.557+0000] {logging_mixin.py:190} INFO - 💌message 563 sent: user_id=138
+[2025-05-22T06:59:44.610+0000] {logging_mixin.py:190} INFO - 💌message 564 sent: user_id=118
+[2025-05-22T06:59:44.664+0000] {logging_mixin.py:190} INFO - 💌message 565 sent: user_id=144
+[2025-05-22T06:59:44.719+0000] {logging_mixin.py:190} INFO - 💌message 566 sent: user_id=130
+[2025-05-22T06:59:44.774+0000] {logging_mixin.py:190} INFO - 💌message 567 sent: user_id=114
+[2025-05-22T06:59:44.828+0000] {logging_mixin.py:190} INFO - 💌message 568 sent: user_id=140
+[2025-05-22T06:59:44.882+0000] {logging_mixin.py:190} INFO - 💌message 569 sent: user_id=136
+[2025-05-22T06:59:44.939+0000] {logging_mixin.py:190} INFO - 💌message 570 sent: user_id=119
+[2025-05-22T06:59:44.993+0000] {logging_mixin.py:190} INFO - 💌message 571 sent: user_id=144
+[2025-05-22T06:59:45.047+0000] {logging_mixin.py:190} INFO - 💌message 572 sent: user_id=136
+[2025-05-22T06:59:45.104+0000] {logging_mixin.py:190} INFO - 💌message 573 sent: user_id=111
+[2025-05-22T06:59:45.162+0000] {logging_mixin.py:190} INFO - 💌message 574 sent: user_id=122
+[2025-05-22T06:59:45.217+0000] {logging_mixin.py:190} INFO - 💌message 575 sent: user_id=149
+[2025-05-22T06:59:45.272+0000] {logging_mixin.py:190} INFO - 💌message 576 sent: user_id=125
+[2025-05-22T06:59:45.328+0000] {logging_mixin.py:190} INFO - 💌message 577 sent: user_id=121
+[2025-05-22T06:59:45.381+0000] {logging_mixin.py:190} INFO - 💌message 578 sent: user_id=106
+[2025-05-22T06:59:45.436+0000] {logging_mixin.py:190} INFO - 💌message 579 sent: user_id=115
+[2025-05-22T06:59:45.490+0000] {logging_mixin.py:190} INFO - 💌message 580 sent: user_id=137
+[2025-05-22T06:59:45.543+0000] {logging_mixin.py:190} INFO - 💌message 581 sent: user_id=134
+[2025-05-22T06:59:45.595+0000] {logging_mixin.py:190} INFO - 💌message 582 sent: user_id=135
+[2025-05-22T06:59:45.647+0000] {logging_mixin.py:190} INFO - 💌message 583 sent: user_id=146
+[2025-05-22T06:59:45.698+0000] {logging_mixin.py:190} INFO - 💌message 584 sent: user_id=125
+[2025-05-22T06:59:45.755+0000] {logging_mixin.py:190} INFO - 💌message 585 sent: user_id=116
+[2025-05-22T06:59:45.808+0000] {logging_mixin.py:190} INFO - 💌message 586 sent: user_id=112
+[2025-05-22T06:59:45.861+0000] {logging_mixin.py:190} INFO - 💌message 587 sent: user_id=141
+[2025-05-22T06:59:45.913+0000] {logging_mixin.py:190} INFO - 💌message 588 sent: user_id=117
+[2025-05-22T06:59:45.966+0000] {logging_mixin.py:190} INFO - 💌message 589 sent: user_id=103
+[2025-05-22T06:59:46.021+0000] {logging_mixin.py:190} INFO - 💌message 590 sent: user_id=136
+[2025-05-22T06:59:46.075+0000] {logging_mixin.py:190} INFO - 💌message 591 sent: user_id=124
+[2025-05-22T06:59:46.129+0000] {logging_mixin.py:190} INFO - 💌message 592 sent: user_id=125
+[2025-05-22T06:59:46.185+0000] {logging_mixin.py:190} INFO - 💌message 593 sent: user_id=113
+[2025-05-22T06:59:46.245+0000] {logging_mixin.py:190} INFO - 💌message 594 sent: user_id=129
+[2025-05-22T06:59:46.299+0000] {logging_mixin.py:190} INFO - 💌message 595 sent: user_id=109
+[2025-05-22T06:59:46.352+0000] {logging_mixin.py:190} INFO - 💌message 596 sent: user_id=125
+[2025-05-22T06:59:46.410+0000] {logging_mixin.py:190} INFO - 💌message 597 sent: user_id=148
+[2025-05-22T06:59:46.464+0000] {logging_mixin.py:190} INFO - 💌message 598 sent: user_id=126
+[2025-05-22T06:59:46.517+0000] {logging_mixin.py:190} INFO - 💌message 599 sent: user_id=149
+[2025-05-22T06:59:46.570+0000] {logging_mixin.py:190} INFO - 💌message 600 sent: user_id=125
+[2025-05-22T06:59:46.621+0000] {logging_mixin.py:190} INFO - 💌message 601 sent: user_id=124
+[2025-05-22T06:59:46.673+0000] {logging_mixin.py:190} INFO - 💌message 602 sent: user_id=150
+[2025-05-22T06:59:46.726+0000] {logging_mixin.py:190} INFO - 💌message 603 sent: user_id=112
+[2025-05-22T06:59:46.781+0000] {logging_mixin.py:190} INFO - 💌message 604 sent: user_id=148
+[2025-05-22T06:59:46.835+0000] {logging_mixin.py:190} INFO - 💌message 605 sent: user_id=138
+[2025-05-22T06:59:46.889+0000] {logging_mixin.py:190} INFO - 💌message 606 sent: user_id=147
+[2025-05-22T06:59:46.941+0000] {logging_mixin.py:190} INFO - 💌message 607 sent: user_id=113
+[2025-05-22T06:59:46.994+0000] {logging_mixin.py:190} INFO - 💌message 608 sent: user_id=140
+[2025-05-22T06:59:47.049+0000] {logging_mixin.py:190} INFO - 💌message 609 sent: user_id=129
+[2025-05-22T06:59:47.104+0000] {logging_mixin.py:190} INFO - 💌message 610 sent: user_id=118
+[2025-05-22T06:59:47.158+0000] {logging_mixin.py:190} INFO - 💌message 611 sent: user_id=109
+[2025-05-22T06:59:47.213+0000] {logging_mixin.py:190} INFO - 💌message 612 sent: user_id=126
+[2025-05-22T06:59:47.267+0000] {logging_mixin.py:190} INFO - 💌message 613 sent: user_id=107
+[2025-05-22T06:59:47.320+0000] {logging_mixin.py:190} INFO - 💌message 614 sent: user_id=141
+[2025-05-22T06:59:47.379+0000] {logging_mixin.py:190} INFO - 💌message 615 sent: user_id=107
+[2025-05-22T06:59:47.432+0000] {logging_mixin.py:190} INFO - 💌message 616 sent: user_id=132
+[2025-05-22T06:59:47.486+0000] {logging_mixin.py:190} INFO - 💌message 617 sent: user_id=135
+[2025-05-22T06:59:47.541+0000] {logging_mixin.py:190} INFO - 💌message 618 sent: user_id=131
+[2025-05-22T06:59:47.599+0000] {logging_mixin.py:190} INFO - 💌message 619 sent: user_id=109
+[2025-05-22T06:59:47.653+0000] {logging_mixin.py:190} INFO - 💌message 620 sent: user_id=139
+[2025-05-22T06:59:47.710+0000] {logging_mixin.py:190} INFO - 💌message 621 sent: user_id=131
+[2025-05-22T06:59:47.764+0000] {logging_mixin.py:190} INFO - 💌message 622 sent: user_id=100
+[2025-05-22T06:59:47.821+0000] {logging_mixin.py:190} INFO - 💌message 623 sent: user_id=140
+[2025-05-22T06:59:47.875+0000] {logging_mixin.py:190} INFO - 💌message 624 sent: user_id=121
+[2025-05-22T06:59:47.929+0000] {logging_mixin.py:190} INFO - 💌message 625 sent: user_id=127
+[2025-05-22T06:59:47.982+0000] {logging_mixin.py:190} INFO - 💌message 626 sent: user_id=147
+[2025-05-22T06:59:48.039+0000] {logging_mixin.py:190} INFO - 💌message 627 sent: user_id=132
+[2025-05-22T06:59:48.093+0000] {logging_mixin.py:190} INFO - 💌message 628 sent: user_id=128
+[2025-05-22T06:59:48.149+0000] {logging_mixin.py:190} INFO - 💌message 629 sent: user_id=110
+[2025-05-22T06:59:48.204+0000] {logging_mixin.py:190} INFO - 💌message 630 sent: user_id=119
+[2025-05-22T06:59:48.258+0000] {logging_mixin.py:190} INFO - 💌message 631 sent: user_id=144
+[2025-05-22T06:59:48.314+0000] {logging_mixin.py:190} INFO - 💌message 632 sent: user_id=123
+[2025-05-22T06:59:48.368+0000] {logging_mixin.py:190} INFO - 💌message 633 sent: user_id=133
+[2025-05-22T06:59:48.423+0000] {logging_mixin.py:190} INFO - 💌message 634 sent: user_id=103
+[2025-05-22T06:59:48.477+0000] {logging_mixin.py:190} INFO - 💌message 635 sent: user_id=135
+[2025-05-22T06:59:48.535+0000] {logging_mixin.py:190} INFO - 💌message 636 sent: user_id=105
+[2025-05-22T06:59:48.588+0000] {logging_mixin.py:190} INFO - 💌message 637 sent: user_id=116
+[2025-05-22T06:59:48.641+0000] {logging_mixin.py:190} INFO - 💌message 638 sent: user_id=105
+[2025-05-22T06:59:48.692+0000] {logging_mixin.py:190} INFO - 💌message 639 sent: user_id=110
+[2025-05-22T06:59:48.744+0000] {logging_mixin.py:190} INFO - 💌message 640 sent: user_id=139
+[2025-05-22T06:59:48.795+0000] {logging_mixin.py:190} INFO - 💌message 641 sent: user_id=101
+[2025-05-22T06:59:48.851+0000] {logging_mixin.py:190} INFO - 💌message 642 sent: user_id=139
+[2025-05-22T06:59:48.905+0000] {logging_mixin.py:190} INFO - 💌message 643 sent: user_id=115
+[2025-05-22T06:59:48.963+0000] {logging_mixin.py:190} INFO - 💌message 644 sent: user_id=128
+[2025-05-22T06:59:49.016+0000] {logging_mixin.py:190} INFO - 💌message 645 sent: user_id=144
+[2025-05-22T06:59:49.068+0000] {logging_mixin.py:190} INFO - 💌message 646 sent: user_id=145
+[2025-05-22T06:59:49.122+0000] {logging_mixin.py:190} INFO - 💌message 647 sent: user_id=112
+[2025-05-22T06:59:49.177+0000] {logging_mixin.py:190} INFO - 💌message 648 sent: user_id=146
+[2025-05-22T06:59:49.230+0000] {logging_mixin.py:190} INFO - 💌message 649 sent: user_id=112
+[2025-05-22T06:59:49.286+0000] {logging_mixin.py:190} INFO - 💌message 650 sent: user_id=140
+[2025-05-22T06:59:49.339+0000] {logging_mixin.py:190} INFO - 💌message 651 sent: user_id=138
+[2025-05-22T06:59:49.395+0000] {logging_mixin.py:190} INFO - 💌message 652 sent: user_id=100
+[2025-05-22T06:59:49.452+0000] {logging_mixin.py:190} INFO - 💌message 653 sent: user_id=126
+[2025-05-22T06:59:49.506+0000] {logging_mixin.py:190} INFO - 💌message 654 sent: user_id=135
+[2025-05-22T06:59:49.559+0000] {logging_mixin.py:190} INFO - 💌message 655 sent: user_id=127
+[2025-05-22T06:59:49.616+0000] {logging_mixin.py:190} INFO - 💌message 656 sent: user_id=128
+[2025-05-22T06:59:49.669+0000] {logging_mixin.py:190} INFO - 💌message 657 sent: user_id=112
+[2025-05-22T06:59:49.727+0000] {logging_mixin.py:190} INFO - 💌message 658 sent: user_id=133
+[2025-05-22T06:59:49.782+0000] {logging_mixin.py:190} INFO - 💌message 659 sent: user_id=145
+[2025-05-22T06:59:49.835+0000] {logging_mixin.py:190} INFO - 💌message 660 sent: user_id=112
+[2025-05-22T06:59:49.889+0000] {logging_mixin.py:190} INFO - 💌message 661 sent: user_id=139
+[2025-05-22T06:59:49.942+0000] {logging_mixin.py:190} INFO - 💌message 662 sent: user_id=147
+[2025-05-22T06:59:49.995+0000] {logging_mixin.py:190} INFO - 💌message 663 sent: user_id=120
+[2025-05-22T06:59:50.050+0000] {logging_mixin.py:190} INFO - 💌message 664 sent: user_id=137
+[2025-05-22T06:59:50.107+0000] {logging_mixin.py:190} INFO - 💌message 665 sent: user_id=105
+[2025-05-22T06:59:50.162+0000] {logging_mixin.py:190} INFO - 💌message 666 sent: user_id=110
+[2025-05-22T06:59:50.217+0000] {logging_mixin.py:190} INFO - 💌message 667 sent: user_id=106
+[2025-05-22T06:59:50.273+0000] {logging_mixin.py:190} INFO - 💌message 668 sent: user_id=101
+[2025-05-22T06:59:50.326+0000] {logging_mixin.py:190} INFO - 💌message 669 sent: user_id=127
+[2025-05-22T06:59:50.383+0000] {logging_mixin.py:190} INFO - 💌message 670 sent: user_id=111
+[2025-05-22T06:59:50.438+0000] {logging_mixin.py:190} INFO - 💌message 671 sent: user_id=119
+[2025-05-22T06:59:50.495+0000] {logging_mixin.py:190} INFO - 💌message 672 sent: user_id=104
+[2025-05-22T06:59:50.550+0000] {logging_mixin.py:190} INFO - 💌message 673 sent: user_id=109
+[2025-05-22T06:59:50.607+0000] {logging_mixin.py:190} INFO - 💌message 674 sent: user_id=108
+[2025-05-22T06:59:50.661+0000] {logging_mixin.py:190} INFO - 💌message 675 sent: user_id=102
+[2025-05-22T06:59:50.716+0000] {logging_mixin.py:190} INFO - 💌message 676 sent: user_id=130
+[2025-05-22T06:59:50.772+0000] {logging_mixin.py:190} INFO - 💌message 677 sent: user_id=101
+[2025-05-22T06:59:50.826+0000] {logging_mixin.py:190} INFO - 💌message 678 sent: user_id=142
+[2025-05-22T06:59:50.888+0000] {logging_mixin.py:190} INFO - 💌message 679 sent: user_id=141
+[2025-05-22T06:59:50.941+0000] {logging_mixin.py:190} INFO - 💌message 680 sent: user_id=114
+[2025-05-22T06:59:50.994+0000] {logging_mixin.py:190} INFO - 💌message 681 sent: user_id=108
+[2025-05-22T06:59:51.047+0000] {logging_mixin.py:190} INFO - 💌message 682 sent: user_id=134
+[2025-05-22T06:59:51.101+0000] {logging_mixin.py:190} INFO - 💌message 683 sent: user_id=132
+[2025-05-22T06:59:51.153+0000] {logging_mixin.py:190} INFO - 💌message 684 sent: user_id=119
+[2025-05-22T06:59:51.208+0000] {logging_mixin.py:190} INFO - 💌message 685 sent: user_id=125
+[2025-05-22T06:59:51.263+0000] {logging_mixin.py:190} INFO - 💌message 686 sent: user_id=139
+[2025-05-22T06:59:51.319+0000] {logging_mixin.py:190} INFO - 💌message 687 sent: user_id=149
+[2025-05-22T06:59:51.373+0000] {logging_mixin.py:190} INFO - 💌message 688 sent: user_id=122
+[2025-05-22T06:59:51.427+0000] {logging_mixin.py:190} INFO - 💌message 689 sent: user_id=141
+[2025-05-22T06:59:51.480+0000] {logging_mixin.py:190} INFO - 💌message 690 sent: user_id=122
+[2025-05-22T06:59:51.537+0000] {logging_mixin.py:190} INFO - 💌message 691 sent: user_id=116
+[2025-05-22T06:59:51.590+0000] {logging_mixin.py:190} INFO - 💌message 692 sent: user_id=119
+[2025-05-22T06:59:51.644+0000] {logging_mixin.py:190} INFO - 💌message 693 sent: user_id=120
+[2025-05-22T06:59:51.697+0000] {logging_mixin.py:190} INFO - 💌message 694 sent: user_id=123
+[2025-05-22T06:59:51.749+0000] {logging_mixin.py:190} INFO - 💌message 695 sent: user_id=104
+[2025-05-22T06:59:51.801+0000] {logging_mixin.py:190} INFO - 💌message 696 sent: user_id=127
+[2025-05-22T06:59:51.854+0000] {logging_mixin.py:190} INFO - 💌message 697 sent: user_id=110
+[2025-05-22T06:59:51.909+0000] {logging_mixin.py:190} INFO - 💌message 698 sent: user_id=111
+[2025-05-22T06:59:51.963+0000] {logging_mixin.py:190} INFO - 💌message 699 sent: user_id=143
+[2025-05-22T06:59:52.017+0000] {logging_mixin.py:190} INFO - 💌message 700 sent: user_id=149
+[2025-05-22T06:59:52.069+0000] {logging_mixin.py:190} INFO - 💌message 701 sent: user_id=137
+[2025-05-22T06:59:52.123+0000] {logging_mixin.py:190} INFO - 💌message 702 sent: user_id=130
+[2025-05-22T06:59:52.177+0000] {logging_mixin.py:190} INFO - 💌message 703 sent: user_id=130
+[2025-05-22T06:59:52.231+0000] {logging_mixin.py:190} INFO - 💌message 704 sent: user_id=136
+[2025-05-22T06:59:52.287+0000] {logging_mixin.py:190} INFO - 💌message 705 sent: user_id=149
+[2025-05-22T06:59:52.340+0000] {logging_mixin.py:190} INFO - 💌message 706 sent: user_id=145
+[2025-05-22T06:59:52.395+0000] {logging_mixin.py:190} INFO - 💌message 707 sent: user_id=110
+[2025-05-22T06:59:52.449+0000] {logging_mixin.py:190} INFO - 💌message 708 sent: user_id=107
+[2025-05-22T06:59:52.505+0000] {logging_mixin.py:190} INFO - 💌message 709 sent: user_id=101
+[2025-05-22T06:59:52.559+0000] {logging_mixin.py:190} INFO - 💌message 710 sent: user_id=132
+[2025-05-22T06:59:52.615+0000] {logging_mixin.py:190} INFO - 💌message 711 sent: user_id=118
+[2025-05-22T06:59:52.668+0000] {logging_mixin.py:190} INFO - 💌message 712 sent: user_id=120
+[2025-05-22T06:59:52.723+0000] {logging_mixin.py:190} INFO - 💌message 713 sent: user_id=101
+[2025-05-22T06:59:52.778+0000] {logging_mixin.py:190} INFO - 💌message 714 sent: user_id=118
+[2025-05-22T06:59:52.833+0000] {logging_mixin.py:190} INFO - 💌message 715 sent: user_id=113
+[2025-05-22T06:59:52.886+0000] {logging_mixin.py:190} INFO - 💌message 716 sent: user_id=142
+[2025-05-22T06:59:52.941+0000] {logging_mixin.py:190} INFO - 💌message 717 sent: user_id=135
+[2025-05-22T06:59:52.996+0000] {logging_mixin.py:190} INFO - 💌message 718 sent: user_id=107
+[2025-05-22T06:59:53.052+0000] {logging_mixin.py:190} INFO - 💌message 719 sent: user_id=101
+[2025-05-22T06:59:53.105+0000] {logging_mixin.py:190} INFO - 💌message 720 sent: user_id=112
+[2025-05-22T06:59:53.160+0000] {logging_mixin.py:190} INFO - 💌message 721 sent: user_id=134
+[2025-05-22T06:59:53.212+0000] {logging_mixin.py:190} INFO - 💌message 722 sent: user_id=111
+[2025-05-22T06:59:53.266+0000] {logging_mixin.py:190} INFO - 💌message 723 sent: user_id=110
+[2025-05-22T06:59:53.321+0000] {logging_mixin.py:190} INFO - 💌message 724 sent: user_id=140
+[2025-05-22T06:59:53.375+0000] {logging_mixin.py:190} INFO - 💌message 725 sent: user_id=118
+[2025-05-22T06:59:53.429+0000] {logging_mixin.py:190} INFO - 💌message 726 sent: user_id=117
+[2025-05-22T06:59:53.483+0000] {logging_mixin.py:190} INFO - 💌message 727 sent: user_id=111
+[2025-05-22T06:59:53.543+0000] {logging_mixin.py:190} INFO - 💌message 728 sent: user_id=135
+[2025-05-22T06:59:53.597+0000] {logging_mixin.py:190} INFO - 💌message 729 sent: user_id=111
+[2025-05-22T06:59:53.655+0000] {logging_mixin.py:190} INFO - 💌message 730 sent: user_id=109
+[2025-05-22T06:59:53.708+0000] {logging_mixin.py:190} INFO - 💌message 731 sent: user_id=145
+[2025-05-22T06:59:53.764+0000] {logging_mixin.py:190} INFO - 💌message 732 sent: user_id=108
+[2025-05-22T06:59:53.818+0000] {logging_mixin.py:190} INFO - 💌message 733 sent: user_id=104
+[2025-05-22T06:59:53.873+0000] {logging_mixin.py:190} INFO - 💌message 734 sent: user_id=107
+[2025-05-22T06:59:53.927+0000] {logging_mixin.py:190} INFO - 💌message 735 sent: user_id=123
+[2025-05-22T06:59:53.980+0000] {logging_mixin.py:190} INFO - 💌message 736 sent: user_id=146
+[2025-05-22T06:59:54.035+0000] {logging_mixin.py:190} INFO - 💌message 737 sent: user_id=146
+[2025-05-22T06:59:54.093+0000] {logging_mixin.py:190} INFO - 💌message 738 sent: user_id=105
+[2025-05-22T06:59:54.147+0000] {logging_mixin.py:190} INFO - 💌message 739 sent: user_id=143
+[2025-05-22T06:59:54.200+0000] {logging_mixin.py:190} INFO - 💌message 740 sent: user_id=110
+[2025-05-22T06:59:54.255+0000] {logging_mixin.py:190} INFO - 💌message 741 sent: user_id=137
+[2025-05-22T06:59:54.309+0000] {logging_mixin.py:190} INFO - 💌message 742 sent: user_id=103
+[2025-05-22T06:59:54.349+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T06:59:54.352+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T06:59:54.366+0000] {logging_mixin.py:190} INFO - 💌message 743 sent: user_id=130
+[2025-05-22T06:59:54.419+0000] {logging_mixin.py:190} INFO - 💌message 744 sent: user_id=132
+[2025-05-22T06:59:54.473+0000] {logging_mixin.py:190} INFO - 💌message 745 sent: user_id=108
+[2025-05-22T06:59:54.528+0000] {logging_mixin.py:190} INFO - 💌message 746 sent: user_id=120
+[2025-05-22T06:59:54.582+0000] {logging_mixin.py:190} INFO - 💌message 747 sent: user_id=121
+[2025-05-22T06:59:54.635+0000] {logging_mixin.py:190} INFO - 💌message 748 sent: user_id=102
+[2025-05-22T06:59:54.688+0000] {logging_mixin.py:190} INFO - 💌message 749 sent: user_id=111
+[2025-05-22T06:59:54.740+0000] {logging_mixin.py:190} INFO - 💌message 750 sent: user_id=111
+[2025-05-22T06:59:54.793+0000] {logging_mixin.py:190} INFO - 💌message 751 sent: user_id=136
+[2025-05-22T06:59:54.846+0000] {logging_mixin.py:190} INFO - 💌message 752 sent: user_id=115
+[2025-05-22T06:59:54.898+0000] {logging_mixin.py:190} INFO - 💌message 753 sent: user_id=148
+[2025-05-22T06:59:54.954+0000] {logging_mixin.py:190} INFO - 💌message 754 sent: user_id=110
+[2025-05-22T06:59:55.006+0000] {logging_mixin.py:190} INFO - 💌message 755 sent: user_id=126
+[2025-05-22T06:59:55.059+0000] {logging_mixin.py:190} INFO - 💌message 756 sent: user_id=115
+[2025-05-22T06:59:55.111+0000] {logging_mixin.py:190} INFO - 💌message 757 sent: user_id=113
+[2025-05-22T06:59:55.162+0000] {logging_mixin.py:190} INFO - 💌message 758 sent: user_id=123
+[2025-05-22T06:59:55.215+0000] {logging_mixin.py:190} INFO - 💌message 759 sent: user_id=121
+[2025-05-22T06:59:55.265+0000] {logging_mixin.py:190} INFO - 💌message 760 sent: user_id=130
+[2025-05-22T06:59:55.317+0000] {logging_mixin.py:190} INFO - 💌message 761 sent: user_id=138
+[2025-05-22T06:59:55.368+0000] {logging_mixin.py:190} INFO - 💌message 762 sent: user_id=105
+[2025-05-22T06:59:55.420+0000] {logging_mixin.py:190} INFO - 💌message 763 sent: user_id=143
+[2025-05-22T06:59:55.471+0000] {logging_mixin.py:190} INFO - 💌message 764 sent: user_id=115
+[2025-05-22T06:59:55.523+0000] {logging_mixin.py:190} INFO - 💌message 765 sent: user_id=106
+[2025-05-22T06:59:55.575+0000] {logging_mixin.py:190} INFO - 💌message 766 sent: user_id=118
+[2025-05-22T06:59:55.625+0000] {logging_mixin.py:190} INFO - 💌message 767 sent: user_id=134
+[2025-05-22T06:59:55.677+0000] {logging_mixin.py:190} INFO - 💌message 768 sent: user_id=147
+[2025-05-22T06:59:55.729+0000] {logging_mixin.py:190} INFO - 💌message 769 sent: user_id=125
+[2025-05-22T06:59:55.781+0000] {logging_mixin.py:190} INFO - 💌message 770 sent: user_id=111
+[2025-05-22T06:59:55.833+0000] {logging_mixin.py:190} INFO - 💌message 771 sent: user_id=106
+[2025-05-22T06:59:55.884+0000] {logging_mixin.py:190} INFO - 💌message 772 sent: user_id=118
+[2025-05-22T06:59:55.937+0000] {logging_mixin.py:190} INFO - 💌message 773 sent: user_id=124
+[2025-05-22T06:59:55.988+0000] {logging_mixin.py:190} INFO - 💌message 774 sent: user_id=101
+[2025-05-22T06:59:56.040+0000] {logging_mixin.py:190} INFO - 💌message 775 sent: user_id=150
+[2025-05-22T06:59:56.091+0000] {logging_mixin.py:190} INFO - 💌message 776 sent: user_id=142
+[2025-05-22T06:59:56.142+0000] {logging_mixin.py:190} INFO - 💌message 777 sent: user_id=117
+[2025-05-22T06:59:56.194+0000] {logging_mixin.py:190} INFO - 💌message 778 sent: user_id=120
+[2025-05-22T06:59:56.246+0000] {logging_mixin.py:190} INFO - 💌message 779 sent: user_id=108
+[2025-05-22T06:59:56.298+0000] {logging_mixin.py:190} INFO - 💌message 780 sent: user_id=130
+[2025-05-22T06:59:56.354+0000] {logging_mixin.py:190} INFO - 💌message 781 sent: user_id=130
+[2025-05-22T06:59:56.405+0000] {logging_mixin.py:190} INFO - 💌message 782 sent: user_id=141
+[2025-05-22T06:59:56.460+0000] {logging_mixin.py:190} INFO - 💌message 783 sent: user_id=141
+[2025-05-22T06:59:56.514+0000] {logging_mixin.py:190} INFO - 💌message 784 sent: user_id=140
+[2025-05-22T06:59:56.567+0000] {logging_mixin.py:190} INFO - 💌message 785 sent: user_id=149
+[2025-05-22T06:59:56.619+0000] {logging_mixin.py:190} INFO - 💌message 786 sent: user_id=117
+[2025-05-22T06:59:56.673+0000] {logging_mixin.py:190} INFO - 💌message 787 sent: user_id=113
+[2025-05-22T06:59:56.728+0000] {logging_mixin.py:190} INFO - 💌message 788 sent: user_id=108
+[2025-05-22T06:59:56.785+0000] {logging_mixin.py:190} INFO - 💌message 789 sent: user_id=112
+[2025-05-22T06:59:56.842+0000] {logging_mixin.py:190} INFO - 💌message 790 sent: user_id=148
+[2025-05-22T06:59:56.898+0000] {logging_mixin.py:190} INFO - 💌message 791 sent: user_id=143
+[2025-05-22T06:59:56.951+0000] {logging_mixin.py:190} INFO - 💌message 792 sent: user_id=150
+[2025-05-22T06:59:57.004+0000] {logging_mixin.py:190} INFO - 💌message 793 sent: user_id=147
+[2025-05-22T06:59:57.060+0000] {logging_mixin.py:190} INFO - 💌message 794 sent: user_id=122
+[2025-05-22T06:59:57.113+0000] {logging_mixin.py:190} INFO - 💌message 795 sent: user_id=128
+[2025-05-22T06:59:57.168+0000] {logging_mixin.py:190} INFO - 💌message 796 sent: user_id=134
+[2025-05-22T06:59:57.222+0000] {logging_mixin.py:190} INFO - 💌message 797 sent: user_id=122
+[2025-05-22T06:59:57.278+0000] {logging_mixin.py:190} INFO - 💌message 798 sent: user_id=121
+[2025-05-22T06:59:57.331+0000] {logging_mixin.py:190} INFO - 💌message 799 sent: user_id=104
+[2025-05-22T06:59:57.388+0000] {logging_mixin.py:190} INFO - 💌message 800 sent: user_id=107
+[2025-05-22T06:59:57.443+0000] {logging_mixin.py:190} INFO - 💌message 801 sent: user_id=109
+[2025-05-22T06:59:57.500+0000] {logging_mixin.py:190} INFO - 💌message 802 sent: user_id=139
+[2025-05-22T06:59:57.553+0000] {logging_mixin.py:190} INFO - 💌message 803 sent: user_id=129
+[2025-05-22T06:59:57.615+0000] {logging_mixin.py:190} INFO - 💌message 804 sent: user_id=112
+[2025-05-22T06:59:57.672+0000] {logging_mixin.py:190} INFO - 💌message 805 sent: user_id=112
+[2025-05-22T06:59:57.724+0000] {logging_mixin.py:190} INFO - 💌message 806 sent: user_id=134
+[2025-05-22T06:59:57.776+0000] {logging_mixin.py:190} INFO - 💌message 807 sent: user_id=101
+[2025-05-22T06:59:57.827+0000] {logging_mixin.py:190} INFO - 💌message 808 sent: user_id=115
+[2025-05-22T06:59:57.879+0000] {logging_mixin.py:190} INFO - 💌message 809 sent: user_id=106
+[2025-05-22T06:59:57.933+0000] {logging_mixin.py:190} INFO - 💌message 810 sent: user_id=101
+[2025-05-22T06:59:57.989+0000] {logging_mixin.py:190} INFO - 💌message 811 sent: user_id=132
+[2025-05-22T06:59:58.040+0000] {logging_mixin.py:190} INFO - 💌message 812 sent: user_id=122
+[2025-05-22T06:59:58.095+0000] {logging_mixin.py:190} INFO - 💌message 813 sent: user_id=122
+[2025-05-22T06:59:58.147+0000] {logging_mixin.py:190} INFO - 💌message 814 sent: user_id=142
+[2025-05-22T06:59:58.204+0000] {logging_mixin.py:190} INFO - 💌message 815 sent: user_id=146
+[2025-05-22T06:59:58.258+0000] {logging_mixin.py:190} INFO - 💌message 816 sent: user_id=100
+[2025-05-22T06:59:58.313+0000] {logging_mixin.py:190} INFO - 💌message 817 sent: user_id=111
+[2025-05-22T06:59:58.367+0000] {logging_mixin.py:190} INFO - 💌message 818 sent: user_id=138
+[2025-05-22T06:59:58.422+0000] {logging_mixin.py:190} INFO - 💌message 819 sent: user_id=106
+[2025-05-22T06:59:58.477+0000] {logging_mixin.py:190} INFO - 💌message 820 sent: user_id=112
+[2025-05-22T06:59:58.531+0000] {logging_mixin.py:190} INFO - 💌message 821 sent: user_id=115
+[2025-05-22T06:59:58.586+0000] {logging_mixin.py:190} INFO - 💌message 822 sent: user_id=101
+[2025-05-22T06:59:58.644+0000] {logging_mixin.py:190} INFO - 💌message 823 sent: user_id=104
+[2025-05-22T06:59:58.702+0000] {logging_mixin.py:190} INFO - 💌message 824 sent: user_id=132
+[2025-05-22T06:59:58.755+0000] {logging_mixin.py:190} INFO - 💌message 825 sent: user_id=105
+[2025-05-22T06:59:58.811+0000] {logging_mixin.py:190} INFO - 💌message 826 sent: user_id=117
+[2025-05-22T06:59:58.871+0000] {logging_mixin.py:190} INFO - 💌message 827 sent: user_id=148
+[2025-05-22T06:59:58.928+0000] {logging_mixin.py:190} INFO - 💌message 828 sent: user_id=135
+[2025-05-22T06:59:58.936+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T06:59:58.938+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T06:59:58.992+0000] {logging_mixin.py:190} INFO - 💌message 829 sent: user_id=147
+[2025-05-22T06:59:59.049+0000] {logging_mixin.py:190} INFO - 💌message 830 sent: user_id=115
+[2025-05-22T06:59:59.104+0000] {logging_mixin.py:190} INFO - 💌message 831 sent: user_id=122
+[2025-05-22T06:59:59.158+0000] {logging_mixin.py:190} INFO - 💌message 832 sent: user_id=135
+[2025-05-22T06:59:59.212+0000] {logging_mixin.py:190} INFO - 💌message 833 sent: user_id=132
+[2025-05-22T06:59:59.267+0000] {logging_mixin.py:190} INFO - 💌message 834 sent: user_id=114
+[2025-05-22T06:59:59.321+0000] {logging_mixin.py:190} INFO - 💌message 835 sent: user_id=104
+[2025-05-22T06:59:59.374+0000] {logging_mixin.py:190} INFO - 💌message 836 sent: user_id=138
+[2025-05-22T06:59:59.428+0000] {logging_mixin.py:190} INFO - 💌message 837 sent: user_id=131
+[2025-05-22T06:59:59.483+0000] {logging_mixin.py:190} INFO - 💌message 838 sent: user_id=121
+[2025-05-22T06:59:59.536+0000] {logging_mixin.py:190} INFO - 💌message 839 sent: user_id=142
+[2025-05-22T06:59:59.593+0000] {logging_mixin.py:190} INFO - 💌message 840 sent: user_id=104
+[2025-05-22T06:59:59.647+0000] {logging_mixin.py:190} INFO - 💌message 841 sent: user_id=107
+[2025-05-22T06:59:59.699+0000] {logging_mixin.py:190} INFO - 💌message 842 sent: user_id=142
+[2025-05-22T06:59:59.751+0000] {logging_mixin.py:190} INFO - 💌message 843 sent: user_id=136
+[2025-05-22T06:59:59.804+0000] {logging_mixin.py:190} INFO - 💌message 844 sent: user_id=112
+[2025-05-22T06:59:59.857+0000] {logging_mixin.py:190} INFO - 💌message 845 sent: user_id=144
+[2025-05-22T06:59:59.912+0000] {logging_mixin.py:190} INFO - 💌message 846 sent: user_id=100
+[2025-05-22T06:59:59.966+0000] {logging_mixin.py:190} INFO - 💌message 847 sent: user_id=144
+[2025-05-22T07:00:00.020+0000] {logging_mixin.py:190} INFO - 💌message 848 sent: user_id=102
+[2025-05-22T07:00:00.074+0000] {logging_mixin.py:190} INFO - 💌message 849 sent: user_id=141
+[2025-05-22T07:00:00.129+0000] {logging_mixin.py:190} INFO - 💌message 850 sent: user_id=105
+[2025-05-22T07:00:00.182+0000] {logging_mixin.py:190} INFO - 💌message 851 sent: user_id=148
+[2025-05-22T07:00:00.239+0000] {logging_mixin.py:190} INFO - 💌message 852 sent: user_id=116
+[2025-05-22T07:00:00.291+0000] {logging_mixin.py:190} INFO - 💌message 853 sent: user_id=116
+[2025-05-22T07:00:00.345+0000] {logging_mixin.py:190} INFO - 💌message 854 sent: user_id=127
+[2025-05-22T07:00:00.398+0000] {logging_mixin.py:190} INFO - 💌message 855 sent: user_id=139
+[2025-05-22T07:00:00.452+0000] {logging_mixin.py:190} INFO - 💌message 856 sent: user_id=109
+[2025-05-22T07:00:00.505+0000] {logging_mixin.py:190} INFO - 💌message 857 sent: user_id=149
+[2025-05-22T07:00:00.561+0000] {logging_mixin.py:190} INFO - 💌message 858 sent: user_id=140
+[2025-05-22T07:00:00.615+0000] {logging_mixin.py:190} INFO - 💌message 859 sent: user_id=125
+[2025-05-22T07:00:00.671+0000] {logging_mixin.py:190} INFO - 💌message 860 sent: user_id=107
+[2025-05-22T07:00:00.725+0000] {logging_mixin.py:190} INFO - 💌message 861 sent: user_id=130
+[2025-05-22T07:00:00.794+0000] {logging_mixin.py:190} INFO - 💌message 862 sent: user_id=149
+[2025-05-22T07:00:00.846+0000] {logging_mixin.py:190} INFO - 💌message 863 sent: user_id=108
+[2025-05-22T07:00:00.898+0000] {logging_mixin.py:190} INFO - 💌message 864 sent: user_id=122
+[2025-05-22T07:00:00.951+0000] {logging_mixin.py:190} INFO - 💌message 865 sent: user_id=135
+[2025-05-22T07:00:01.002+0000] {logging_mixin.py:190} INFO - 💌message 866 sent: user_id=109
+[2025-05-22T07:00:01.052+0000] {logging_mixin.py:190} INFO - 💌message 867 sent: user_id=100
+[2025-05-22T07:00:01.104+0000] {logging_mixin.py:190} INFO - 💌message 868 sent: user_id=138
+[2025-05-22T07:00:01.155+0000] {logging_mixin.py:190} INFO - 💌message 869 sent: user_id=108
+[2025-05-22T07:00:01.211+0000] {logging_mixin.py:190} INFO - 💌message 870 sent: user_id=108
+[2025-05-22T07:00:01.262+0000] {logging_mixin.py:190} INFO - 💌message 871 sent: user_id=117
+[2025-05-22T07:00:01.314+0000] {logging_mixin.py:190} INFO - 💌message 872 sent: user_id=139
+[2025-05-22T07:00:01.366+0000] {logging_mixin.py:190} INFO - 💌message 873 sent: user_id=109
+[2025-05-22T07:00:01.421+0000] {logging_mixin.py:190} INFO - 💌message 874 sent: user_id=131
+[2025-05-22T07:00:01.473+0000] {logging_mixin.py:190} INFO - 💌message 875 sent: user_id=126
+[2025-05-22T07:00:01.526+0000] {logging_mixin.py:190} INFO - 💌message 876 sent: user_id=134
+[2025-05-22T07:00:01.578+0000] {logging_mixin.py:190} INFO - 💌message 877 sent: user_id=128
+[2025-05-22T07:00:01.633+0000] {logging_mixin.py:190} INFO - 💌message 878 sent: user_id=136
+[2025-05-22T07:00:01.688+0000] {logging_mixin.py:190} INFO - 💌message 879 sent: user_id=104
+[2025-05-22T07:00:01.740+0000] {logging_mixin.py:190} INFO - 💌message 880 sent: user_id=100
+[2025-05-22T07:00:01.792+0000] {logging_mixin.py:190} INFO - 💌message 881 sent: user_id=100
+[2025-05-22T07:00:01.845+0000] {logging_mixin.py:190} INFO - 💌message 882 sent: user_id=126
+[2025-05-22T07:00:01.898+0000] {logging_mixin.py:190} INFO - 💌message 883 sent: user_id=119
+[2025-05-22T07:00:01.951+0000] {logging_mixin.py:190} INFO - 💌message 884 sent: user_id=122
+[2025-05-22T07:00:02.004+0000] {logging_mixin.py:190} INFO - 💌message 885 sent: user_id=149
+[2025-05-22T07:00:02.056+0000] {logging_mixin.py:190} INFO - 💌message 886 sent: user_id=129
+[2025-05-22T07:00:02.113+0000] {logging_mixin.py:190} INFO - 💌message 887 sent: user_id=106
+[2025-05-22T07:00:02.169+0000] {logging_mixin.py:190} INFO - 💌message 888 sent: user_id=108
+[2025-05-22T07:00:02.223+0000] {logging_mixin.py:190} INFO - 💌message 889 sent: user_id=118
+[2025-05-22T07:00:02.278+0000] {logging_mixin.py:190} INFO - 💌message 890 sent: user_id=113
+[2025-05-22T07:00:02.335+0000] {logging_mixin.py:190} INFO - 💌message 891 sent: user_id=143
+[2025-05-22T07:00:02.390+0000] {logging_mixin.py:190} INFO - 💌message 892 sent: user_id=125
+[2025-05-22T07:00:02.446+0000] {logging_mixin.py:190} INFO - 💌message 893 sent: user_id=135
+[2025-05-22T07:00:02.499+0000] {logging_mixin.py:190} INFO - 💌message 894 sent: user_id=107
+[2025-05-22T07:00:02.554+0000] {logging_mixin.py:190} INFO - 💌message 895 sent: user_id=103
+[2025-05-22T07:00:02.609+0000] {logging_mixin.py:190} INFO - 💌message 896 sent: user_id=111
+[2025-05-22T07:00:02.666+0000] {logging_mixin.py:190} INFO - 💌message 897 sent: user_id=140
+[2025-05-22T07:00:02.719+0000] {logging_mixin.py:190} INFO - 💌message 898 sent: user_id=140
+[2025-05-22T07:00:02.773+0000] {logging_mixin.py:190} INFO - 💌message 899 sent: user_id=136
+[2025-05-22T07:00:02.826+0000] {logging_mixin.py:190} INFO - 💌message 900 sent: user_id=104
+[2025-05-22T07:00:02.878+0000] {logging_mixin.py:190} INFO - 💌message 901 sent: user_id=130
+[2025-05-22T07:00:02.930+0000] {logging_mixin.py:190} INFO - 💌message 902 sent: user_id=128
+[2025-05-22T07:00:02.986+0000] {logging_mixin.py:190} INFO - 💌message 903 sent: user_id=140
+[2025-05-22T07:00:03.040+0000] {logging_mixin.py:190} INFO - 💌message 904 sent: user_id=119
+[2025-05-22T07:00:03.094+0000] {logging_mixin.py:190} INFO - 💌message 905 sent: user_id=119
+[2025-05-22T07:00:03.147+0000] {logging_mixin.py:190} INFO - 💌message 906 sent: user_id=141
+[2025-05-22T07:00:03.198+0000] {logging_mixin.py:190} INFO - 💌message 907 sent: user_id=132
+[2025-05-22T07:00:03.251+0000] {logging_mixin.py:190} INFO - 💌message 908 sent: user_id=111
+[2025-05-22T07:00:03.304+0000] {logging_mixin.py:190} INFO - 💌message 909 sent: user_id=106
+[2025-05-22T07:00:03.358+0000] {logging_mixin.py:190} INFO - 💌message 910 sent: user_id=126
+[2025-05-22T07:00:03.414+0000] {logging_mixin.py:190} INFO - 💌message 911 sent: user_id=108
+[2025-05-22T07:00:03.468+0000] {logging_mixin.py:190} INFO - 💌message 912 sent: user_id=147
+[2025-05-22T07:00:03.525+0000] {logging_mixin.py:190} INFO - 💌message 913 sent: user_id=109
+[2025-05-22T07:00:03.579+0000] {logging_mixin.py:190} INFO - 💌message 914 sent: user_id=112
+[2025-05-22T07:00:03.632+0000] {logging_mixin.py:190} INFO - 💌message 915 sent: user_id=111
+[2025-05-22T07:00:03.641+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:03.643+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:03.695+0000] {logging_mixin.py:190} INFO - 💌message 916 sent: user_id=109
+[2025-05-22T07:00:03.748+0000] {logging_mixin.py:190} INFO - 💌message 917 sent: user_id=103
+[2025-05-22T07:00:03.801+0000] {logging_mixin.py:190} INFO - 💌message 918 sent: user_id=144
+[2025-05-22T07:00:03.853+0000] {logging_mixin.py:190} INFO - 💌message 919 sent: user_id=123
+[2025-05-22T07:00:03.903+0000] {logging_mixin.py:190} INFO - 💌message 920 sent: user_id=106
+[2025-05-22T07:00:03.956+0000] {logging_mixin.py:190} INFO - 💌message 921 sent: user_id=136
+[2025-05-22T07:00:04.008+0000] {logging_mixin.py:190} INFO - 💌message 922 sent: user_id=107
+[2025-05-22T07:00:04.060+0000] {logging_mixin.py:190} INFO - 💌message 923 sent: user_id=121
+[2025-05-22T07:00:04.112+0000] {logging_mixin.py:190} INFO - 💌message 924 sent: user_id=132
+[2025-05-22T07:00:04.165+0000] {logging_mixin.py:190} INFO - 💌message 925 sent: user_id=144
+[2025-05-22T07:00:04.219+0000] {logging_mixin.py:190} INFO - 💌message 926 sent: user_id=115
+[2025-05-22T07:00:04.277+0000] {logging_mixin.py:190} INFO - 💌message 927 sent: user_id=111
+[2025-05-22T07:00:04.331+0000] {logging_mixin.py:190} INFO - 💌message 928 sent: user_id=133
+[2025-05-22T07:00:04.387+0000] {logging_mixin.py:190} INFO - 💌message 929 sent: user_id=111
+[2025-05-22T07:00:04.444+0000] {logging_mixin.py:190} INFO - 💌message 930 sent: user_id=148
+[2025-05-22T07:00:04.503+0000] {logging_mixin.py:190} INFO - 💌message 931 sent: user_id=146
+[2025-05-22T07:00:04.561+0000] {logging_mixin.py:190} INFO - 💌message 932 sent: user_id=119
+[2025-05-22T07:00:04.614+0000] {logging_mixin.py:190} INFO - 💌message 933 sent: user_id=108
+[2025-05-22T07:00:04.668+0000] {logging_mixin.py:190} INFO - 💌message 934 sent: user_id=120
+[2025-05-22T07:00:04.721+0000] {logging_mixin.py:190} INFO - 💌message 935 sent: user_id=117
+[2025-05-22T07:00:04.775+0000] {logging_mixin.py:190} INFO - 💌message 936 sent: user_id=150
+[2025-05-22T07:00:04.830+0000] {logging_mixin.py:190} INFO - 💌message 937 sent: user_id=146
+[2025-05-22T07:00:04.882+0000] {logging_mixin.py:190} INFO - 💌message 938 sent: user_id=135
+[2025-05-22T07:00:04.935+0000] {logging_mixin.py:190} INFO - 💌message 939 sent: user_id=107
+[2025-05-22T07:00:04.988+0000] {logging_mixin.py:190} INFO - 💌message 940 sent: user_id=123
+[2025-05-22T07:00:05.041+0000] {logging_mixin.py:190} INFO - 💌message 941 sent: user_id=101
+[2025-05-22T07:00:05.092+0000] {logging_mixin.py:190} INFO - 💌message 942 sent: user_id=124
+[2025-05-22T07:00:05.145+0000] {logging_mixin.py:190} INFO - 💌message 943 sent: user_id=132
+[2025-05-22T07:00:05.197+0000] {logging_mixin.py:190} INFO - 💌message 944 sent: user_id=127
+[2025-05-22T07:00:05.249+0000] {logging_mixin.py:190} INFO - 💌message 945 sent: user_id=113
+[2025-05-22T07:00:05.302+0000] {logging_mixin.py:190} INFO - 💌message 946 sent: user_id=109
+[2025-05-22T07:00:05.353+0000] {logging_mixin.py:190} INFO - 💌message 947 sent: user_id=120
+[2025-05-22T07:00:05.406+0000] {logging_mixin.py:190} INFO - 💌message 948 sent: user_id=131
+[2025-05-22T07:00:05.459+0000] {logging_mixin.py:190} INFO - 💌message 949 sent: user_id=145
+[2025-05-22T07:00:05.516+0000] {logging_mixin.py:190} INFO - 💌message 950 sent: user_id=144
+[2025-05-22T07:00:05.569+0000] {logging_mixin.py:190} INFO - 💌message 951 sent: user_id=115
+[2025-05-22T07:00:05.624+0000] {logging_mixin.py:190} INFO - 💌message 952 sent: user_id=132
+[2025-05-22T07:00:05.681+0000] {logging_mixin.py:190} INFO - 💌message 953 sent: user_id=117
+[2025-05-22T07:00:05.737+0000] {logging_mixin.py:190} INFO - 💌message 954 sent: user_id=118
+[2025-05-22T07:00:05.790+0000] {logging_mixin.py:190} INFO - 💌message 955 sent: user_id=109
+[2025-05-22T07:00:05.846+0000] {logging_mixin.py:190} INFO - 💌message 956 sent: user_id=118
+[2025-05-22T07:00:05.900+0000] {logging_mixin.py:190} INFO - 💌message 957 sent: user_id=145
+[2025-05-22T07:00:05.956+0000] {logging_mixin.py:190} INFO - 💌message 958 sent: user_id=111
+[2025-05-22T07:00:06.010+0000] {logging_mixin.py:190} INFO - 💌message 959 sent: user_id=148
+[2025-05-22T07:00:06.064+0000] {logging_mixin.py:190} INFO - 💌message 960 sent: user_id=103
+[2025-05-22T07:00:06.115+0000] {logging_mixin.py:190} INFO - 💌message 961 sent: user_id=100
+[2025-05-22T07:00:06.171+0000] {logging_mixin.py:190} INFO - 💌message 962 sent: user_id=131
+[2025-05-22T07:00:06.224+0000] {logging_mixin.py:190} INFO - 💌message 963 sent: user_id=105
+[2025-05-22T07:00:06.276+0000] {logging_mixin.py:190} INFO - 💌message 964 sent: user_id=131
+[2025-05-22T07:00:06.331+0000] {logging_mixin.py:190} INFO - 💌message 965 sent: user_id=148
+[2025-05-22T07:00:06.389+0000] {logging_mixin.py:190} INFO - 💌message 966 sent: user_id=133
+[2025-05-22T07:00:06.443+0000] {logging_mixin.py:190} INFO - 💌message 967 sent: user_id=130
+[2025-05-22T07:00:06.497+0000] {logging_mixin.py:190} INFO - 💌message 968 sent: user_id=103
+[2025-05-22T07:00:06.552+0000] {logging_mixin.py:190} INFO - 💌message 969 sent: user_id=107
+[2025-05-22T07:00:06.607+0000] {logging_mixin.py:190} INFO - 💌message 970 sent: user_id=103
+[2025-05-22T07:00:06.660+0000] {logging_mixin.py:190} INFO - 💌message 971 sent: user_id=127
+[2025-05-22T07:00:06.712+0000] {logging_mixin.py:190} INFO - 💌message 972 sent: user_id=139
+[2025-05-22T07:00:06.768+0000] {logging_mixin.py:190} INFO - 💌message 973 sent: user_id=127
+[2025-05-22T07:00:06.823+0000] {logging_mixin.py:190} INFO - 💌message 974 sent: user_id=145
+[2025-05-22T07:00:06.876+0000] {logging_mixin.py:190} INFO - 💌message 975 sent: user_id=103
+[2025-05-22T07:00:06.927+0000] {logging_mixin.py:190} INFO - 💌message 976 sent: user_id=142
+[2025-05-22T07:00:06.984+0000] {logging_mixin.py:190} INFO - 💌message 977 sent: user_id=130
+[2025-05-22T07:00:07.039+0000] {logging_mixin.py:190} INFO - 💌message 978 sent: user_id=114
+[2025-05-22T07:00:07.092+0000] {logging_mixin.py:190} INFO - 💌message 979 sent: user_id=101
+[2025-05-22T07:00:07.146+0000] {logging_mixin.py:190} INFO - 💌message 980 sent: user_id=111
+[2025-05-22T07:00:07.201+0000] {logging_mixin.py:190} INFO - 💌message 981 sent: user_id=121
+[2025-05-22T07:00:07.254+0000] {logging_mixin.py:190} INFO - 💌message 982 sent: user_id=116
+[2025-05-22T07:00:07.308+0000] {logging_mixin.py:190} INFO - 💌message 983 sent: user_id=103
+[2025-05-22T07:00:07.362+0000] {logging_mixin.py:190} INFO - 💌message 984 sent: user_id=137
+[2025-05-22T07:00:07.415+0000] {logging_mixin.py:190} INFO - 💌message 985 sent: user_id=121
+[2025-05-22T07:00:07.469+0000] {logging_mixin.py:190} INFO - 💌message 986 sent: user_id=148
+[2025-05-22T07:00:07.527+0000] {logging_mixin.py:190} INFO - 💌message 987 sent: user_id=136
+[2025-05-22T07:00:07.580+0000] {logging_mixin.py:190} INFO - 💌message 988 sent: user_id=101
+[2025-05-22T07:00:07.634+0000] {logging_mixin.py:190} INFO - 💌message 989 sent: user_id=109
+[2025-05-22T07:00:07.688+0000] {logging_mixin.py:190} INFO - 💌message 990 sent: user_id=121
+[2025-05-22T07:00:07.741+0000] {logging_mixin.py:190} INFO - 💌message 991 sent: user_id=107
+[2025-05-22T07:00:07.795+0000] {logging_mixin.py:190} INFO - 💌message 992 sent: user_id=101
+[2025-05-22T07:00:07.851+0000] {logging_mixin.py:190} INFO - 💌message 993 sent: user_id=110
+[2025-05-22T07:00:07.906+0000] {logging_mixin.py:190} INFO - 💌message 994 sent: user_id=141
+[2025-05-22T07:00:07.961+0000] {logging_mixin.py:190} INFO - 💌message 995 sent: user_id=126
+[2025-05-22T07:00:08.014+0000] {logging_mixin.py:190} INFO - 💌message 996 sent: user_id=133
+[2025-05-22T07:00:08.071+0000] {logging_mixin.py:190} INFO - 💌message 997 sent: user_id=104
+[2025-05-22T07:00:08.124+0000] {logging_mixin.py:190} INFO - 💌message 998 sent: user_id=144
+[2025-05-22T07:00:08.180+0000] {logging_mixin.py:190} INFO - 💌message 999 sent: user_id=126
+[2025-05-22T07:00:08.232+0000] {logging_mixin.py:190} INFO - 💌message 1000 sent: user_id=102
+[2025-05-22T07:00:08.292+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:08.293+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:12.913+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:12.914+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:17.556+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:17.557+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:22.318+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:22.319+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:26.863+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:26.864+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:31.498+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:31.500+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:31.500+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 85 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:31.506+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 86 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:31.507+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 86 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:31.508+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 85 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:36.132+0000] {record_accumulator.py:73} WARNING - Produced messages to topic-partition ('userlog', 0) with base offset -1 log start offset None and error None.
+[2025-05-22T07:00:36.133+0000] {record_accumulator.py:332} WARNING - Expired 1 batches in accumulator
+[2025-05-22T07:00:36.134+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 41 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:36.135+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 85 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:36.135+0000] {record_accumulator.py:534} WARNING - KafkaTimeoutError: Batch for TopicPartition(topic='userlog', partition=0) containing 86 record(s) expired: 30 seconds have passed since batch creation plus linger time
+[2025-05-22T07:00:36.136+0000] {logging_mixin.py:190} INFO - ✅All messages sent
+[2025-05-22T07:00:36.137+0000] {conn.py:919} INFO - <BrokerConnection node_id=2 host=172.16.24.224:29092 <connected> [IPv4 ('172.16.24.224', 29092)]>: Closing connection. 
+[2025-05-22T07:00:36.138+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-05-22T07:00:36.146+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-22T07:00:36.147+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=kafka_to_minio_to_spark, task_id=kafka_producer, run_id=scheduled__2025-05-21T16:00:00+00:00, execution_date=20250521T160000, start_date=20250522T065913, end_date=20250522T070036
+[2025-05-22T07:00:36.197+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-22T07:00:36.208+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-22T07:00:36.211+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

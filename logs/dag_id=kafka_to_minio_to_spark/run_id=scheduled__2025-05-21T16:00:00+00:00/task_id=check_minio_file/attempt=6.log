@@ -1,0 +1,35 @@
+[2025-05-22T10:30:03.212+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-22T10:30:03.217+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.check_minio_file scheduled__2025-05-21T16:00:00+00:00 [queued]>
+[2025-05-22T10:30:03.219+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.check_minio_file scheduled__2025-05-21T16:00:00+00:00 [queued]>
+[2025-05-22T10:30:03.219+0000] {taskinstance.py:2865} INFO - Starting attempt 6 of 8
+[2025-05-22T10:30:03.223+0000] {taskinstance.py:2888} INFO - Executing <Task(S3KeySensor): check_minio_file> on 2025-05-21 16:00:00+00:00
+[2025-05-22T10:30:03.225+0000] {standard_task_runner.py:72} INFO - Started process 141 to run task
+[2025-05-22T10:30:03.227+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'check_minio_file', 'scheduled__2025-05-21T16:00:00+00:00', '--job-id', '228', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmp7hezwibp']
+[2025-05-22T10:30:03.227+0000] {standard_task_runner.py:105} INFO - Job 228: Subtask check_minio_file
+[2025-05-22T10:30:03.243+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.check_minio_file scheduled__2025-05-21T16:00:00+00:00 [running]> on host fb2b30c0fd51
+[2025-05-22T10:30:03.267+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='check_minio_file' AIRFLOW_CTX_EXECUTION_DATE='2025-05-21T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-21T16:00:00+00:00'
+[2025-05-22T10:30:03.267+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-22T10:30:03.271+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-05-22T10:30:03.272+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:03.275+0000] {base.py:84} INFO - Retrieving connection 'minio'
+[2025-05-22T10:30:03.276+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio', conn_type='aws') credentials retrieved from login and password.
+[2025-05-22T10:30:08.468+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:13.484+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:18.515+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:23.539+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:28.625+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:33.645+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:38.664+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:43.682+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:48.709+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:53.728+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:30:58.740+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:31:03.753+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:31:08.769+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-21_*.csv
+[2025-05-22T10:31:08.815+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to removed. Terminating instance.
+[2025-05-22T10:31:08.816+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-05-22T10:31:08.817+0000] {process_utils.py:132} INFO - Sending 15 to group 141. PIDs of all processes in the group: [141]
+[2025-05-22T10:31:08.818+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 141
+[2025-05-22T10:31:08.818+0000] {taskinstance.py:3092} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-05-22T10:31:08.831+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-22T10:31:08.849+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=141, status='terminated', exitcode=0, started='10:30:03') (141) terminated with exit code 0

@@ -24,8 +24,9 @@ def generate_log():
     # 샘플 카테고리
     categories = ["Action", "Drama", "Comedy", "Sci-Fi", "Horror", "Romance"]
     
-    user_id = random.randint(100, 110)
-    movie_id = f"M{random.randint(1, 10):03d}"
+    # key=user_id로 활용하는데 Int는 encoding이 안됌
+    user_id = str(random.randint(100, 150))
+    movie_id = f"M{random.randint(1, 30):03d}"
     timestamp = datetime.now(kst).isoformat()
     event_type = random.choice(["movie_click", "like_click", "rating_submit", "review_submit"])
     movie_category = random.choice(categories)
@@ -54,15 +55,18 @@ def generate_log():
 
 def kafka_producer():
     producer = KafkaProducer(
-        bootstrap_servers='host.docker.internal:9092',
+        bootstrap_servers='3.34.144.17:9092',
+        key_serializer=lambda k: k.encode('utf-8'),
         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-        acks='all'
+        # enable_idempotence=True, 운영용
+        #acks='all'
     )
 
     for i in range(1000):
         event = generate_log()
-        producer.send('userlog', event)
-        print("💌message is sending....")
+        user_id = event['user_id']
+        producer.send('userlog', key=user_id,value=event)
+        print(f"💌message {i+1} sent: user_id={user_id}")
         time.sleep(0.05)
 
     producer.flush()
@@ -81,8 +85,8 @@ def kafka_consumer(**context):
     try:
         consumer = KafkaConsumer(
             'userlog',
-            bootstrap_servers='host.docker.internal:9092',
-            group_id='tospark',
+            bootstrap_servers='3.34.144.17:9092',
+            group_id='kafka',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
@@ -98,7 +102,7 @@ def kafka_consumer(**context):
             return
 
         csv_file = StringIO()
-        fieldnames = ["user_id", "movie_id", "timestamp", "event_type", "movie_category", "page", "rating", "review"]
+        fieldnames = ["user_id", "movie_id", "timestamp", "event_type", "movie_category", "page", "rating", "review", "liked"]
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -109,11 +113,10 @@ def kafka_consumer(**context):
                     writer.writerow({key: event.get(key, None) for key in fieldnames})
                     print(f"📥 Received: page:{event.get('page')}")
                     # tp: TopicPartition 객체 / 다음 offset부터 읽는 걸로 설정
-                    consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None, -1)})
+                    consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None)})
                 except Exception as e:
                     print(f"❌ Failed to process message: {e}")
-                    raise e
-                
+                    raise e      
         s3_hook = connect_minio()
         print("✅Minio connected")
 
@@ -163,8 +166,6 @@ with DAG(
     tags=['user-activity-log', 'ml']
 ) as dag:
     
-    today = "{{ ds }}"
-    
     kafka_producer = PythonOperator(
         task_id='kafka_producer',
         python_callable=kafka_producer
@@ -180,7 +181,7 @@ with DAG(
     check_minio_file = S3KeySensor(
         task_id='check_minio_file',
         bucket_name='user-log-ml',
-        bucket_key=f'{today}_*.csv',
+        bucket_key='2025-05-22_*.csv',
         wildcard_match=True,
         aws_conn_id='minio',
         poke_interval=5
@@ -190,13 +191,14 @@ with DAG(
     spark_etl = SparkSubmitOperator(
         task_id='spark_etl',
         application="/opt/spark/testlog_ml_spark.py",
-        conn_id="spark",
+        conn_id='spark',
         conf={
-            "spark.hadoop.fs.s3a.endpoint": "http://172.16.24.224:9000",
+            "spark.hadoop.fs.s3a.endpoint": "http://3.38.135.214:9000",
             "spark.hadoop.fs.s3a.access.key": "minioadmin",
             "spark.hadoop.fs.s3a.secret.key": "minioadmin",
-            "spark.hadoop.fs.s3a.path.style.access": "true",
             "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+            "spark.hadoop.fs.s3a.path.style.access": "true",
+            "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
             "spark.hadoop.fs.s3a.aws.credentials.provider": ""
         },
         jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar"
@@ -218,4 +220,3 @@ with DAG(
 
     kafka_producer >> kafka_consumer >> check_minio_file >> spark_etl 
     
-
