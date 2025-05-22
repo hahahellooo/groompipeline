@@ -42,6 +42,7 @@ def generate_log():
         base["page"] = "main"
     elif event_type == "like_click":
         base["page"] = "movie_detail"
+        base["liked"] = random.randint(0, 1)
     elif event_type == "rating_submit":
         base["page"] = "movie_detail"
         base["rating"] = random.randint(0, 5)
@@ -80,7 +81,7 @@ def kafka_consumer(**context):
         consumer = KafkaConsumer(
             'userlog',
             bootstrap_servers='host.docker.internal:9092',
-            group_id='tospark',
+            group_id='to',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
@@ -96,7 +97,7 @@ def kafka_consumer(**context):
             return
 
         csv_file = StringIO()
-        fieldnames = ["user_id", "movie_id", "timestamp", "event_type", "movie_category", "page", "rating", "review"]
+        fieldnames = ["user_id", "movie_id", "timestamp", "event_type", "movie_category", "page", "rating", "review", "liked"]
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -107,7 +108,7 @@ def kafka_consumer(**context):
                     writer.writerow({key: event.get(key, None) for key in fieldnames})
                     print(f"📥 Received: page:{event.get('page')}")
                     # tp: TopicPartition 객체 / 다음 offset부터 읽는 걸로 설정
-                    consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None, -1)})
+                    consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None)})
                 except Exception as e:
                     print(f"❌ Failed to process message: {e}")
                     raise e
@@ -176,7 +177,7 @@ with DAG(
     check_minio_file = S3KeySensor(
         task_id='check_minio_file',
         bucket_name='user-log-ml',
-        bucket_key='2025-05-20_01-00-00.csv',
+        bucket_key='2025-05-22_*.csv',
         aws_conn_id='minio'
     )
     ##############################################

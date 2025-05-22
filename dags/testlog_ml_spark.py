@@ -28,22 +28,34 @@ file_path = 's3a://user-log-ml/'
 df = spark.read.csv(file_path, header=True, inferSchema=True)
 
 df_with_scores = (
-    df.withColumn("click_score", when(col("event_type") == "movie_click", lit(1)).otherwise(lit(0)))
-      .withColumn("like_score", when(col("event_type") == "like_click", lit(3)).otherwise(lit(0)))
-      .withColumn("rating", when(col("event_type") == "rating_submit", col("rating")).otherwise(lit(0)))
-      .withColumn("review", when(col("event_type") == "review_submit", col("review")).otherwise(lit(0)))
+    df
+    .withColumn("click_score", when(col("event_type") == "movie_click", lit(1)).otherwise(lit(0)))
+    .withColumn("like_score", 
+                when((col("event_type") == "like_click") & (col('liked') == 1), lit(3))
+                .when((col("event_type") == "like_click") & (col('liked') == 0), lit(-3))
+                .otherwise(lit(0)))
+    .withColumn("rating", when(col("event_type") == "rating_submit", col("rating")).otherwise(lit(0)))
+    .withColumn("review", when(col("event_type") == "review_submit", col("review")).otherwise(lit(0)))
 )
 
-# 사실상 click_score만 집계하면 됌
+# 불필요한 컬럼 제거
 df_scores = df_with_scores.drop('timestamp', 'event_type', 'movie_category', 'page')
+
+# 점수 집계 및 total_score 생성
 scores_agg_df = (
     df_scores
-    .groupBy('user_id','movie_id')
-    .sum('rating','review','click_score','like_score')
-    .withColumnRenamed('sum(click_score)','total_movie_click')
-    .orderBy(col('user_id').asc())
+    .groupBy('user_id', 'movie_id')
+    .sum('rating', 'review', 'click_score', 'like_score')
+    .withColumn(
+        'total_score',
+        col('sum(rating)') + col('sum(review)') + col('sum(click_score)') + col('sum(like_score)')
+    )
+    .select('user_id', 'movie_id', 'total_score')
+    .orderBy('user_id', 'movie_id')
 )
+
 scores_agg_df.show()
+
 
 # 한국 시간(KST)으로 현재 시간 가져오기
 kst = timezone(timedelta(hours=9))  # KST는 UTC +9 시간대

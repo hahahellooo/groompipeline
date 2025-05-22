@@ -1,0 +1,21 @@
+[2025-05-22T00:05:06.107+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-22T00:05:06.112+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.check_minio_file scheduled__2025-05-21T16:00:00+00:00 [queued]>
+[2025-05-22T00:05:06.115+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.check_minio_file scheduled__2025-05-21T16:00:00+00:00 [queued]>
+[2025-05-22T00:05:06.115+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 3
+[2025-05-22T00:05:06.119+0000] {taskinstance.py:2888} INFO - Executing <Task(S3KeySensor): check_minio_file> on 2025-05-21 16:00:00+00:00
+[2025-05-22T00:05:06.121+0000] {standard_task_runner.py:72} INFO - Started process 283 to run task
+[2025-05-22T00:05:06.123+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'check_minio_file', 'scheduled__2025-05-21T16:00:00+00:00', '--job-id', '188', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmp17qu9rc6']
+[2025-05-22T00:05:06.123+0000] {standard_task_runner.py:105} INFO - Job 188: Subtask check_minio_file
+[2025-05-22T00:05:06.139+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.check_minio_file scheduled__2025-05-21T16:00:00+00:00 [running]> on host f901d5ffba09
+[2025-05-22T00:05:06.164+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='check_minio_file' AIRFLOW_CTX_EXECUTION_DATE='2025-05-21T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-21T16:00:00+00:00'
+[2025-05-22T00:05:06.164+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-22T00:05:06.238+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-05-22T00:05:06.238+0000] {s3.py:118} INFO - Poking for key : s3://user-log-ml/2025-05-20_01-00-00.csv
+[2025-05-22T00:05:06.242+0000] {base.py:84} INFO - Retrieving connection 'minio'
+[2025-05-22T00:05:06.242+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio', conn_type='aws') credentials retrieved from login and password.
+[2025-05-22T00:05:08.802+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-05-22T00:05:08.833+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-22T00:05:08.834+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=kafka_to_minio_to_spark, task_id=check_minio_file, run_id=scheduled__2025-05-21T16:00:00+00:00, execution_date=20250521T160000, start_date=20250522T000506, end_date=20250522T000508
+[2025-05-22T00:05:08.861+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-22T00:05:08.882+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-05-22T00:05:08.883+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

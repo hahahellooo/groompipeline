@@ -25060,3 +25060,608 @@ File Path                                                      PID    Runtime   
 /opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py                           1           0  0.16s           2025-05-21T02:13:32                      12
 /opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T02:13:32                      12
 ================================================================================
+[2025-05-21T23:49:14.275+0000] {manager.py:486} INFO - Processing files using up to 2 processes at a time 
+[2025-05-21T23:49:14.279+0000] {manager.py:487} INFO - Process each file at most once every 30 seconds
+[2025-05-21T23:49:14.279+0000] {manager.py:488} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-05-21T23:49:14.279+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-05-21T23:49:14.290+0000] {manager.py:835} INFO - There are 3 files in /opt/airflow/dags
+[2025-05-21T23:49:14.689+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run      Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                   28  0.02s             0           0                                                   0
+/opt/airflow/dags/testlog_ml.py                                   27  0.03s             0           0                                                   0
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py                           0           0                                                   0
+================================================================================
+[2025-05-21T23:49:45.316+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py                           1           0  0.44s           2025-05-21T23:49:15                      34
+/opt/airflow/dags/log_to_csv.py                                   38  0.00s             1           0  0.19s           2025-05-21T23:49:14                      12
+/opt/airflow/dags/testlog_ml.py                                   37  0.01s             1           0  0.14s           2025-05-21T23:49:14                      12
+================================================================================
+[2025-05-21T23:50:16.054+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                   41  0.00s             1           0  0.18s           2025-05-21T23:49:45                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py                           1           0  0.11s           2025-05-21T23:49:45                      12
+/opt/airflow/dags/testlog_ml.py                                   40  0.02s             1           0  0.08s           2025-05-21T23:49:45                      12
+================================================================================
+[2025-05-21T23:50:46.680+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py                           1           0  0.19s           2025-05-21T23:50:16                      34
+/opt/airflow/dags/log_to_csv.py                                   51  0.00s             1           0  0.12s           2025-05-21T23:50:16                      12
+/opt/airflow/dags/testlog_ml.py                                   50  0.02s             1           0  0.09s           2025-05-21T23:50:16                      12
+================================================================================
+[2025-05-21T23:51:17.393+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                   61  0.02s             1           0  0.14s           2025-05-21T23:50:46                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py     62  0.00s             1           0  0.09s           2025-05-21T23:50:46                      11
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:50:57                      12
+================================================================================
+[2025-05-21T23:51:48.045+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py     72  0.00s             1           0  0.20s           2025-05-21T23:51:17                      34
+/opt/airflow/dags/log_to_csv.py                                   71  0.01s             1           0  0.13s           2025-05-21T23:51:17                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:51:27                      12
+================================================================================
+[2025-05-21T23:52:18.750+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                   81  0.01s             1           0  0.15s           2025-05-21T23:51:48                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py     82  0.00s             1           0  0.12s           2025-05-21T23:51:48                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:51:58                      12
+================================================================================
+[2025-05-21T23:52:49.392+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py     92  0.00s             1           0  0.14s           2025-05-21T23:52:18                      34
+/opt/airflow/dags/log_to_csv.py                                   91  0.02s             1           0  0.12s           2025-05-21T23:52:18                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:52:29                      12
+================================================================================
+[2025-05-21T23:53:20.114+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  101  0.02s             1           0  0.22s           2025-05-21T23:52:49                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    102  0.00s             1           0  0.12s           2025-05-21T23:52:49                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:52:59                      12
+================================================================================
+[2025-05-21T23:53:50.744+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    112  0.00s             1           0  0.14s           2025-05-21T23:53:20                      34
+/opt/airflow/dags/log_to_csv.py                                  111  0.01s             1           0  0.13s           2025-05-21T23:53:20                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:53:30                      12
+================================================================================
+[2025-05-21T23:54:14.288+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-05-21T23:54:14.304+0000] {manager.py:835} INFO - There are 3 files in /opt/airflow/dags
+[2025-05-21T23:54:21.420+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  121  0.01s             1           0  0.14s           2025-05-21T23:53:50                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    122  0.00s             1           0  0.11s           2025-05-21T23:53:50                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:54:01                      12
+================================================================================
+[2025-05-21T23:54:52.046+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    132  0.00s             1           0  0.15s           2025-05-21T23:54:21                      34
+/opt/airflow/dags/log_to_csv.py                                  131  0.02s             1           0  0.13s           2025-05-21T23:54:21                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:54:31                      12
+================================================================================
+[2025-05-21T23:55:22.683+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  141  0.01s             1           0  0.15s           2025-05-21T23:54:52                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    142  0.00s             1           0  0.11s           2025-05-21T23:54:52                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.10s           2025-05-21T23:55:02                      12
+================================================================================
+[2025-05-21T23:55:53.327+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    152  0.00s             1           0  0.20s           2025-05-21T23:55:22                      34
+/opt/airflow/dags/log_to_csv.py                                  151  0.02s             1           0  0.11s           2025-05-21T23:55:22                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:55:33                      12
+================================================================================
+[2025-05-21T23:56:23.870+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  161  0.01s             1           0  0.15s           2025-05-21T23:55:53                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    162  0.00s             1           0  0.11s           2025-05-21T23:55:53                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-21T23:56:03                      12
+================================================================================
+[2025-05-21T23:56:54.542+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    172  0.00s             1           0  0.19s           2025-05-21T23:56:24                      34
+/opt/airflow/dags/log_to_csv.py                                  171  0.01s             1           0  0.11s           2025-05-21T23:56:23                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:56:34                      12
+================================================================================
+[2025-05-21T23:57:25.243+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  181  0.01s             1           0  0.22s           2025-05-21T23:56:54                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    182  0.00s             1           0  0.12s           2025-05-21T23:56:54                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-21T23:57:04                      12
+================================================================================
+[2025-05-21T23:57:55.871+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    192  0.00s             1           0  0.15s           2025-05-21T23:57:25                      34
+/opt/airflow/dags/log_to_csv.py                                  191  0.02s             1           0  0.13s           2025-05-21T23:57:25                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-21T23:57:35                      12
+================================================================================
+[2025-05-21T23:58:26.525+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  201  0.02s             1           0  0.21s           2025-05-21T23:57:56                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    202  0.00s             1           0  0.11s           2025-05-21T23:57:55                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.05s           2025-05-21T23:58:06                      12
+================================================================================
+[2025-05-21T23:58:57.162+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    212  0.00s             1           0  0.14s           2025-05-21T23:58:26                      34
+/opt/airflow/dags/log_to_csv.py                                  211  0.02s             1           0  0.13s           2025-05-21T23:58:26                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.06s           2025-05-21T23:58:36                      12
+================================================================================
+[2025-05-21T23:59:14.564+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-05-21T23:59:14.572+0000] {manager.py:835} INFO - There are 3 files in /opt/airflow/dags
+[2025-05-21T23:59:27.821+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  220  0.02s             1           0  0.21s           2025-05-21T23:58:57                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    221  0.00s             1           0  0.12s           2025-05-21T23:58:57                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-21T23:59:07                      12
+================================================================================
+[2025-05-21T23:59:58.383+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    231  0.00s             1           0  0.15s           2025-05-21T23:59:27                      34
+/opt/airflow/dags/log_to_csv.py                                  230  0.02s             1           0  0.13s           2025-05-21T23:59:27                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-21T23:59:38                      12
+================================================================================
+[2025-05-22T00:00:29.084+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  240  0.02s             1           0  0.22s           2025-05-21T23:59:58                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    241  0.00s             1           0  0.12s           2025-05-21T23:59:58                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:00:04                      12
+================================================================================
+[2025-05-22T00:00:59.769+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    251  0.00s             1           0  0.20s           2025-05-22T00:00:29                      34
+/opt/airflow/dags/log_to_csv.py                                  250  0.01s             1           0  0.13s           2025-05-22T00:00:29                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:00:35                      12
+================================================================================
+[2025-05-22T00:01:30.526+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  260  0.01s             1           0  0.25s           2025-05-22T00:01:00                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    261  0.00s             1           0  0.13s           2025-05-22T00:00:59                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:01:06                      12
+================================================================================
+[2025-05-22T00:02:01.123+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    271  0.00s             1           0  0.21s           2025-05-22T00:01:30                      34
+/opt/airflow/dags/log_to_csv.py                                  270  0.02s             1           0  0.13s           2025-05-22T00:01:30                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:01:36                      12
+================================================================================
+[2025-05-22T00:02:31.825+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  279  0.02s             1           0  0.24s           2025-05-22T00:02:01                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    280  0.00s             1           0  0.13s           2025-05-22T00:02:01                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:02:07                      12
+================================================================================
+[2025-05-22T00:03:02.528+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    290  0.00s             1           0  0.22s           2025-05-22T00:02:32                      34
+/opt/airflow/dags/log_to_csv.py                                  289  0.01s             1           0  0.13s           2025-05-22T00:02:31                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:02:38                      12
+================================================================================
+[2025-05-22T00:03:33.111+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  299  0.01s             1           0  0.22s           2025-05-22T00:03:02                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    300  0.00s             1           0  0.12s           2025-05-22T00:03:02                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.06s           2025-05-22T00:03:08                      12
+================================================================================
+[2025-05-22T00:04:03.753+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    310  0.00s             1           0  0.23s           2025-05-22T00:03:33                      34
+/opt/airflow/dags/log_to_csv.py                                  309  0.02s             1           0  0.12s           2025-05-22T00:03:33                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:03:39                      12
+================================================================================
+[2025-05-22T00:04:15.138+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-05-22T00:04:15.154+0000] {manager.py:835} INFO - There are 3 files in /opt/airflow/dags
+[2025-05-22T00:04:34.478+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  319  0.01s             1           0  0.21s           2025-05-22T00:04:03                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    320  0.00s             1           0  0.11s           2025-05-22T00:04:03                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-22T00:04:08                      12
+================================================================================
+[2025-05-22T00:05:05.140+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    330  0.00s             1           0  0.20s           2025-05-22T00:04:34                      34
+/opt/airflow/dags/log_to_csv.py                                  329  0.02s             1           0  0.12s           2025-05-22T00:04:34                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-22T00:04:38                      12
+================================================================================
+[2025-05-22T00:05:35.883+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  340  0.01s             1           0  0.22s           2025-05-22T00:05:05                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    341  0.00s             1           0  0.18s           2025-05-22T00:05:05                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:05:29                      12
+================================================================================
+[2025-05-22T00:06:06.605+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    351  0.00s             1           0  0.27s           2025-05-22T00:05:36                      34
+/opt/airflow/dags/log_to_csv.py                                  350  0.01s             1           0  0.24s           2025-05-22T00:05:36                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:06:00                      12
+================================================================================
+[2025-05-22T00:06:37.303+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  360  0.01s             1           0  0.26s           2025-05-22T00:06:06                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    361  0.00s             1           0  0.12s           2025-05-22T00:06:06                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-22T00:06:31                      12
+================================================================================
+[2025-05-22T00:07:08.041+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    371  0.00s             1           0  0.23s           2025-05-22T00:06:37                      34
+/opt/airflow/dags/log_to_csv.py                                  370  0.01s             1           0  0.21s           2025-05-22T00:06:37                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-22T00:07:01                      12
+================================================================================
+[2025-05-22T00:07:38.815+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  381  0.01s             1           0  0.21s           2025-05-22T00:07:08                      34
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.17s           2025-05-22T00:07:34                      12
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    382  0.00s             1           0  0.11s           2025-05-22T00:07:08                      12
+================================================================================
+[2025-05-22T00:08:09.558+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    391  0.00s             1           0  0.30s           2025-05-22T00:07:39                      34
+/opt/airflow/dags/log_to_csv.py                                  390  0.01s             1           0  0.28s           2025-05-22T00:07:39                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.09s           2025-05-22T00:08:05                      12
+================================================================================
+[2025-05-22T00:08:40.309+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  399  0.01s             1           0  0.24s           2025-05-22T00:08:09                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    400  0.00s             1           0  0.21s           2025-05-22T00:08:09                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.17s           2025-05-22T00:08:36                      12
+================================================================================
+[2025-05-22T00:09:11.044+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    410  0.01s             1           0  0.29s           2025-05-22T00:08:40                      34
+/opt/airflow/dags/log_to_csv.py                                  409  0.02s             1           0  0.25s           2025-05-22T00:08:40                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.06s           2025-05-22T00:09:06                      12
+================================================================================
+[2025-05-22T00:09:15.323+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-05-22T00:09:15.336+0000] {manager.py:835} INFO - There are 3 files in /opt/airflow/dags
+[2025-05-22T00:09:41.862+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  418  0.01s             1           0  0.23s           2025-05-22T00:09:11                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    419  0.00s             1           0  0.19s           2025-05-22T00:09:11                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.15s           2025-05-22T00:09:37                      12
+================================================================================
+[2025-05-22T00:10:12.645+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    429  0.00s             1           0  0.27s           2025-05-22T00:09:42                      34
+/opt/airflow/dags/log_to_csv.py                                  428  0.01s             1           0  0.25s           2025-05-22T00:09:42                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.17s           2025-05-22T00:10:08                      34
+================================================================================
+[2025-05-22T00:10:43.415+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  438  0.02s             1           0  0.22s           2025-05-22T00:10:12                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    439  0.00s             1           0  0.19s           2025-05-22T00:10:12                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.12s           2025-05-22T00:10:39                      12
+================================================================================
+[2025-05-22T00:11:14.137+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    449  0.00s             1           0  0.21s           2025-05-22T00:10:43                      34
+/opt/airflow/dags/log_to_csv.py                                  448  0.02s             1           0  0.20s           2025-05-22T00:10:43                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.16s           2025-05-22T00:11:10                      12
+================================================================================
+[2025-05-22T00:11:44.908+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  458  0.01s             1           0  0.23s           2025-05-22T00:11:14                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    459  0.00s             1           0  0.20s           2025-05-22T00:11:14                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.15s           2025-05-22T00:11:40                      12
+================================================================================
+[2025-05-22T00:12:15.650+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    469  0.01s             1           0  0.25s           2025-05-22T00:11:45                      34
+/opt/airflow/dags/log_to_csv.py                                  468  0.02s             1           0  0.23s           2025-05-22T00:11:45                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.14s           2025-05-22T00:12:11                      12
+================================================================================
+[2025-05-22T00:12:46.420+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  478  0.02s             1           0  0.23s           2025-05-22T00:12:15                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    479  0.01s             1           0  0.20s           2025-05-22T00:12:15                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.12s           2025-05-22T00:12:42                      12
+================================================================================
+[2025-05-22T00:13:17.140+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    488  0.00s             1           0  0.24s           2025-05-22T00:12:46                      34
+/opt/airflow/dags/log_to_csv.py                                  487  0.01s             1           0  0.22s           2025-05-22T00:12:46                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.15s           2025-05-22T00:13:13                      12
+================================================================================
+[2025-05-22T00:13:47.948+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  497  0.02s             1           0  0.22s           2025-05-22T00:13:17                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    498  0.00s             1           0  0.20s           2025-05-22T00:13:17                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.11s           2025-05-22T00:13:43                      12
+================================================================================
+[2025-05-22T00:14:15.650+0000] {manager.py:832} INFO - Searching for files in /opt/airflow/dags
+[2025-05-22T00:14:15.659+0000] {manager.py:835} INFO - There are 3 files in /opt/airflow/dags
+[2025-05-22T00:14:18.735+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    508  0.00s             1           0  0.22s           2025-05-22T00:13:48                      34
+/opt/airflow/dags/log_to_csv.py                                  507  0.01s             1           0  0.21s           2025-05-22T00:13:48                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.12s           2025-05-22T00:14:14                      12
+================================================================================
+[2025-05-22T00:14:49.458+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  517  0.02s             1           0  0.22s           2025-05-22T00:14:18                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    518  0.00s             1           0  0.19s           2025-05-22T00:14:18                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.12s           2025-05-22T00:14:45                      12
+================================================================================
+[2025-05-22T00:15:20.339+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    528  0.00s             1           0  0.27s           2025-05-22T00:14:49                      34
+/opt/airflow/dags/log_to_csv.py                                  527  0.01s             1           0  0.25s           2025-05-22T00:14:49                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.11s           2025-05-22T00:15:16                      12
+================================================================================
+[2025-05-22T00:15:51.039+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  537  0.01s             1           0  0.13s           2025-05-22T00:15:20                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    538  0.00s             1           0  0.10s           2025-05-22T00:15:20                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-22T00:15:47                      12
+================================================================================
+[2025-05-22T00:16:21.660+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    548  0.00s             1           0  0.14s           2025-05-22T00:15:51                      34
+/opt/airflow/dags/log_to_csv.py                                  547  0.01s             1           0  0.12s           2025-05-22T00:15:51                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:16:17                      12
+================================================================================
+[2025-05-22T00:16:52.342+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  557  0.01s             1           0  0.14s           2025-05-22T00:16:21                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    558  0.00s             1           0  0.11s           2025-05-22T00:16:21                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:16:48                      12
+================================================================================
+[2025-05-22T00:17:23.011+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    561  0.00s             1           0  0.13s           2025-05-22T00:16:52                      34
+/opt/airflow/dags/log_to_csv.py                                  560  0.01s             1           0  0.11s           2025-05-22T00:16:52                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.07s           2025-05-22T00:17:19                      12
+================================================================================
+[2025-05-22T00:17:53.731+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  570  0.01s             1           0  0.16s           2025-05-22T00:17:23                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    571  0.00s             1           0  0.13s           2025-05-22T00:17:23                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:17:49                      12
+================================================================================
+[2025-05-22T00:18:24.462+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    581  0.00s             1           0  0.15s           2025-05-22T00:17:53                      34
+/opt/airflow/dags/log_to_csv.py                                  580  0.02s             1           0  0.13s           2025-05-22T00:17:53                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.08s           2025-05-22T00:18:20                      12
+================================================================================
+[2025-05-22T00:18:55.193+0000] {manager.py:1008} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                        PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/log_to_csv.py                                  590  0.02s             1           0  0.15s           2025-05-22T00:18:24                      34
+/opt/airflow/dags/.ipynb_checkpoints/log_to_csv-checkpoint.py    591  0.00s             1           0  0.11s           2025-05-22T00:18:24                      12
+/opt/airflow/dags/testlog_ml.py                                                         1           0  0.09s           2025-05-22T00:18:51                      12
+================================================================================
