@@ -2322,3 +2322,17 @@
 [2025-05-23T03:48:41.010+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:48:41.010+0000] {dag.py:3229} INFO - Sync 1 DAGs
 [2025-05-23T03:48:41.021+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:48:41.021+0000] {dag.py:4156} INFO - Setting next_dagrun for csv_to_parquet to 2025-05-23 03:05:00+00:00, run_after=2025-05-23 03:05:00+00:00
 [2025-05-23T03:48:41.027+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/log_to_csv.py took 0.106 seconds
+[2025-05-23T03:49:11.561+0000] {processor.py:186} INFO - Started process (PID=2099) to work on /opt/airflow/dags/log_to_csv.py
+[2025-05-23T03:49:11.562+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/log_to_csv.py for tasks to queue
+[2025-05-23T03:49:11.563+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:11.562+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/log_to_csv.py
+[2025-05-23T03:49:11.628+0000] {processor.py:925} INFO - DAG(s) 'csv_to_parquet' retrieved from /opt/airflow/dags/log_to_csv.py
+[2025-05-23T03:49:11.669+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:11.669+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-23T03:49:11.677+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:11.677+0000] {dag.py:4156} INFO - Setting next_dagrun for csv_to_parquet to 2025-05-23 03:05:00+00:00, run_after=2025-05-23 03:05:00+00:00
+[2025-05-23T03:49:11.683+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/log_to_csv.py took 0.127 seconds
+[2025-05-23T03:49:42.199+0000] {processor.py:186} INFO - Started process (PID=2109) to work on /opt/airflow/dags/log_to_csv.py
+[2025-05-23T03:49:42.200+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/log_to_csv.py for tasks to queue
+[2025-05-23T03:49:42.200+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:42.200+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/log_to_csv.py
+[2025-05-23T03:49:42.269+0000] {processor.py:925} INFO - DAG(s) 'csv_to_parquet' retrieved from /opt/airflow/dags/log_to_csv.py
+[2025-05-23T03:49:42.286+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:42.286+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-05-23T03:49:42.297+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:42.297+0000] {dag.py:4156} INFO - Setting next_dagrun for csv_to_parquet to 2025-05-23 03:05:00+00:00, run_after=2025-05-23 03:05:00+00:00
+[2025-05-23T03:49:42.304+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/log_to_csv.py took 0.110 seconds

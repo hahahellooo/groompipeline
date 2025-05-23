@@ -2546,3 +2546,31 @@ Traceback (most recent call last):
 NameError: name 'kafka_producer' is not defined
 [2025-05-23T03:48:40.955+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/testlog_ml.py
 [2025-05-23T03:48:40.967+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.050 seconds
+[2025-05-23T03:49:11.557+0000] {processor.py:186} INFO - Started process (PID=2098) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-23T03:49:11.558+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-23T03:49:11.560+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:11.560+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-23T03:49:11.589+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:11.584+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/testlog_ml.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/testlog_ml.py", line 169, in <module>
+    python_callable=kafka_producer
+NameError: name 'kafka_producer' is not defined
+[2025-05-23T03:49:11.590+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-23T03:49:11.603+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.053 seconds
+[2025-05-23T03:49:42.195+0000] {processor.py:186} INFO - Started process (PID=2108) to work on /opt/airflow/dags/testlog_ml.py
+[2025-05-23T03:49:42.196+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/testlog_ml.py for tasks to queue
+[2025-05-23T03:49:42.198+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:42.197+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/testlog_ml.py
+[2025-05-23T03:49:42.227+0000] {logging_mixin.py:190} INFO - [2025-05-23T03:49:42.223+0000] {dagbag.py:386} ERROR - Failed to import: /opt/airflow/dags/testlog_ml.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dagbag.py", line 382, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/opt/airflow/dags/testlog_ml.py", line 169, in <module>
+    python_callable=kafka_producer
+NameError: name 'kafka_producer' is not defined
+[2025-05-23T03:49:42.227+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/testlog_ml.py
+[2025-05-23T03:49:42.236+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/testlog_ml.py took 0.048 seconds
