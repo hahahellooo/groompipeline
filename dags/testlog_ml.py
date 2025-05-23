@@ -2,7 +2,7 @@ from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from airflow.operators.python import PythonOperator
-from kafka import KafkaProducer, KafkaConsumer
+from kafka import KafkaConsumer
 ##############
 from airflow.providers.amazon.aws.sensors.s3 import S3KeySensor
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
@@ -16,77 +16,75 @@ from io import StringIO, BytesIO
 from datetime import datetime, timezone, timedelta
 from kafka.structs import OffsetAndMetadata
 
-
-
-def generate_log():
-    # 한국 시간대로 설정
-    kst = timezone(timedelta(hours=9))
-    # 샘플 카테고리
-    categories = ["Action", "Drama", "Comedy", "Sci-Fi", "Horror", "Romance"]
+# def generate_log():
+#     # 한국 시간대로 설정
+#     kst = timezone(timedelta(hours=9))
+#     # 샘플 카테고리
+#     categories = ["Action", "Drama", "Comedy", "Sci-Fi", "Horror", "Romance"]
     
-    # key=user_id로 활용하는데 Int는 encoding이 안됌
-    user_id = str(random.randint(100, 150))
-    movie_id = f"M{random.randint(1, 30):03d}"
-    timestamp = datetime.now(kst).isoformat()
-    event_type = random.choice(["movie_click", "like_click", "rating_submit", "review_submit"])
-    movie_category = random.choice(categories)
+#     # key=user_id로 활용하는데 Int는 encoding이 안됌
+#     user_id = str(random.randint(100, 150))
+#     movie_id = f"M{random.randint(1, 30):03d}"
+#     timestamp = datetime.now(kst).isoformat()
+#     event_type = random.choice(["movie_click", "like_click", "rating_submit", "review_submit"])
+#     movie_category = random.choice(categories)
 
-    base = {
-        "user_id": user_id,
-        "movie_id": movie_id,
-        "timestamp": timestamp,
-        "event_type": event_type,
-        "movie_category": movie_category
-    }
+#     base = {
+#         "user_id": user_id,
+#         "movie_id": movie_id,
+#         "timestamp": timestamp,
+#         "event_type": event_type,
+#         "movie_category": movie_category
+#     }
 
-    if event_type == "movie_click":
-        base["page"] = "main"
-    elif event_type == "like_click":
-        base["page"] = "movie_detail"
-        base["liked"] = random.randint(0, 1)
-    elif event_type == "rating_submit":
-        base["page"] = "movie_detail"
-        base["rating"] = random.randint(0, 5)
-    elif event_type == "review_submit":
-        base["page"] = "movie_detail"
-        base["review"] = random.randint(0, 1)
+#     if event_type == "movie_click":
+#         base["page"] = "main"
+#     elif event_type == "like_click":
+#         base["page"] = "movie_detail"
+#         base["liked"] = random.randint(0, 1)
+#     elif event_type == "rating_submit":
+#         base["page"] = "movie_detail"
+#         base["rating"] = random.randint(0, 5)
+#     elif event_type == "review_submit":
+#         base["page"] = "movie_detail"
+#         base["review"] = random.randint(0, 1)
 
-    return base
+#     return base
 
-def kafka_producer():
-    producer = KafkaProducer(
-        bootstrap_servers='3.34.144.17:9092',
-        key_serializer=lambda k: k.encode('utf-8'),
-        value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-        # enable_idempotence=True, 운영용
-        #acks='all'
-    )
+# def kafka_producer():
+#     producer = KafkaProducer(
+#         bootstrap_servers='3.34.144.17:9092',
+#         key_serializer=lambda k: k.encode('utf-8'),
+#         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+#         # enable_idempotence=True, 운영용
+#         #acks='all'
+#     )
 
-    for i in range(1000):
-        event = generate_log()
-        user_id = event['user_id']
-        producer.send('userlog', key=user_id,value=event)
-        print(f"💌message {i+1} sent: user_id={user_id}")
-        time.sleep(0.05)
+#     for i in range(1000):
+#         event = generate_log()
+#         user_id = event['user_id']
+#         producer.send('userlog', key=user_id,value=event)
+#         print(f"💌message {i+1} sent: user_id={user_id}")
+#         time.sleep(0.05)
 
-    producer.flush()
-    print("✅All messages sent")
+#     producer.flush()
+#     print("✅All messages sent")
 
-def connect_minio():
+# def connect_minio():
     
-    s3_hook = S3Hook(
-        aws_conn_id='minio',
-        region_name='us-east-1'
-    )
+#     s3_hook = S3Hook(
+#         aws_conn_id='minio',
+#         region_name='us-east-1'
+#     )
 
-    return s3_hook
+#     return s3_hook
 
 def kafka_consumer(**context):
     try:
         consumer = KafkaConsumer(
-            'userlog',
-            bootstrap_servers='3.34.144.17:9092',
-            group_id='kafka',
+            'video-action-events',
+            bootstrap_servers='3.37.147.123:9092',
+            group_id='d',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
@@ -102,7 +100,7 @@ def kafka_consumer(**context):
             return
 
         csv_file = StringIO()
-        fieldnames = ["user_id", "movie_id", "timestamp", "event_type", "movie_category", "page", "rating", "review", "liked"]
+        fieldnames = ["currentTime", "videoId", "timestamp", "eventType"]
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -111,7 +109,7 @@ def kafka_consumer(**context):
                 try:
                     event = msg.value
                     writer.writerow({key: event.get(key, None) for key in fieldnames})
-                    print(f"📥 Received: page:{event.get('page')}")
+                    print(f"📥 Received: page:{event.get('eventType')}")
                     # tp: TopicPartition 객체 / 다음 offset부터 읽는 걸로 설정
                     consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None)})
                 except Exception as e:
@@ -127,7 +125,7 @@ def kafka_consumer(**context):
         csv_data = csv_file.getvalue().encode('utf-8')  # 문자열을 바이트로 변환        
         csv_stream = BytesIO(csv_data)  # 바이트 데이터를 BytesIO 객체로 변환
 
-        bucket_name = "user-log-ml"
+        bucket_name = "user-action-log"
 
         if not s3_hook.check_for_bucket(bucket_name):
             print(f"❌No Bucket: ✅{bucket_name} is creating...")
@@ -180,29 +178,29 @@ with DAG(
     ## 업로드 여부 확인 #############################
     check_minio_file = S3KeySensor(
         task_id='check_minio_file',
-        bucket_name='user-log-ml',
-        bucket_key='2025-05-22_*.csv',
+        bucket_name='user-action-log',
+        bucket_key='2025-05-23_*.csv',
         wildcard_match=True,
         aws_conn_id='minio',
         poke_interval=5
     )
     ##############################################
 
-    spark_etl = SparkSubmitOperator(
-        task_id='spark_etl',
-        application="/opt/spark/testlog_ml_spark.py",
-        conn_id='spark',
-        conf={
-            "spark.hadoop.fs.s3a.endpoint": "http://3.38.135.214:9000",
-            "spark.hadoop.fs.s3a.access.key": "minioadmin",
-            "spark.hadoop.fs.s3a.secret.key": "minioadmin",
-            "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
-            "spark.hadoop.fs.s3a.path.style.access": "true",
-            "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
-            "spark.hadoop.fs.s3a.aws.credentials.provider": ""
-        },
-        jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar"
-    )
+    # spark_etl = SparkSubmitOperator(
+    #     task_id='spark_etl',
+    #     application="/opt/spark/testlog_ml_spark.py",
+    #     conn_id='spark',
+    #     conf={
+    #         "spark.hadoop.fs.s3a.endpoint": "http://54.180.166.228:9000",
+    #         "spark.hadoop.fs.s3a.access.key": "minioadmin",
+    #         "spark.hadoop.fs.s3a.secret.key": "minioadmin",
+    #         "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
+    #         "spark.hadoop.fs.s3a.path.style.access": "true",
+    #         "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
+    #         "spark.hadoop.fs.s3a.aws.credentials.provider": ""
+    #     },
+    #     jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar"
+    # )
 
 
     ########################################
@@ -218,5 +216,7 @@ with DAG(
     ########################################
 
 
-    kafka_producer >> kafka_consumer >> check_minio_file >> spark_etl 
+    # kafka_producer >> 
+    kafka_consumer >> check_minio_file 
+    # >> spark_etl 
     

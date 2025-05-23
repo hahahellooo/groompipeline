@@ -1,0 +1,58 @@
+[2025-05-23T02:21:44.623+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-23T02:21:44.628+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.kafka_consumer scheduled__2025-05-22T16:00:00+00:00 [queued]>
+[2025-05-23T02:21:44.631+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kafka_to_minio_to_spark.kafka_consumer scheduled__2025-05-22T16:00:00+00:00 [queued]>
+[2025-05-23T02:21:44.631+0000] {taskinstance.py:2865} INFO - Starting attempt 9 of 11
+[2025-05-23T02:21:44.635+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): kafka_consumer> on 2025-05-22 16:00:00+00:00
+[2025-05-23T02:21:44.637+0000] {standard_task_runner.py:72} INFO - Started process 766 to run task
+[2025-05-23T02:21:44.639+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'kafka_to_minio_to_spark', 'kafka_consumer', 'scheduled__2025-05-22T16:00:00+00:00', '--job-id', '359', '--raw', '--subdir', 'DAGS_FOLDER/testlog_ml.py', '--cfg-path', '/tmp/tmpl6tz4ntx']
+[2025-05-23T02:21:44.639+0000] {standard_task_runner.py:105} INFO - Job 359: Subtask kafka_consumer
+[2025-05-23T02:21:44.658+0000] {task_command.py:467} INFO - Running <TaskInstance: kafka_to_minio_to_spark.kafka_consumer scheduled__2025-05-22T16:00:00+00:00 [running]> on host 3e84bbc47e1b
+[2025-05-23T02:21:44.687+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kafka_to_minio_to_spark' AIRFLOW_CTX_TASK_ID='kafka_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-22T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='9' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-22T16:00:00+00:00'
+[2025-05-23T02:21:44.688+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-23T02:21:44.693+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=3.37.147.123:9092 <connecting> [IPv4 ('3.37.147.123', 9092)]>: connecting to 3.37.147.123:9092 [('3.37.147.123', 9092) IPv4]
+[2025-05-23T02:21:44.693+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2025-05-23T02:21:44.710+0000] {conn.py:410} INFO - <BrokerConnection node_id=bootstrap-0 host=3.37.147.123:9092 <connecting> [IPv4 ('3.37.147.123', 9092)]>: Connection complete.
+[2025-05-23T02:21:44.860+0000] {conn.py:1267} INFO - Broker version identified as 2.5.0
+[2025-05-23T02:21:44.860+0000] {conn.py:1268} INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+[2025-05-23T02:21:44.861+0000] {subscription_state.py:171} INFO - Updating subscribed topics to: ('video-action-events',)
+[2025-05-23T02:21:44.862+0000] {logging_mixin.py:190} INFO - ✅ consumer started, waiting for messages....
+[2025-05-23T02:21:44.877+0000] {cluster.py:371} INFO - Group coordinator for d is ('coordinator-1', '3.37.147.123', 9092, None)
+[2025-05-23T02:21:44.878+0000] {base.py:693} INFO - Discovered coordinator coordinator-1 for group d
+[2025-05-23T02:21:44.879+0000] {base.py:741} INFO - Starting new heartbeat thread
+[2025-05-23T02:21:44.881+0000] {consumer.py:348} INFO - Revoking previously assigned partitions () for group d
+[2025-05-23T02:21:44.882+0000] {conn.py:380} INFO - <BrokerConnection node_id=coordinator-1 host=3.37.147.123:9092 <connecting> [IPv4 ('3.37.147.123', 9092)]>: connecting to 3.37.147.123:9092 [('3.37.147.123', 9092) IPv4]
+[2025-05-23T02:21:44.985+0000] {conn.py:410} INFO - <BrokerConnection node_id=coordinator-1 host=3.37.147.123:9092 <connecting> [IPv4 ('3.37.147.123', 9092)]>: Connection complete.
+[2025-05-23T02:21:44.987+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=3.37.147.123:9092 <connected> [IPv4 ('3.37.147.123', 9092)]>: Closing connection. 
+[2025-05-23T02:21:45.092+0000] {base.py:450} INFO - (Re-)joining group d
+[2025-05-23T02:21:48.151+0000] {base.py:521} INFO - Elected group leader -- performing partition assignments using range
+[2025-05-23T02:21:48.153+0000] {conn.py:380} INFO - <BrokerConnection node_id=1 host=3.37.147.123:9092 <connecting> [IPv4 ('3.37.147.123', 9092)]>: connecting to 3.37.147.123:9092 [('3.37.147.123', 9092) IPv4]
+[2025-05-23T02:21:48.160+0000] {conn.py:410} INFO - <BrokerConnection node_id=1 host=3.37.147.123:9092 <connecting> [IPv4 ('3.37.147.123', 9092)]>: Connection complete.
+[2025-05-23T02:21:48.161+0000] {base.py:335} INFO - Successfully joined group d with generation 1
+[2025-05-23T02:21:48.161+0000] {subscription_state.py:257} INFO - Updated partition assignment: [('video-action-events', 0)]
+[2025-05-23T02:21:48.162+0000] {consumer.py:245} INFO - Setting newly assigned partitions (('video-action-events', 0),) for group d
+[2025-05-23T02:21:48.398+0000] {logging_mixin.py:190} INFO - 📥 Received: page:play
+[2025-05-23T02:21:48.410+0000] {logging_mixin.py:190} INFO - 📥 Received: page:pause
+[2025-05-23T02:21:48.423+0000] {logging_mixin.py:190} INFO - 📥 Received: page:play
+[2025-05-23T02:21:48.433+0000] {logging_mixin.py:190} INFO - 📥 Received: page:pause
+[2025-05-23T02:21:48.448+0000] {logging_mixin.py:190} INFO - 📥 Received: page:play
+[2025-05-23T02:21:48.461+0000] {logging_mixin.py:190} INFO - 📥 Received: page:pause
+[2025-05-23T02:21:48.473+0000] {logging_mixin.py:190} INFO - 📥 Received: page:exit
+[2025-05-23T02:21:48.484+0000] {logging_mixin.py:190} INFO - 📥 Received: page:play
+[2025-05-23T02:21:48.498+0000] {logging_mixin.py:190} INFO - 📥 Received: page:pause
+[2025-05-23T02:21:48.509+0000] {logging_mixin.py:190} INFO - 📥 Received: page:play
+[2025-05-23T02:21:48.521+0000] {logging_mixin.py:190} INFO - 📥 Received: page:pause
+[2025-05-23T02:21:48.534+0000] {logging_mixin.py:190} INFO - ✅Minio connected
+[2025-05-23T02:21:48.555+0000] {base.py:84} INFO - Retrieving connection 'minio'
+[2025-05-23T02:21:48.557+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id='minio', conn_type='aws') credentials retrieved from login and password.
+[2025-05-23T02:21:48.825+0000] {logging_mixin.py:190} INFO - ✅ Bucket 'user-action-log' already exists.
+[2025-05-23T02:21:48.849+0000] {logging_mixin.py:190} INFO - ✅ File uploaded to MinIO: 2025-05-23_01-00-00.csv
+[2025-05-23T02:21:48.849+0000] {base.py:748} INFO - Stopping heartbeat thread
+[2025-05-23T02:21:48.849+0000] {base.py:773} INFO - Leaving consumer group (d).
+[2025-05-23T02:21:48.859+0000] {conn.py:919} INFO - <BrokerConnection node_id=coordinator-1 host=3.37.147.123:9092 <connected> [IPv4 ('3.37.147.123', 9092)]>: Closing connection. 
+[2025-05-23T02:21:48.859+0000] {conn.py:919} INFO - <BrokerConnection node_id=1 host=3.37.147.123:9092 <connected> [IPv4 ('3.37.147.123', 9092)]>: Closing connection. 
+[2025-05-23T02:21:48.860+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-05-23T02:21:48.864+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-23T02:21:48.864+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=kafka_to_minio_to_spark, task_id=kafka_consumer, run_id=scheduled__2025-05-22T16:00:00+00:00, execution_date=20250522T160000, start_date=20250523T022144, end_date=20250523T022148
+[2025-05-23T02:21:48.878+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-05-23T02:21:48.889+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-05-23T02:21:48.890+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
