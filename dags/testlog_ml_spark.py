@@ -3,8 +3,21 @@ from pyspark.sql.functions import when, col, lit
 from datetime import timezone, timedelta, datetime
 from minio import Minio
 
-spark = SparkSession.builder.getOrCreate()
+# spark_jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar"
 
+spark = SparkSession.builder \
+    .appName("pipeline") \
+    .config("spark.hadoop.fs.s3a.endpoint", "http://54.180.166.228:9000") \
+    .config("spark.hadoop.fs.s3a.access.key", "minioadmin") \
+    .config("spark.hadoop.fs.s3a.secret.key", "minioadmin") \
+    .config("spark.hadoop.fs.s3a.path.style.access", "true") \
+    .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem") \
+    .config("spark.hadoop.fs.s3a.aws.credentials.provider", "") \
+    .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false") \
+    .getOrCreate()
+    # .config("spark.jars", spark_jars) \
+    
+    
 # CSV 파일을 Spark DataFrame으로 읽기
 file_path = 's3a://user-log-ml/'
 df = spark.read.csv(file_path, header=True, inferSchema=True)
@@ -50,7 +63,7 @@ current_time_kst = datetime.now(kst)
 filename = current_time_kst.strftime("%Y-%m-%d")
 
 client = Minio(
-    "3.38.135.214:9000",  # MinIO 서버의 주소
+    "54.180.166.228:9000",  # MinIO 서버의 주소
     access_key='minioadmin',  # 액세스 키
     secret_key='minioadmin',  # 시크릿 키
     secure=False  # HTTPS를 사용하지 않는 경우
@@ -78,7 +91,7 @@ scores_agg_df.write.mode(write_mode).parquet(data_path + f"{filename}.parquet")
 
 # test - write postgresSQL 
 scores_agg_df.write.jdbc(
-    url="jdbc:postgresql://3.36.60.242:5432/userlog_db",
+    url="jdbc:postgresql://3.39.148.207:5432/userlog_db?ssl=false",
     table="test",
     mode="overwrite",
     properties={

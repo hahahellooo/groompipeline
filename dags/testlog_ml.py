@@ -55,7 +55,7 @@ def generate_log():
 
 def kafka_producer():
     producer = KafkaProducer(
-        bootstrap_servers='3.34.144.17:9092',
+        bootstrap_servers='3.37.147.123:9092',
         key_serializer=lambda k: k.encode('utf-8'),
         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
         # enable_idempotence=True, 운영용
@@ -85,8 +85,8 @@ def kafka_consumer(**context):
     try:
         consumer = KafkaConsumer(
             'userlog',
-            bootstrap_servers='3.34.144.17:9092',
-            group_id='kafka',
+            bootstrap_servers='3.37.147.123:9092',
+            group_id='postgres',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
@@ -192,17 +192,10 @@ with DAG(
         task_id='spark_etl',
         application="/opt/spark/testlog_ml_spark.py",
         conn_id='spark',
-        conf={
-            "spark.hadoop.fs.s3a.endpoint": "http://3.38.135.214:9000",
-            "spark.hadoop.fs.s3a.access.key": "minioadmin",
-            "spark.hadoop.fs.s3a.secret.key": "minioadmin",
-            "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
-            "spark.hadoop.fs.s3a.path.style.access": "true",
-            "spark.hadoop.fs.s3a.connection.ssl.enabled": "false",
-            "spark.hadoop.fs.s3a.aws.credentials.provider": ""
-        },
         jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar"
     )
+
+    
 
 
     ########################################
