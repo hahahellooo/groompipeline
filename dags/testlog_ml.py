@@ -55,11 +55,11 @@ def generate_log():
 
 def kafka_producer():
     producer = KafkaProducer(
-        bootstrap_servers='3.37.147.123:9092',
+        bootstrap_servers='3.37.147.123:9092,3.36.188.73:9092,54.180.180.120:9092',
         key_serializer=lambda k: k.encode('utf-8'),
         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-        # enable_idempotence=True, 운영용
-        #acks='all'
+        retries=5,
+        acks='all'
     )
 
     for i in range(1000):
@@ -85,8 +85,8 @@ def kafka_consumer(**context):
     try:
         consumer = KafkaConsumer(
             'userlog',
-            bootstrap_servers='3.37.147.123:9092',
-            group_id='postgres',
+            bootstrap_servers='3.37.147.123:9092,3.36.188.73:9092,54.180.180.120:9092',
+            group_id='sat',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
@@ -181,7 +181,7 @@ with DAG(
     check_minio_file = S3KeySensor(
         task_id='check_minio_file',
         bucket_name='user-log-ml',
-        bucket_key='2025-05-22_*.csv',
+        bucket_key='*.csv',
         wildcard_match=True,
         aws_conn_id='minio',
         poke_interval=5
