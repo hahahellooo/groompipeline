@@ -40,15 +40,14 @@ def kafka_consumer(**context):
 
         print("✅ consumer started, waiting for messages....")
 
-        message = consumer.poll(timeout_ms=5000)
+        messages = consumer.poll(timeout_ms=5000)
 
         MAX_RETRIES = 3
         RETRY_DELAY_SEC = 5
-        message = {}
 
         for attempt in range(1, MAX_RETRIES+1):
-            message = consumer.poll(timeout_ms=5000)
-            if message:
+            messages = consumer.poll(timeout_ms=5000)
+            if messages:
                 print(f"✅ Messages received on attempt {attempt+1}")
                 break
             else:
@@ -57,23 +56,6 @@ def kafka_consumer(**context):
         else:
             raise Exception("❌ No messages received after multiple retries. Broker may be down.")
 
-        # 임시 JSONL 파일 생성
-        with tempfile.NamedTemporaryFile(mode="w+", suffix=".jsonl", delete=False) as t:
-            for tp, messages in message.items():
-                for msg in messages:
-                    try:
-                        event = msg.value
-                        json_line = json.dumps(event, ensure_ascii=False)
-                        t.write(json_line + "\n")
-                        print(f"📥 Received: page:{event.get('page')}")
-                        consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None)})
-                    except Exception as e:
-                        print(f"❌ Failed to process message: {e}")
-                        raise e
-
-            t.flush()
-            t.seek(0)
-        
         try:
             s3_hook = connect_minio()
             print("✅Minio connected")
@@ -89,15 +71,25 @@ def kafka_consumer(**context):
         else:
             print(f"✅ Bucket '{bucket_name}' already exists.")
 
-    
         # DAG 실행시간으로 파일명 지정
         execution_date = context['execution_date'].astimezone(timezone(timedelta(hours=9)))
-        filename = execution_date.strftime("%Y-%m-%d") + ".jsonl"
+        filename = execution_date.strftime("%Y-%m-%d_%H-%M-%S") + ".json"
 
-        with open(t.name, "rb") as f:
-            s3_hook.load_file_obj(f, filename, bucket_name, replace = True)
-            print(f"File uploaded to MinIO: {filename}")
+        with open(filename, "w") as f:
+            for tp, message in messages.items():
+                for msg in message:
+                    try:
+                        event = msg.value
+                        json.dump(event, f)
+                        f.write("\n")
+                        print(f"📥 Received: page:{event.get('page')}")
+                        consumer.commit(offsets={tp: OffsetAndMetadata(msg.offset + 1, None)})
+                    except Exception as e:
+                        print(f"❌ Failed to process message: {e}")
+                        raise e
 
+        s3_hook.load_file(filename, filename, bucket_name, replace=True)
+        print(f"File uploaded to MinIO: {filename}")
 
     except Exception as e:
         print(f"❌ DAG failed due to : {e}")
