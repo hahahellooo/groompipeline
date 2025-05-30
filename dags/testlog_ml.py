@@ -85,7 +85,7 @@ def kafka_consumer(**context):
         consumer = KafkaConsumer(
             'userlog',
             bootstrap_servers='3.37.147.123:9092,3.36.188.73:9092,54.180.180.120:9092',
-            group_id='monst',
+            group_id='as',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
