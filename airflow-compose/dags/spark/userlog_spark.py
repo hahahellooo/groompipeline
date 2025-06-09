@@ -26,7 +26,7 @@ df = df.drop('timestamp', 'page', 'contentCategory')
 df = (
     df
     .withColumnRenamed("userId", "user_id")
-    .withColumnRenamed("contentId", "content_id")
+    .withColumnRenamed("videoId", "video_id")
     .withColumn("like_score", when((col("eventType") == "like_click") & (col("liked") == 'true'), lit(3)).otherwise(lit(0)))
     .withColumn("review_score", when((col("eventType") == "review_write") & col("review").isNotNull(), lit(1)).otherwise(lit(0)))
     .withColumn("rating_score", when((col("eventType") == "rating_submit") & col("rating").isNotNull(), col("rating").cast("int")).otherwise(lit(0)))
@@ -36,7 +36,7 @@ df = (
 
 # 4. Aggregation
 df_agg = (
-    df.groupBy("user_id", "content_id")
+    df.groupBy("user_id", "video_id")
     .agg(
         _sum("like_score").alias("like_score"),
         _sum("review_score").alias("review_score"),
@@ -44,11 +44,11 @@ df_agg = (
         _sum("click_score").alias("click_score"),
         _sum("total_score").alias("total_score")
     )
-    .orderBy("user_id", "content_id")
+    .orderBy("user_id", "video_id")
 )
 
 # 5. 필요한 데이터만 추출 (모델용)
-df_score = df_agg.select("user_id", "content_id", "total_score")
+df_score = df_agg.select("user_id", "video_id", "total_score")
 
 # 6. 시간 기반 파일명 생성
 kst = timezone(timedelta(hours=9))
