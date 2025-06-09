@@ -7,8 +7,8 @@ from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOpe
 import json
 import time
 from io import StringIO, BytesIO
-from datetime import datetime, timezone, timedelta
-import tempfile
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from kafka.structs import OffsetAndMetadata
 from kafka import KafkaConsumer
@@ -30,23 +30,20 @@ def kafka_consumer(**context):
     try:
         consumer = KafkaConsumer(
             'content-user-events',
-            bootstrap_servers='3.37.147.123:9092,3.36.188.73:9092,54.180.180.120:9092',
-            group_id='eun',
+            bootstrap_servers='3.38.204.173:9092,16.184.30.150:9092,16.184.31.12:9092',
+            group_id='kafka',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
             auto_offset_reset='earliest',
             enable_auto_commit=False,
-            consumer_timeout_ms=5000
         )
 
         print("✅ consumer started, waiting for messages....")
 
-        messages = consumer.poll(timeout_ms=5000)
-
         MAX_RETRIES = 3
         RETRY_DELAY_SEC = 5
 
-        for attempt in range(1, MAX_RETRIES+1):
-            messages = consumer.poll(timeout_ms=5000)
+        for attempt in range(0, MAX_RETRIES+1):
+            messages = consumer.poll(timeout_ms=10000)
             if messages:
                 print(f"✅ Messages received on attempt {attempt+1}")
                 break
@@ -72,7 +69,7 @@ def kafka_consumer(**context):
             print(f"✅ Bucket '{bucket_name}' already exists.")
 
         # DAG 실행시간으로 파일명 지정
-        execution_date = context['execution_date'].astimezone(timezone(timedelta(hours=9)))
+        execution_date = context['execution_date'].astimezone(ZoneInfo("Asia/Seoul"))
         filename = execution_date.strftime("%Y-%m-%d_%H-%M-%S") + ".json"
 
         with open(filename, "w") as f:
@@ -100,7 +97,7 @@ def kafka_consumer(**context):
 
 
 def check_kafka_broker_health():
-    brokers = ["3.37.147.123:9092", "3.36.188.73:9092", "54.180.180.120:9092"]
+    brokers = ["3.38.204.173:9092","16.184.30.150:9092","16.184.31.12:9092"]
     alive_count = 0
 
     for broker in brokers:
@@ -124,7 +121,7 @@ def check_kafka_broker_health():
 
 
 with DAG(
-    'kafka_to_minio_to_spark',
+    'user_activity_pipeline',
     default_args={
         'depends_on_past':False,
         'retries':2,
@@ -156,7 +153,7 @@ with DAG(
     check_minio_file = S3KeySensor(
         task_id='check_minio_file',
         bucket_name='ml-user-log',
-        bucket_key='*.jsonl',
+        bucket_key='*.json',
         wildcard_match=True,
         aws_conn_id='minio',
         poke_interval=5,
@@ -171,7 +168,4 @@ with DAG(
         on_failure_callback=task_fail_slack_alert
     )
 
-
-
     check_kafka_brokers >> kafka_consumer >> check_minio_file >> spark_etl 
-    
