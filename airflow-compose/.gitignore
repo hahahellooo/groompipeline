@@ -1,0 +1,56 @@
+# ▶️ Python 관련 (PySpark 쓸 경우)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.env
+.venv
+
+# ▶️ Jupyter or IPython (테스트용일 경우)
+.ipynb_checkpoints/
+
+# ▶️ Spark 로그 및 임시 디렉토리
+logs/
+*.log
+*.out
+spark-warehouse/
+metastore_db/
+.derby.log
+
+# ▶️ Spark 이벤트 로그
+/tmp/spark-events/
+
+# ▶️ Parquet, Avro, CSV 테스트 데이터
+*.parquet
+*.avro
+*.csv
+*.json
+datasets/
+output/
+
+# ▶️ Docker 관련
+*.pid
+*.tar
+*.bak
+docker-compose.override.yml
+.env.docker
+
+# ▶️ MinIO 관련 파일 (테스트 업로드 등)
+minio-data/
+minio-test/
+
+# ▶️ Airflow (로컬 실행 시 생성되는 파일들)
+airflow.db
+airflow-webserver.pid
+logs/
+dags/__pycache__/
+dags/*.pyc
+dags/*.log
+
+# ▶️ VSCode or IDE
+.vscode/
+.idea/
+*.iml
+
