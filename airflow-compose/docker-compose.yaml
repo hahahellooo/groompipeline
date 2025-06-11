@@ -24,7 +24,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-    - /Users/jeongmieun/app/spark:/opt/spark
+    - /Users/jeongmieun/app/spark/jars:/opt/spark/jars
     - ./dags/spark:/opt/spark/data/
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:

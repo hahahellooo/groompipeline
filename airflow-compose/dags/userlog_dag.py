@@ -160,6 +160,7 @@ with DAG(
         on_failure_callback=task_fail_slack_alert
     )
   
+    # 단일 노드 
     spark_etl = SparkSubmitOperator(
         task_id='spark_etl',
         application="/opt/spark/data/userlog_spark.py",
@@ -167,5 +168,14 @@ with DAG(
         jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar",
         on_failure_callback=task_fail_slack_alert
     )
+
+    # standalone 클러스터
+    # spark_etl = SparkSubmitOperator(
+    #     task_id='spark_etl',
+    #     application="/opt/spark/data/userlog_spark.py",
+    #     conn_id='spark_standalone_cluster',
+    #     jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar",
+    #     on_failure_callback=task_fail_slack_alert
+    # )
 
     check_kafka_brokers >> kafka_consumer >> check_minio_file >> spark_etl 

@@ -2,6 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import when, col, lit
 from datetime import timezone, timedelta, datetime
 from minio import Minio
+from time import time
 
 spark = SparkSession.builder \
     .appName("pipeline") \
