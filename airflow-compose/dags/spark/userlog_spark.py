@@ -3,10 +3,12 @@ from pyspark.sql.functions import when, col, lit
 from datetime import timezone, timedelta, datetime
 from minio import Minio
 from pyspark.sql.functions import sum as _sum, col
+import argparse
+from time import time
 
 # 1. SparkSession 생성
 spark = SparkSession.builder \
-    .appName("ml") \
+    .appName("dummy") \
     .config("spark.hadoop.fs.s3a.endpoint", "http://54.180.166.228:9000") \
     .config("spark.hadoop.fs.s3a.access.key", "minioadmin") \
     .config("spark.hadoop.fs.s3a.secret.key", "minioadmin") \
@@ -18,8 +20,18 @@ spark = SparkSession.builder \
 
 print("✅ SparkSession started")
 
-# 2. 데이터 로딩 및 전처리
-df = spark.read.option("multiline", "false").json('s3a://ml-user-log/')
+# Argument parser
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_path", required=True, help="Input S3 path for raw JSON data")
+parser.add_argument("--output_path", required=True, help="Output S3 path for processed Parquet data")
+args = parser.parse_args()
+
+print(f"✅ Input path: {args.input_path}")
+print(f"✅ Output path: {args.output_path}")
+
+# 1. 단일 노드와 클러스터 처리 속도 차이 측정 (end - start)
+start = time()
+df = spark.read.option("multiline", "false").json(args.input_path)
 df = df.drop('timestamp', 'page', 'contentCategory')
 
 # 3. 스코어 컬럼 추가 및 컬럼명 정리
@@ -50,21 +62,28 @@ df_agg = (
 # 5. 필요한 데이터만 추출 (모델용)
 df_score = df_agg.select("user_id", "video_id", "total_score")
 
+end = time()
+print(f"✅ 처리시간: {end - start:.2f}초")
+
 # 6. 시간 기반 파일명 생성
 kst = timezone(timedelta(hours=9))
 filename = datetime.now(kst).strftime("%Y-%m-%d")
 
 # 7. MinIO 연결 및 버킷 체크
 client = Minio("54.180.166.228:9000", "minioadmin", "minioadmin", secure=False)
-buckets = ["ml-learning-data", "ml-backup-data"]
+# The output path from args already contains the bucket and full path.
+# We just need to ensure the bucket in the output_path exists.
+# Example output_path: s3a://userlog-data/test/ml-learning-data/YYYY-MM-DD_HH-MM-SS.parquet
+# We need to extract the bucket name from args.output_path
+output_bucket_name = args.output_path.split('/')[2]
 
-for bucket in buckets:
-    if not client.bucket_exists(bucket):
-        client.make_bucket(bucket)
-        print(f"✅ Created bucket: {bucket}")
-    else:
-        print(f"ℹ️ Bucket exists: {bucket}")
+if not client.bucket_exists(output_bucket_name):
+    client.make_bucket(output_bucket_name)
+    print(f"✅ Created bucket: {output_bucket_name}")
+else:
+    print(f"ℹ️ Bucket exists: {output_bucket_name}")
 
 # 8. 저장
-df_agg.write.mode("overwrite").parquet(f"s3a://ml-backup-data/{filename}.parquet")
-df_score.write.mode("overwrite").parquet(f"s3a://ml-learning-data/{filename}.parquet")
+# df_agg.write.mode("overwrite").parquet(f"s3a://ml-backup-data/{filename}.parquet")
+df_score.write.mode("overwrite").parquet(args.output_path)
+

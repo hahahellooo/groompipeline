@@ -72,8 +72,8 @@ def generate_event(**kwargs):
         except Exception as e:
             print(f"❌ Error fetching data from MongoDB: {e}. Will proceed without MongoDB data.")
 
-    topic = 'test-3'
-    num_events = 30_000_000  # 필요한 양으로 조절 가능
+    topic = 'test-5'
+    num_events = 22_000_000  # 필요한 양으로 조절 가능
 
     event_types = ["like_click", "content_click", "review_write", "rating_submit"]
     pages = ["content_detail", "main"]
@@ -143,7 +143,7 @@ def kafka_consumer(**context):
     consumer = None  # Initialize consumer for the finally block
     try:
         consumer = KafkaConsumer(
-            'test-3',
+            'test-5',
             bootstrap_servers=kafka_cluster,
             group_id='test',
             value_deserializer=lambda x: json.loads(x.decode('utf-8')),
@@ -162,7 +162,7 @@ def kafka_consumer(**context):
         # 마지막 메시지를 받고 이 시간동안 추가 메시지가 없으면 수집 종료
         IDLE_CONSUMPTION_TIMEOUT_S = 15 
         # 최대 메시지 수집 시간 (무한정 실행 방지)
-        MAX_COLLECTION_DURATION_S = 300 # 예: 5분
+        MAX_COLLECTION_DURATION_S = 3600
 
         collection_start_time = time.time()
         print(f"🚀 Starting message collection for up to {MAX_COLLECTION_DURATION_S}s or until idle for {IDLE_CONSUMPTION_TIMEOUT_S}s.")
@@ -181,7 +181,7 @@ def kafka_consumer(**context):
         current_time_kst = datetime.now(ZoneInfo("Asia/Seoul"))
         base_filename = current_time_kst.strftime("%Y-%m-%d_%H-%M-%S")
         local_json_filename = f"{base_filename}.json"
-        s3_raw_object_key = f"test/user-activity-row/{local_json_filename}"
+        s3_raw_object_key = f"test/user-activity-raw/{local_json_filename}"
 
         offsets_to_commit = {}
         messages_processed_count = 0
@@ -325,13 +325,13 @@ with DAG(
     # 단일 노드 
     spark_etl = SparkSubmitOperator(
         task_id='spark_etl',
-        application="/opt/spark/data/bigdata_userlog_spark.py",
+        application="/opt/spark/data/userlog_spark.py",
         conn_id='spark',
         application_args=[
             "--input_path", f"s3a://userlog-data/{{{{ ti.xcom_pull(task_ids='kafka_consumer', key='s3_raw_object_key') }}}}",
             "--output_path", f"s3a://userlog-data/test/ml-learning-data/{{{{ ti.xcom_pull(task_ids='kafka_consumer', key='base_filename_for_processed') }}}}.parquet"
         ],
-        jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/postgresql-42.7.4.jar",
+        jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar",
         on_failure_callback=task_fail_slack_alert
     )
 

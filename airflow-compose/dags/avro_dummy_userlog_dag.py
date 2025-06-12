@@ -14,166 +14,23 @@ from zoneinfo import ZoneInfo
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-
-from faker import Faker
-
-# Kafka-python 대신 confluent-kafka 사용을 위한 import 주석 처리 또는 변경
-# from kafka.structs import OffsetAndMetadata
-# from kafka import KafkaConsumer, KafkaProducer # confluent-kafka로 대체
-from kafka import KafkaAdminClient # AdminClient는 kafka-python 유지 가능
-from kafka.errors import KafkaError # AdminClient용
+from kafka import KafkaAdminClient
+from kafka.errors import KafkaError
 
 # Confluent Kafka 및 Avro 관련 import
 from confluent_kafka import Producer as ConfluentProducer, Consumer as ConfluentConsumer, KafkaError as ConfluentKafkaError, TopicPartition
 from confluent_kafka.avro import AvroProducer, AvroConsumer
 from confluent_kafka.avro.serializer import SerializerError
 from confluent_kafka.schema_registry import SchemaRegistryClient
-# from confluent_kafka.schema_registry.avro import AvroSerializer, AvroDeserializer # 직접 사용할 경우 필요
+from confluent_kafka.admin import AdminClient as ConfluentAdminClient # AdminClient 임포트 추가
+from confluent_kafka.schema_registry.avro import AvroSerializer, AvroDeserializer # 직접 사용할 경우 필요
 
-# MongoDB 연결을 위한 pymongo import
-try:
-    from pymongo import MongoClient
-    from pymongo.errors import ConnectionFailure
-    PYMONGO_AVAILABLE = True
-except ImportError:
-    PYMONGO_AVAILABLE = False
-    MongoClient = None
-    ConnectionFailure = None
 
 from utils.slack_fail_noti import task_fail_slack_alert
 
-# Schema Registry URL 및 Avro 스키마 정의
-SCHEMA_REGISTRY_URL = 'http://43.201.43.88:8081' # 실제 환경에 맞게 수정
-AVRO_USER_LOG_SCHEMA_STR = """
-{
-    "type": "record",
-    "name": "UserEvent",
-    "namespace": "com.goorm.userlog.avro",
-    "fields": [
-        {"name": "videoId", "type": ["null", "string"], "default": null},
-        {"name": "title", "type": ["null", "string"], "default": null},
-        {"name": "userId", "type": "string"},
-        {"name": "timestamp", "type": "string"},
-        {"name": "eventType", "type": "string"},
-        {"name": "page", "type": "string"},
-        {"name": "liked", "type": ["null", "boolean"], "default": null},
-        {"name": "review", "type": ["null", "string"], "default": null},
-        {"name": "rating", "type": ["null", "int"], "default": null},
-        {"name": "contentCategory", "type": ["null", {"type": "array", "items": "string"}], "default": null}
-    ]
-}
-"""
 KAFKA_TOPIC_AVRO = 'userlog-avro-topic' # Avro 메시지를 위한 새 토픽
 
 kafka_cluster = '43.201.43.88:9092,15.165.234.219:9092,3.35.228.177:9092'
-
-
-def generate_event(**kwargs):
-    fake = Faker()
-
-    producer_config = {
-        'bootstrap.servers': kafka_cluster, # 실제 Kafka 브로커 주소로 변경
-        'schema.registry.url': SCHEMA_REGISTRY_URL,
-        'acks': 'all',
-        'retries': 10,
-        'linger.ms': 200,
-    }
-
-    # AvroProducer 사용
-    # 스키마 문자열을 직접 전달하여 AvroProducer가 내부적으로 파싱하도록 함
-    producer = AvroProducer(producer_config, default_value_schema=AVRO_USER_LOG_SCHEMA_STR)
-
-
-    mongo_contents_data = []
-    if PYMONGO_AVAILABLE:
-        try:
-            client = MongoClient('mongodb+srv://user:goorm0508@goorm-mongodb.svz66jf.mongodb.net/?retryWrites=true&w=majority&appName=goorm-mongoDB')
-            client.admin.command('ping')
-            db = client['content-db']
-            contents_collection = db['contents']
-            mongo_contents_data = list(contents_collection.find({}, {"_id": 0, "title": 1, "videoId": 1}))
-            client.close()
-            if mongo_contents_data:
-                print(f"✅ Successfully fetched {len(mongo_contents_data)} items from MongoDB 'contents' collection.")
-            else:
-                print("ℹ️ No data fetched from MongoDB 'contents' collection or collection is empty.")
-        except ConnectionFailure:
-            print("❌ Failed to connect to MongoDB. Will proceed without MongoDB data.")
-        except Exception as e:
-            print(f"❌ Error fetching data from MongoDB: {e}. Will proceed without MongoDB data.")
-
-    num_events = 100_000  # 테스트를 위해 이벤트 수 줄임 (필요시 30_000_000으로 복원)
-
-    event_types = ["like_click", "content_click", "review_write", "rating_submit"]
-    pages = ["content_detail", "main"]
-
-    def make_event():
-        event = {}
-        if mongo_contents_data:
-            selected_content = random.choice(mongo_contents_data)
-            event["videoId"] = selected_content.get("videoId")
-            event["title"] = selected_content.get("title")
-        else:
-            event["videoId"] = None
-            event["title"] = None # Avro 스키마에 맞게 null 허용
-
-        event.update({
-            "userId": fake.uuid4(),
-            "timestamp": fake.date_time_between(start_date="-1d", end_date="now").isoformat() + "Z",
-            "eventType": random.choice(event_types),
-            "page": random.choice(pages),
-        })
-
-        if event["eventType"] == "like_click":
-            event["liked"] = random.choice([True, False])
-        elif event["eventType"] == "review_write":
-            event["review"] = fake.sentence()
-        elif event["eventType"] == "rating_submit":
-            event["rating"] = random.randint(1, 5)
-        # 'content_click'의 경우 contentCategory 필드가 필요할 수 있음 (스키마에 따라)
-        elif event["eventType"] == "content_click": # 예시로 content_click에 contentCategory 추가
-             event["contentCategory"] = [fake.word() for _ in range(random.randint(1, 3))]
-        # else: # 스키마에 contentCategory가 있고, 다른 이벤트 타입에 해당 필드가 없다면 null로 설정
-            # event["contentCategory"] = None # 스키마가 null을 허용하는 경우
-        return event
-
-    print(f"🚀 Producing {num_events:,} dummy Avro messages to Kafka topic `{KAFKA_TOPIC_AVRO}`")
-
-    start_time = time.time()
-
-    def delivery_report(err, msg):
-        if err is not None:
-            print(f"❌ Message delivery failed: {err}")
-        # else:
-        #     print(f"✅ Message delivered to {msg.topic()} [{msg.partition()}] @ offset {msg.offset()}")
-
-    for i in range(num_events):
-        msg_value = make_event()
-        try:
-            producer.produce(topic=KAFKA_TOPIC_AVRO, value=msg_value, on_delivery=delivery_report)
-        except SerializerError as e:
-            print(f"❌ Serialization Error for message: {msg_value}. Error: {e}")
-            # 문제가 있는 메시지는 건너뛰거나 별도 처리
-            continue
-        except BufferError:
-            # 프로듀서 내부 버퍼가 가득 찼을 때 발생
-            print("ℹ️ Producer queue is full. Flushing...")
-            producer.flush(timeout=5) # 5초 타임아웃으로 플러시 시도
-            print("ℹ️ Producer queue flushed. Retrying produce...")
-            producer.produce(topic=KAFKA_TOPIC_AVRO, value=msg_value, on_delivery=delivery_report) # 재시도
-        except Exception as e:
-            print(f"❌ An unexpected error occurred during produce: {e}")
-            continue
-
-
-        # 프로듀서의 내부 큐가 너무 커지는 것을 방지하기 위해 주기적으로 poll 또는 flush 호출
-        if i % 1000 == 0: # 예: 1000개 메시지마다
-            producer.poll(0) # 논블로킹 poll로 콜백 처리
-
-    producer.flush() # 모든 메시지 전송 보장
-    end_time = time.time()
-    print(f"✅ Sent {num_events:,} Avro events in {end_time - start_time:.2f} seconds")
-    print("✅ Dummy Avro events sent to Kafka")
 
 
 def connect_minio():
@@ -364,7 +221,7 @@ def check_kafka_broker_health():
 
     for broker_url in brokers:
         try:
-            admin_client = KafkaAdminClient(
+            admin_client = ConfluentAdminClient( # ConfluentAdminClient 사용
                 bootstrap_servers=broker_url,
                 client_id='kafka-health-check',
                 request_timeout_ms=5000
@@ -372,7 +229,7 @@ def check_kafka_broker_health():
             topics = admin_client.list_topics() # Removed timeout_ms argument
             print(f"✅ Broker {broker_url} is alive. Found {len(topics)} topics.")
             alive_count += 1
-        except KafkaError as e:
+        except ConfluentKafkaError as e: # ConfluentKafkaError 사용
             print(f"❌ Broker {broker_url} health check failed: {e}")
         except Exception as e:
             print(f"❌ An unexpected error occurred while checking broker {broker_url}: {e}")
@@ -410,11 +267,6 @@ with DAG(
     tags=['userlog', 'avro', 'kafka', 'parquet', 'minio', 'iceberg'] # 태그 업데이트
 ) as dag:
 
-    produce_avro_data = PythonOperator(
-        task_id='produce_avro_dummy_data',
-        python_callable=generate_event,
-    )
-
     check_kafka_brokers_health = PythonOperator(
         task_id='check_kafka_broker_health',
         python_callable=check_kafka_broker_health,
@@ -439,18 +291,20 @@ with DAG(
     # 실제 Spark 애플리케이션 ('/opt/spark/data/manage_iceberg_table.py')은 이 목적에 맞게 작성되어야 합니다.
     manage_iceberg_table = SparkSubmitOperator(
         task_id='manage_iceberg_table_from_parquet', # 태스크 ID 및 역할 변경
-        application="/opt/spark/data/manage_iceberg_table.py", # Iceberg 처리용 Spark 앱 경로 (예시)
+        application="/opt/spark/data/userlog_iceberg_spark.py", # Iceberg 처리용 Spark 앱 경로 (예시)
         conn_id='spark', 
         application_args=[
             "--source_parquet_path", f"s3a://userlog-data/{{{{ ti.xcom_pull(task_ids='kafka_consumer_avro_to_parquet_minio', key='s3_object_key') }}}}",
-            "--iceberg_catalog_name", "minio_catalog", # Iceberg 카탈로그 이름 (예시)
-            "--iceberg_db_name", "userlog_db", # Iceberg 데이터베이스 이름 (예시)
-            "--iceberg_table_name", "user_activity_logs" # 대상 Iceberg 테이블 이름 (예시)
+            "--iceberg_catalog_name", "minio_catalog",
+            "--iceberg_db_name", "userlog_db",
+            "--iceberg_table_name", "user_activity_logs", # 대상 Iceberg 테이블 이름 (예시, 필요시 avro_user_activity_logs 등으로 변경)
+            "--s3_endpoint", "http://54.180.166.228:9000", # MinIO 엔드포인트
+            "--s3_access_key", "minioadmin",       # MinIO Access Key
+            "--s3_secret_key", "minioadmin"        # MinIO Secret Key
         ],
         # Iceberg 사용을 위해 Spark에 필요한 JAR들을 포함해야 합니다.
         # 예: iceberg-spark-runtime, aws-java-sdk-bundle 등
         jars="/opt/spark/jars/hadoop-aws-3.3.1.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar,/opt/spark/jars/iceberg-spark-runtime-3.4_2.12-1.4.2.jar", # 실제 Iceberg JAR 경로로 수정
     )
 
-    produce_avro_data >> check_kafka_brokers_health >> consume_avro_data_to_minio
-    consume_avro_data_to_minio >> check_minio_file_upload >> manage_iceberg_table
+    check_kafka_brokers_health >> consume_avro_data_to_minio >> check_minio_file_upload >> manage_iceberg_table
