@@ -7,3 +7,6 @@ psycopg2-binary==2.9.9
 apache-airflow-providers-postgres==5.10.0
 apache-airflow-providers-apache-spark==4.1.1
 apache-airflow-providers-slack==9.1.0
+confluent-kafka[avro]==2.3.0
+pymongo
+pyarrow
